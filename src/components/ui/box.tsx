@@ -10,15 +10,14 @@ export type BoxProps = DivProps & {
 }
 
 export const Box = forwardRef<HTMLDivElement, BoxProps>(
-  (props, forwardedRef) => {
+  ({ onClickOutside, gameResponsive, ...props }, forwardedRef) => {
     const ref = useRef<HTMLDivElement>(null)
     const isPaused = useTimer('isPaused')
     const isRunning = useTimer('isRunning')
 
     const handleClickOutside = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) {
-        console.count('test')
-        props.onClickOutside?.(e)
+        onClickOutside && onClickOutside(e)
       }
     }
     useImperativeHandle(forwardedRef, () => ref.current!, [])
@@ -36,7 +35,7 @@ export const Box = forwardRef<HTMLDivElement, BoxProps>(
         className={cn(
           'transition-opacity',
           props.className,
-          !!props.gameResponsive && !isPaused && isRunning && 'opacity-0'
+          !!gameResponsive && !isPaused && isRunning && 'opacity-0'
         )}
       >
         {props.children}

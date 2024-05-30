@@ -48,7 +48,6 @@ import { KeyboardAudio } from './components/keyboard-sound'
 import { useEngine } from './components/engine-provider'
 import { useTimer } from './providers/timer-provider'
 import { Shortcut } from './components/ui/shortcut'
-import { Separator } from './components/ui/separator'
 import { Box } from './components/ui/box'
 import CountUp from 'react-countup'
 
@@ -142,29 +141,33 @@ const Results = () => {
   const rawWpm = useEngine('rawWpm')
 
   return (
-    <div className="flex flex-col w-full md:w-60 md:mx-auto gap-2 mb-4 animate-in zoom-in-90">
-      <h1 className="font-bold text-2xl text-muted-foreground mb-2 ">
-        Results
-      </h1>
-      <Separator className="bg-muted-foreground/20" />
-      <div className="flex justify-between">
-        <h3 className="text-lg">Raw WPM</h3>
-        <p className="font-regular text-muted-foreground">
-          <CountUp end={rawWpm >> 0} duration={2} />
-        </p>
-      </div>
-      <div className="flex justify-between">
-        <h3 className="text-lg">WPM</h3>
-        <p className="font-regular text-muted-foreground">
-          <CountUp end={wpm >> 0} duration={2} />
-        </p>
-      </div>
-
-      <div className="flex justify-between">
-        <h3 className=" text-lg">Accuracy</h3>
-        <p className="font-regular text-muted-foreground">
-          <CountUp end={100 - errorPercentage} duration={2} />%
-        </p>
+    <div className="flex flex-col w-full lg:w-[900px] sm:mx-auto gap-2 mb-10 animate-in zoom-in-90">
+      <h1 className="font-bold text-lg text-muted-foreground mb-4">Results</h1>
+      <div className="flex justify-between w-full gap-10">
+        <div className="flex-1">
+          <div className="mx-auto w-fit">
+            <h3 className="text-sm text-muted-foreground">raw wpm</h3>
+            <p className="font-bold text-5xl text-primary">
+              <CountUp end={rawWpm >> 0} duration={2} />
+            </p>
+          </div>
+        </div>
+        <div className="flex-1">
+          <div className="mx-auto w-fit">
+            <h3 className="text-sm text-muted-foreground">wpm</h3>
+            <p className="font-bold text-5xl text-primary">
+              <CountUp end={wpm >> 0} duration={2} />
+            </p>
+          </div>
+        </div>
+        <div className="flex-1">
+          <div className="mx-auto w-fit">
+            <h3 className="text-sm text-muted-foreground">acc</h3>
+            <p className="font-bold text-5xl text-primary">
+              <CountUp end={100 - errorPercentage} duration={2} />%
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )

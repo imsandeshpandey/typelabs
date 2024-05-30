@@ -121,6 +121,6 @@ export default {
     '?': '[.wav',
     '\\': 'tab.wav',
     '|': 'tab.wav',
-  } as const,
+  },
   tags: ['pre-installed'],
 }
