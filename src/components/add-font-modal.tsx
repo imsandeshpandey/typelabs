@@ -14,14 +14,14 @@ import { useToast } from './ui/use-toast'
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
 import { Cross2Icon } from '@radix-ui/react-icons'
 import { cn } from '@/lib/utils'
-import { useAudio } from '@/hooks/use-audio'
+import { useSoundFx } from '@/hooks/use-sound-fx'
 
 const trim = (s: string) => s.trim()
 
 const Content = () => {
   const { toast, dismiss } = useToast()
   const [userFonts, setUserFonts] = useUserFonts()
-  const playAudio = useAudio()
+  const playAudio = useSoundFx()
   const inputRef = useRef<HTMLInputElement>(null)
 
   function removeFonts(fonts: string[]) {
@@ -138,7 +138,7 @@ const MyFonts = () => {
   const { toast, dismiss } = useToast()
   const [userFonts, setUserFonts] = useUserFonts()
   const [currentFont, setCurrentFont] = useFont()
-  const playAudio = useAudio()
+  const playAudio = useSoundFx()
 
   const handleRemoveFont = useCallback(
     (font: string) => {
