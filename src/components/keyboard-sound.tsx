@@ -36,4 +36,4 @@ export const KeyboardAudio = () => {
 }
 
 const getPath = (audioName: string) =>
-  `${window.location.origin}/public/keyboard-sounds/nk-cream/${audioName}`
+  `${window.location.origin}/keyboard-sounds/nk-cream/${audioName}`
