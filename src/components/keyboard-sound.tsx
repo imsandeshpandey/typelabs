@@ -1,39 +1,38 @@
+import { useEffect, useState } from 'react'
+import useSound from 'use-sound'
+
 import { useKeyboardVolume } from '@/state/atoms'
-import { useEffect, useMemo } from 'react'
-import keyConfig from '../../public/keyboard-sounds/nk-cream/config'
+import { KEYBOARD_SPRITES } from '@/config/sfx-sprite'
 
-export const KeyboardAudio = () => {
-  const [volume] = useKeyboardVolume()
+import keyConfig from '../../public/keyboard-sounds/config'
+import keySounds from '../../public/keyboard-sounds/keyboard_sounds.wav'
 
-  const audioNames: Set<string> = useMemo(
-    () => new Set(Object.values(keyConfig.defines)),
-    []
-  )
+export const VolumeReactiveKeyboardAudio = (props: { volume: number }) => {
+  const [interacted, setInteracted] = useState(false)
 
-  useEffect(() => {
-    for (const audioName of audioNames) {
-      const audio = new Audio(getPath(audioName))
-      audio.load()
-    }
-  }, [])
+  const [play] = useSound(keySounds, {
+    volume: props.volume,
+    sprite: KEYBOARD_SPRITES,
+  })
 
   const handleKeyStroke = (e: KeyboardEvent) => {
+    if (!interacted) setInteracted(true)
     const key = e.key as keyof typeof keyConfig.defines
     if (key in keyConfig.defines) {
       const audioName = keyConfig.defines[key]
-      const audio = new Audio(getPath(audioName))
-      audio.volume = volume
-      audio.play()
+      play({ id: audioName })
     }
   }
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyStroke)
     return () => document.removeEventListener('keydown', handleKeyStroke)
-  }, [volume])
+  }, [props.volume, interacted])
 
   return <></>
 }
 
-const getPath = (audioName: string) =>
-  `${window.location.origin}/keyboard-sounds/nk-cream/${audioName}`
+export const KeyboardAudio = () => {
+  const [volume] = useKeyboardVolume()
+  return <VolumeReactiveKeyboardAudio volume={volume} />
+}
