@@ -89,10 +89,10 @@ function App() {
           <KeyboardIcon className="w-10 h-10 text-primary " />
           typelabs
         </h1>
-        <div className="flex gap-16 items-center">
+        <Box gameResponsive className="flex gap-16 items-center">
           <ThemeSwitcher />
           <ModeToggle />
-        </div>
+        </Box>
       </div>
 
       <Box
@@ -125,10 +125,10 @@ function App() {
           />
         </div>
       </Box>
-      <footer className="py-2 flex w-full items-end gap-2">
+      <Box gameResponsive className="py-2 flex w-full items-end gap-2">
         <FontSelect />
         <VolumeControls />
-      </footer>
+      </Box>
       <KeyboardAudio />
     </div>
   )
@@ -140,7 +140,6 @@ const Results = () => {
   const errorPercentage = useEngine('errorPercentage')
   const wpm = useEngine('wpm')
   const rawWpm = useEngine('rawWpm')
-  console.log(rawWpm)
 
   return (
     <div className="flex flex-col w-full md:w-60 md:mx-auto gap-2 mb-4 animate-in zoom-in-90">
