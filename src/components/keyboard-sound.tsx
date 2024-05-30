@@ -1,6 +1,6 @@
 import { useKeyboardVolume } from '@/state/atoms'
 import { useEffect, useMemo } from 'react'
-import keyConfig from 'public/keyboard-sounds/nk-cream/config'
+import keyConfig from '../../public/keyboard-sounds/nk-cream/config'
 
 export const KeyboardAudio = () => {
   const [volume] = useKeyboardVolume()
