@@ -9,6 +9,7 @@ import { EngineProvider } from './components/engine-provider.tsx'
 import { TimerProvider } from './providers/timer-provider.tsx'
 import { Toaster } from './components/ui/toaster.tsx'
 import { UserAgentProvider } from '@quentin-sommer/react-useragent'
+import { KeyboardAudio } from './components/keyboard-sound.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Toaster />
           <TimerProvider />
           <EngineProvider />
+          <KeyboardAudio />
         </TooltipProvider>
       </ThemeProvider>
     </UserAgentProvider>

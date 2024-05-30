@@ -44,7 +44,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from './components/ui/dropdown-menu'
-import { KeyboardAudio } from './components/keyboard-sound'
 import { useEngine } from './components/engine-provider'
 import { useTimer } from './providers/timer-provider'
 import { Shortcut } from './components/ui/shortcut'
@@ -128,7 +127,6 @@ function App() {
         <FontSelect />
         <VolumeControls />
       </Box>
-      <KeyboardAudio />
     </div>
   )
 }

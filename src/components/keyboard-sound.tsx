@@ -7,11 +7,11 @@ import { KEYBOARD_SPRITES } from '@/config/sfx-sprite'
 import keyConfig from '../../public/keyboard-sounds/config'
 import keySounds from '../../public/keyboard-sounds/keyboard_sounds.wav'
 
-export const VolumeReactiveKeyboardAudio = (props: { volume: number }) => {
+export const KeyboardAudio = () => {
+  const [volume] = useKeyboardVolume()
   const [interacted, setInteracted] = useState(false)
-
-  const [play] = useSound(keySounds, {
-    volume: props.volume,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_, { sound }] = useSound(keySounds, {
     sprite: KEYBOARD_SPRITES,
   })
 
@@ -20,19 +20,15 @@ export const VolumeReactiveKeyboardAudio = (props: { volume: number }) => {
     const key = e.key as keyof typeof keyConfig.defines
     if (key in keyConfig.defines) {
       const audioName = keyConfig.defines[key]
-      play({ id: audioName })
+      sound.volume(volume)
+      sound.play(audioName)
     }
   }
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyStroke)
     return () => document.removeEventListener('keydown', handleKeyStroke)
-  }, [props.volume, interacted])
+  }, [volume, interacted])
 
   return <></>
-}
-
-export const KeyboardAudio = () => {
-  const [volume] = useKeyboardVolume()
-  return <VolumeReactiveKeyboardAudio volume={volume} />
 }

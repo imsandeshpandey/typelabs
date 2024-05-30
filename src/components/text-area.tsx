@@ -65,7 +65,7 @@ export const TextArea = () => {
       </div>
       <div
         className={cn(
-          'max-h-[25rem] z-10 relative w-full md:max-w-[56rem] mx-auto flex-1 flex flex-col',
+          'max-h-[25rem] z-10 relative w-full md:max-w-[1200px] mx-auto flex-1 flex flex-col',
           !isPaused && isRunning && 'cursor-none'
         )}
       >
@@ -86,7 +86,7 @@ export const TextArea = () => {
         </div>
         <div
           className={cn(
-            'relative z-0 my-4 h-fit max-h-24 overflow-hidden text-xl transition-[filter] duration-200 text-muted-foreground/70 select-none',
+            'relative z-0 my-4 h-fit max-h-24 overflow-hidden transition-[filter] duration-200 text-muted-foreground/70 select-none',
             !focus && 'blur-sm'
           )}
         >
@@ -103,7 +103,7 @@ export const TextArea = () => {
                   <span
                     key={i}
                     id={`letter-${i}`}
-                    className={cn('text-inherit leading-8 z-10 mx-[0.4px]', {
+                    className={cn('text-xl leading-8 z-10 mx-[0.4px]', {
                       'text-rose-500': input !== char && !!input,
                       'bg-rose-500/50':
                         char === ' ' && char !== input && !!input,
