@@ -20,7 +20,7 @@ export const useSoundFx = () => {
     },
   })
 
-  const play = (soundName: sfx, volume: number) => {
+  const play = (soundName: sfx, volume?: number) => {
     if (sounds.includes(soundName)) {
       sound?.volume(volume || vol)
       sound?.play(soundName)
