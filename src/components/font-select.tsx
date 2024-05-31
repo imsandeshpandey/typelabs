@@ -14,6 +14,7 @@ import { useEffect } from 'react'
 import { Button } from './ui/button'
 import { useFont, useUserFonts } from '@/state/atoms'
 import { AddFontModal } from './add-font-modal'
+import { FontFamilyIcon } from '@radix-ui/react-icons'
 
 export const FontSelect = () => {
   const root = document.documentElement
@@ -46,7 +47,10 @@ export const FontSelect = () => {
     <Dialog>
       <Select value={currentFont} onValueChange={handleChange}>
         <div>
-          <p className="text-xs text-muted-foreground px-3">Font</p>
+          <p className="text-xs flex gap-1 items-center text-muted-foreground px-3">
+            <FontFamilyIcon className="border border-muted-foreground/50 rounded-sm" />
+            Font
+          </p>
           <SelectTrigger className="w-[180px] bg-muted">
             <SelectValue placeholder="Select Font" />
           </SelectTrigger>

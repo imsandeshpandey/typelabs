@@ -9,6 +9,7 @@ import {
 } from 'react'
 import { Button } from '@/components/ui/button'
 import {
+  AudioLines,
   ListPlus,
   Music4Icon,
   RotateCw,
@@ -49,6 +50,7 @@ import { useTimer } from './providers/timer-provider'
 import { Shortcut } from './components/ui/shortcut'
 import { Box } from './components/ui/box'
 import CountUp from 'react-countup'
+import { KeyboardSoundPackSelector } from './components/keyboard-sound'
 
 function App() {
   const pauseTimer = useTimer('pauseTimer')
@@ -79,11 +81,10 @@ function App() {
     restart()
     setShowResults(false)
   })
-
   return (
     <div className="h-screen max-w-[1200px] w-[calc(100%-64px)] md:w-[80%] mx-auto flex flex-col">
       <div className="flex items-center py-4 justify-between w-full ">
-        <h1 className="text-2xl flex gap-2 items-start font-robotoMono select-none underline text-muted-foreground font-semibold">
+        <h1 className="text-2xl flex gap-2 items-start font-robotoMono select-none text-muted-foreground font-semibold">
           <KeyboardIcon className="w-10 h-10 text-primary " />
           typelabs
         </h1>
@@ -126,6 +127,7 @@ function App() {
       <Box gameResponsive className="py-2 flex w-full items-end gap-2">
         <FontSelect />
         <VolumeControls />
+        <KeyboardSoundPackSelector />
       </Box>
     </div>
   )
@@ -205,7 +207,15 @@ const VolumeControls = () => {
   return (
     <DropdownMenu>
       <div className="flex items-end">
-        <VolumeSlider label="Volume" icon={icon} atom={uiVolumeAtom} />
+        <VolumeSlider
+          label={
+            <>
+              <AudioLines className="h-4 w-4" /> Volume
+            </>
+          }
+          icon={icon}
+          atom={uiVolumeAtom}
+        />
         <DropdownMenuTrigger asChild>
           <Button
             size="icon"
@@ -246,7 +256,7 @@ const VolumeSlider = ({
 }: {
   icon: ReactNode
   atom: PrimitiveAtom<number>
-  label: string
+  label?: ReactNode
 }) => {
   const [volume, setVolume] = useAtom(atom)
   const [lastVolume, setLastVolume] = useState(0)
@@ -285,9 +295,11 @@ const VolumeSlider = ({
       onClick={(e) => e.stopPropagation()}
       className="group flex flex-col items-start relative w-fit pr-2 rounded-md"
     >
-      <p className=" text-xs select-none px-2 pt-2 text-muted-foreground">
-        {label}
-      </p>
+      {!!label && (
+        <p className=" text-xs flex gap-1 items-center select-none px-2 pt-2 text-muted-foreground">
+          {label}
+        </p>
+      )}
       <div className="flex gap-2 items-center">
         <Tooltip>
           <TooltipTrigger asChild>
