@@ -53,12 +53,9 @@
     "vaul": "^0.9.1",
     "zod": "^3.23.8",
     "zustand": "^4.5.2",
-    "zustand-store-addons": "^0.1.12",
-    "@typelabs/ui": "workspace:*"
+    "zustand-store-addons": "^0.1.12"
   },
   "devDependencies": {
-    "@typelabs/eslint-config": "workspace:*",
-    "@typelabs/tsconfig": "workspace:*",
     "@tanstack/react-query-devtools": "^5.40.1",
     "@types/node": "^20.12.12",
     "@types/react": "^18.2.66",
