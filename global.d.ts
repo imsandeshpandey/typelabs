@@ -1,12 +1,12 @@
 declare module 'use-sound' {
-  import { Howl } from 'howler'
+  import type { Howl } from 'howler'
 
   interface HookOptions {
     volume?: number
     playbackRate?: number
     interrupt?: boolean
     soundEnabled?: boolean
-    sprite?: { [key: string]: [number, number] }
+    sprite?: Record<string, [number, number]>
     // You can add more properties as needed based on your use case
   }
 
@@ -15,7 +15,7 @@ declare module 'use-sound' {
     playbackRate: number
     interrupt: boolean
     soundEnabled: boolean
-    sprite: { [key: string]: [number, number] }
+    sprite: Record<string, [number, number]>
     // You can add more properties as needed based on your use case
   }
 

@@ -1,15 +1,7 @@
-export type Config = {
-  id: string
-  name: string
-  key_define_type: 'key' | 'code'
-  includes_numpad: boolean
-  sound: string
-  sprites: Record<string, [number, number]>
-}
-
+import { KeyboardSoundPackConfig } from '../keyboard-soundpacks.type'
 import sound from './nk-cream.wav'
 
-export const nkCream: Config = {
+export const nkCream: KeyboardSoundPackConfig = {
   id: 'sound-pack-1200000000011',
   name: 'NK Cream',
   key_define_type: 'key',

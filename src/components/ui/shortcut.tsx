@@ -1,12 +1,21 @@
-import { UserAgent } from '@quentin-sommer/react-useragent'
+// import { UserAgent } from '@quentin-sommer/react-useragent'
 
-export const Shortcut = ({ win, mac }: { win: string; mac?: string }) => {
-  const macLabel = mac || win
+import { cn } from '@/lib/utils'
+import { HTMLAttributes } from 'react'
 
+type ShortcutProps = HTMLAttributes<HTMLSpanElement> & {
+  shortcut: string
+}
+export const Shortcut = ({ shortcut, className, ...rest }: ShortcutProps) => {
   return (
-    <span className="p-1 font-robotoMono min-w-6 grid place-items-center backdrop-blur-sm min-h-4 text-xs border border-muted-foreground/50 shadow-sm rounded-sm bg-background">
-      <UserAgent mac>{macLabel}</UserAgent>
-      <UserAgent windows>{win}</UserAgent>
+    <span
+      className={cn(
+        'p-1 font-robotoMono min-w-6 grid place-items-center backdrop-blur-sm min-h-4 text-xs border border-muted-foreground/50 shadow-sm rounded-sm bg-background',
+        className
+      )}
+      {...rest}
+    >
+      {shortcut}
     </span>
   )
 }

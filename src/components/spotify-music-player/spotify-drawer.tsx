@@ -16,6 +16,7 @@ import { useEffect, useState } from 'react'
 import { useMyPlaylists } from '../../react-query/queries/my-playlists.query'
 import { usePlaylist } from '@/react-query/queries/playlist.query'
 import { PlaylistTabContentSkeleton } from './playlist/playlist-tab-content.skeleton'
+import React from 'react'
 
 export const SpotifyDrawer = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

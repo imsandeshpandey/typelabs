@@ -1,7 +1,7 @@
-import { Config } from '../nk-cream/config'
+import { KeyboardSoundPackConfig } from '../keyboard-soundpacks.type'
 import sound from './oreo.ogg'
 
-export const egOreo: Config = {
+export const egOreo: KeyboardSoundPackConfig = {
   id: 'sound-pack-1200000000010',
   name: 'EG Oreo',
   key_define_type: 'code',

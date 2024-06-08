@@ -1,14 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
-import { ThemeProviderContext } from '../providers/theme-provider'
-
-export const useTheme = () => {
-  const context = useContext(ThemeProviderContext)
-
-  if (context === undefined)
-    throw new Error('useTheme must be used within a ThemeProvider')
-
-  return context
-}
+import { useEffect, useState } from 'react'
 
 const getSystemTheme = () =>
   window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'

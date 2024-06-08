@@ -1,6 +1,7 @@
 import { Button } from '../../ui/button'
 import defaultPlaylistIcon from '@/assets/images/default-playlist.png'
 import { cn } from '@/lib/utils'
+import React from 'react'
 
 export const PlaylistTab = ({
   playlist,

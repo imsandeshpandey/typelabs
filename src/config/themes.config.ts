@@ -241,6 +241,7 @@ export const themes = [
         border: '0 0% 89.8%',
         input: '0 0% 89.8%',
         ring: '0 0% 3.9%',
+        radius: '0.5rem',
       },
       dark: {
         background: '0 0% 3.9%',
@@ -368,6 +369,7 @@ export const themes = [
         border: '240 3.7% 15.9%',
         input: '240 3.7% 15.9%',
         ring: '346.8 77.2% 49.8%',
+        radius: '0.5rem',
       },
     },
   },
@@ -504,6 +506,7 @@ export const themes = [
         border: '214.3 31.8% 91.4%',
         input: '214.3 31.8% 91.4%',
         ring: '221.2 83.2% 53.3%',
+        radius: '0.5rem',
       },
       dark: {
         background: '222.2 84% 4.9%',
@@ -609,6 +612,7 @@ export const themes = [
         border: '220 13% 91%',
         input: '220 13% 91%',
         ring: '262.1 83.3% 57.8%',
+        radius: '0.5rem',
       },
       dark: {
         background: '224 71.4% 4.1%',
@@ -633,6 +637,59 @@ export const themes = [
       },
     },
   },
-] as const
+]
 
 export type Theme = (typeof themes)[number]
+
+// export const getHsla = (color: string) => {
+
+// }
+
+export function hslToHex(hslaString: string) {
+  // Split the HSLA string into individual values
+  const hslaValues = hslaString.split(/\s+/) // Split on whitespace
+
+  if (hslaValues.length !== 3) {
+    throw new Error(
+      'Invalid HSLA format. Expected 4 values (hue, saturation, lightness)'
+    )
+  }
+
+  // Convert percentages to decimals (0-1)
+  const h = parseInt(hslaValues[0], 10) / 360
+  const s = parseFloat(hslaValues[1].slice(0, -1)) / 100
+  const l = parseFloat(hslaValues[2].slice(0, -1)) / 100
+
+  // Function to convert decimal value to hex string with leading zero padding
+  const componentToHex = (c: number) => {
+    const hex = c.toString(16)
+    return hex.length === 1 ? '0' + hex : hex
+  }
+
+  // HSLA to RGB conversion algorithm
+  let r, g, b
+
+  function hue2rgb(p: number, q: number, t: number) {
+    if (t < 0) t += 1
+    if (t > 1) t -= 1
+    if (t < 1 / 6) return p + (q - p) * 6 * t
+    if (t < 1 / 2) return q
+    if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6
+    return p
+  }
+
+  if (s === 0) {
+    r = g = b = l
+  } else {
+    const q = l < 0.5 ? l * (1 + s) : l + s - l * s
+    const p = 2 * l - q
+    r = hue2rgb(p, q, h + 1 / 3)
+    g = hue2rgb(p, q, h)
+    b = hue2rgb(p, q, h - 1 / 3)
+  }
+
+  // Convert RGB values to hex format
+  const rgbToHex = `#${componentToHex(Math.round(r * 255))}${componentToHex(Math.round(g * 255))}${componentToHex(Math.round(b * 255))}`
+
+  return rgbToHex
+}

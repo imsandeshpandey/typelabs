@@ -5,18 +5,15 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { FONTS } from '@/config/fonts'
-import { ReactNode, useCallback, useRef } from 'react'
-import { Button } from './ui/button'
-import { Input } from './ui/input'
-import { useFont, useUserFonts } from '@/state/atoms'
-import { useToast } from './ui/use-toast'
-import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
-import { Cross2Icon } from '@radix-ui/react-icons'
-import { cn } from '@/lib/utils'
-import { useSoundFx } from '@/hooks/use-sound-fx'
-
-const trim = (s: string) => s.trim()
+import { FONTS } from '@/config/fonts.config'
+import { ReactNode, useRef } from 'react'
+import { Button } from '../../ui/button'
+import { Input } from '../../ui/input'
+import { useUserFonts } from '@/state/atoms'
+import { useToast } from '../../ui/use-toast'
+import { useSoundFx } from '@/hooks/use-sound-fx.hook'
+import { MyFonts } from './my-fonts'
+import { trim } from '@/lib/utils'
 
 const Content = () => {
   const { toast, dismiss } = useToast()
@@ -133,85 +130,5 @@ const Content = () => {
 const Trigger = ({ children }: { children: ReactNode }) => (
   <DialogTrigger asChild>{children}</DialogTrigger>
 )
-
-const MyFonts = () => {
-  const { toast, dismiss } = useToast()
-  const [userFonts, setUserFonts] = useUserFonts()
-  const [currentFont, setCurrentFont] = useFont()
-  const playAudio = useSoundFx()
-
-  const handleRemoveFont = useCallback(
-    (font: string) => {
-      playAudio('delete')
-
-      const newUserFonts = new Set(userFonts)
-      newUserFonts.delete(font)
-      setUserFonts([...newUserFonts])
-
-      toast({
-        title: 'Font removed',
-        description: `${font} was removed`,
-        action: (
-          <Button
-            onClick={() => {
-              playAudio('click')
-              setUserFonts(userFonts)
-              setCurrentFont(currentFont)
-              dismiss()
-            }}
-          >
-            Undo
-          </Button>
-        ),
-      })
-    },
-    [userFonts, currentFont]
-  )
-
-  if (!userFonts.length) return <></>
-
-  return (
-    <>
-      <DialogHeader>
-        <DialogTitle>My Fonts</DialogTitle>
-        <DialogDescription className="gap-2 flex flex-wrap pt-2 pb-4">
-          {userFonts.map((font, i) => (
-            <Button
-              key={i}
-              variant="secondary"
-              style={{
-                fontFamily: font,
-              }}
-              onClick={() => setCurrentFont(font)}
-              className={cn(
-                'flex h-fit gap-4 hover:bg-primary hover:text-primary-foreground items-center justify-between py-1 px-2 border border-border rounded-md w-fit',
-                font == currentFont && 'bg-primary text-primary-foreground'
-              )}
-            >
-              {font}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    asChild
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      handleRemoveFont(font)
-                    }}
-                    className="text-xs hover:bg-background/40 p-[2px] w-5 h-5 rounded-full"
-                    size="icon"
-                    variant="ghost"
-                  >
-                    <Cross2Icon />
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>Remove Font</TooltipContent>
-              </Tooltip>
-            </Button>
-          ))}
-        </DialogDescription>
-      </DialogHeader>
-    </>
-  )
-}
 
 export const AddFontModal = { Content, Trigger }

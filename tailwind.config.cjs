@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import { config } from '@typelabs/tailwind-config'
 module.exports = {
   darkMode: ['class'],
   content: [
@@ -17,6 +18,9 @@ module.exports = {
       },
     },
     extend: {
+      boxShadow: {
+        line: '0px 0px 0px 3px hsl(var(--background))',
+      },
       fontFamily: {
         robotoMono: 'Roboto Mono',
         jetbrains: 'JetBrains Mono',
@@ -65,6 +69,17 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)',
       },
       keyframes: {
+        playing: {
+          '0%': {
+            transform: 'scaleY(0.2)',
+          },
+          '50%': {
+            transform: 'scaleY(1)',
+          },
+          '100%': {
+            transform: 'scaleY(0.2)',
+          },
+        },
         gradient: {
           to: {
             backgroundPosition: 'var(--bg-size) 0',
@@ -104,6 +119,8 @@ module.exports = {
         },
       },
       animation: {
+        playing: 'playing 1s ease-out infinite',
+        spinOnce: 'spin 0.5s ease-out',
         gradient: 'gradient 8s linear infinite',
         shimmer: 'shimmer 8s infinite',
         blink: 'blink 1s linear infinite',

@@ -1,16 +1,20 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
-import { useTimer } from '@/providers/timer-provider'
+import { useTimer } from '@/providers/timer.provider'
 import { cn } from '@/lib/utils'
+import { Slot } from '@radix-ui/react-slot'
 
 type DivProps = React.HTMLAttributes<HTMLDivElement>
 
 export type BoxProps = DivProps & {
   onClickOutside?: (e: MouseEvent) => void
   gameResponsive?: boolean
+  asChild?: boolean
 }
 
 export const Box = forwardRef<HTMLDivElement, BoxProps>(
-  ({ onClickOutside, gameResponsive, ...props }, forwardedRef) => {
+  ({ onClickOutside, asChild, gameResponsive, ...props }, forwardedRef) => {
+    const Comp = asChild ? Slot : 'div'
+
     const ref = useRef<HTMLDivElement>(null)
     const isPaused = useTimer('isPaused')
     const isRunning = useTimer('isRunning')
@@ -29,7 +33,7 @@ export const Box = forwardRef<HTMLDivElement, BoxProps>(
       }
     })
     return (
-      <div
+      <Comp
         ref={ref}
         {...props}
         className={cn(
@@ -39,7 +43,7 @@ export const Box = forwardRef<HTMLDivElement, BoxProps>(
         )}
       >
         {props.children}
-      </div>
+      </Comp>
     )
   }
 )

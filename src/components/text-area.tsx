@@ -1,10 +1,11 @@
 import { cn } from '@/lib/utils'
-import { useEngine } from './engine-provider'
-import { useTimer } from '@/providers/timer-provider'
+import { useEngine } from '../providers/engine.provider'
+import { useTimer } from '@/providers/timer.provider'
 import { useEffect, useRef, useState } from 'react'
-import { LINE_HEIGHT } from '@/config/game-constants'
+import { LINE_HEIGHT } from '@/config/game-constants.config'
 import { CursorArrowIcon, ThickArrowUpIcon } from '@radix-ui/react-icons'
 import AnimatedGradientText from './compound-ui/animated-gradient-text'
+import React from 'react'
 
 export const TextArea = () => {
   const isPaused = useTimer('isPaused')
@@ -39,8 +40,7 @@ export const TextArea = () => {
 
     const newScroll = pos.y - 3
 
-    if (textAreaHeight - scroll <= 3 * LINE_HEIGHT /*128*/) appendText()
-
+    if (textAreaHeight - scroll <= 4 * LINE_HEIGHT /*128*/) appendText()
     if (
       caretEffectiveTop >= 2 * LINE_HEIGHT /*64*/ &&
       textAreaHeight - newScroll > LINE_HEIGHT
@@ -95,7 +95,7 @@ export const TextArea = () => {
               marginTop: -scroll,
             }}
           >
-            <div ref={textAreaRef} className="relative">
+            <div ref={textAreaRef} className="relative text-xl leading-8">
               <Caret />
               {textString.split('').map((char, i) => {
                 const input = userInput.total[i]
@@ -103,7 +103,7 @@ export const TextArea = () => {
                   <span
                     key={i}
                     id={`letter-${i}`}
-                    className={cn('text-xl leading-8 z-10 mx-[0.4px]', {
+                    className={cn('z-10 mx-[0.4px]', {
                       'text-rose-500': input !== char && !!input,
                       'bg-rose-500/50':
                         char === ' ' && char !== input && !!input,
@@ -132,9 +132,10 @@ export const Caret = (props: { className?: string }) => {
         style={{
           top: pos.y,
           left: pos.x,
+          height: 24,
         }}
         className={cn(
-          'z-0 h-6 transition-all absolute w-[2px] bg-primary',
+          'z-0 transition-all absolute w-[2px] bg-primary',
           props.className
         )}
       />

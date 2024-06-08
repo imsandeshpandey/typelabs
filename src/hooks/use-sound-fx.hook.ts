@@ -1,4 +1,4 @@
-import { useUiVolume } from '@/state/atoms'
+import { useNotificationsVolume } from '@/state/atoms'
 
 import uiSounds from '@/assets/sfx/ui-sounds.wav'
 import useSound from 'use-sound'
@@ -8,7 +8,7 @@ type sfx = 'error' | 'success' | 'neutral' | 'click' | 'delete'
 const sounds = ['error', 'success', 'neutral', 'click', 'delete']
 
 export const useSoundFx = () => {
-  const [vol] = useUiVolume()
+  const [vol] = useNotificationsVolume()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, { sound }] = useSound(uiSounds, {
     sprite: {

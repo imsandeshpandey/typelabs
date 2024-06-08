@@ -3,6 +3,7 @@ import { Link } from 'lucide-react'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from './ui/hover-card'
 import { generateFontCss } from '@/lib/utils'
 import { Button } from './ui/button'
+import React from 'react'
 
 export const NoSpotifyPremiumButton = () => {
   return (

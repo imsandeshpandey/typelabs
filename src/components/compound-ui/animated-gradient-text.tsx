@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils'
+import React from 'react'
 import { ReactNode } from 'react'
 
 export default function AnimatedGradientText({

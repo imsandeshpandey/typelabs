@@ -1,3 +1,4 @@
+import React from 'react'
 import spotifyLogo from '@/assets/images/default-playlist.png'
 import { cn, generateFontCss } from '@/lib/utils'
 import { FC, HTMLAttributes, useEffect, useState } from 'react'

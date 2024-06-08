@@ -1,9 +1,10 @@
-import { cn } from '@/lib/utils'
-import { Button } from '../ui/button'
-import spotifyIcon from '@/assets/svgs/spotify-icon.svg'
-import { useSpotifyAuth } from '@/providers/spotify-auth.provider'
+import React from 'react'
 import { ChevronUp, Loader2, Music2Icon } from 'lucide-react'
 import sf from 'seconds-formater'
+import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
+import spotifyIcon from '@/assets/svgs/spotify-icon.svg'
+import { useSpotifyAuth } from '@/providers/spotify-auth.provider'
 
 sf.change('MM:SS')
 

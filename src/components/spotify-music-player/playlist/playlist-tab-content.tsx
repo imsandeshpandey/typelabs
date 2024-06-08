@@ -7,6 +7,7 @@ import { PlaylistTabContentSkeleton } from './playlist-tab-content.skeleton'
 import { TrackItemCollection } from '../track/track-item-collection'
 import { useCurrentTrackInfo, useTrackList } from '@/state/atoms'
 import { usePlaylist } from '../../../react-query/queries/playlist.query'
+import React from 'react'
 
 export const PlaylistTabContent = ({
   activePlaylist,
@@ -42,9 +43,8 @@ export const PlaylistTabContent = ({
     })
   }
 
-  if (isLoading && activePlaylist) {
-    return <PlaylistTabContentSkeleton />
-  }
+  if (isLoading && activePlaylist) return <PlaylistTabContentSkeleton />
+
   if (!activePlaylist) {
     return (
       <h2 className="m-auto font-bold text-xl flex gap-2 items-center">
