@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ListPlus, RotateCw } from 'lucide-react'
 import { ModeToggle } from './components/mode-toggle'
 import { KeyboardIcon } from '@radix-ui/react-icons'

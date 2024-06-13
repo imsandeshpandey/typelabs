@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { TrackItem } from './track-item'
 import { Virtuoso, VirtuosoHandle } from 'react-virtuoso'
-import { useCurrentTrackInfo } from '@/state/atoms'
+import { useCurrentTrackInfo } from '@/atoms/atoms'
 import { ScrollAreaRoot, ScrollAreaViewport } from '@/components/ui/scroll-area'
 
 export const TrackItemCollection = ({
@@ -30,6 +30,10 @@ export const TrackItemCollection = ({
             customScrollParent={scrollParent ?? undefined}
             itemContent={(i, track) => (
               <TrackItem
+                isActive={
+                  currentTrackInfo.playlistId === playlist.id &&
+                  currentTrackInfo.currentTrackIndex === i
+                }
                 index={i}
                 track={track.track as SpotifyApi.TrackObjectFull}
                 playlist={playlist}

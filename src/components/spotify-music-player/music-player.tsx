@@ -8,6 +8,7 @@ import {
   AlertCircle,
   ChevronUp,
   ListMusic,
+  Loader2,
   Pause,
   Play,
   SkipBack,
@@ -22,7 +23,7 @@ import {
   useCurrentTrackInfo,
   useTrackList,
   useTrackUriList,
-} from '@/state/atoms'
+} from '@/atoms/atoms'
 import sf from 'seconds-formater'
 import { Skeleton } from '../ui/skeleton'
 import { usePlayTrack } from '../../react-query/mutations/play-track.mutation'
@@ -30,6 +31,8 @@ import { useSpotifyAuth } from '@/providers/spotify-auth.provider'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
 import { KEYBINDS } from '@/config/keybinds.config'
+import { spotifyClient } from '@/config/spotify-client.config'
+import { useMutation } from '@tanstack/react-query'
 
 export type MusicPlayerProps = HTMLAttributes<HTMLDivElement>
 
@@ -64,6 +67,27 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({ className, ...props }) => {
 
   useHotkeys(KEYBINDS.TOGGLE_PLAY.hotkey, () => player?.togglePlay())
 
+  const { mutate: handleNext, isPending: isNextLoading } = useMutation({
+    mutationKey: ['next-track'],
+    mutationFn: () => spotifyClient.skipToNext(),
+    onSuccess: () => {
+      setCurrentTrackInfo({
+        playlistId: currentTrackInfo.playlistId,
+        currentTrackIndex: currentTrackInfo.currentTrackIndex + 1,
+      })
+    },
+  })
+  const { mutate: handlePrevious, isPending: isPreviousLoading } = useMutation({
+    mutationKey: ['previous-track'],
+    mutationFn: () => spotifyClient.skipToPrevious(),
+    onSuccess: () => {
+      setCurrentTrackInfo({
+        playlistId: currentTrackInfo.playlistId,
+        currentTrackIndex: currentTrackInfo.currentTrackIndex - 1,
+      })
+    },
+  })
+
   useEffect(() => {
     player?.setName(`${user.data?.display_name}'s typelabs`)
   }, [user])
@@ -71,8 +95,9 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({ className, ...props }) => {
   useEffect(() => {
     if (!device?.device_id || trackUriList.length === 0) return
     loadPlayer({
-      id: device.device_id,
-      track: trackUriList[currentTrackInfo.currentTrackIndex],
+      deviceId: device.device_id,
+      playlistId: currentTrackInfo.playlistId,
+      trackIndex: currentTrackInfo.currentTrackIndex,
     })
   }, [
     device?.device_id,
@@ -80,45 +105,12 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({ className, ...props }) => {
     currentTrackInfo.currentTrackIndex,
   ])
 
-  useEffect(() => {
-    if (!paused && duration - position <= 200) {
-      player?.pause()
-      handleNext()
-    }
-  }, [duration, position])
-
   const handleSeek = (val: number[]) => {
     if (!paused) player?.pause()
 
     const newVal = val[0] >= 100 ? 99.9 : val[0]
     const position = (newVal * duration) / 100
     player?.seek(position)
-  }
-  const handleNext = () => {
-    if (!currentTrackInfo.playlistId) return player?.nextTrack()
-    const currIndex = currentTrackInfo.currentTrackIndex
-
-    const len = trackUriList.length
-    let nextIndex = currIndex + 1
-    if (nextIndex >= len) nextIndex -= len
-
-    setCurrentTrackInfo({
-      playlistId: currentTrackInfo.playlistId,
-      currentTrackIndex: nextIndex,
-    })
-  }
-  const handlePrevious = () => {
-    if (!currentTrackInfo.playlistId) return player?.previousTrack()
-    const currIndex = currentTrackInfo.currentTrackIndex
-
-    const len = trackUriList.length
-    let prevIndex = currIndex - 1
-    if (prevIndex < 0) prevIndex += len
-
-    setCurrentTrackInfo({
-      playlistId: currentTrackInfo.playlistId,
-      currentTrackIndex: prevIndex,
-    })
   }
 
   if (device?.status !== 'ready') {
@@ -198,12 +190,16 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({ className, ...props }) => {
             </div>
             <div className="transition-all gap-1 origin-left scale-0 group-hover:scale-100 items-center flex">
               <TrackButton
+                disabled={isPreviousLoading}
                 onClick={(e) => {
                   e.stopPropagation()
                   handlePrevious()
                 }}
               >
-                <SkipBack className="h-4 w-4 " />
+                {isPreviousLoading && (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                )}
+                {!isPreviousLoading && <SkipBack className="h-4 w-4 " />}
               </TrackButton>
               <Tooltip>
                 <TooltipTrigger>
@@ -221,12 +217,14 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({ className, ...props }) => {
                 </TooltipContent>
               </Tooltip>
               <TrackButton
+                disabled={isNextLoading}
                 onClick={(e) => {
                   e.stopPropagation()
                   handleNext()
                 }}
               >
-                <SkipForward className="h-4 w-4 " />
+                {isNextLoading && <Loader2 className="h-4 w-4 animate-spin" />}
+                {!isNextLoading && <SkipForward className="h-4 w-4 " />}
               </TrackButton>
             </div>
           </div>

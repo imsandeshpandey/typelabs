@@ -5,9 +5,8 @@ import { useEffect } from 'react'
 import { PlayIcon } from '@radix-ui/react-icons'
 import { PlaylistTabContentSkeleton } from './playlist-tab-content.skeleton'
 import { TrackItemCollection } from '../track/track-item-collection'
-import { useCurrentTrackInfo, useTrackList } from '@/state/atoms'
+import { useCurrentTrackInfo, useTrackList } from '@/atoms/atoms'
 import { usePlaylist } from '../../../react-query/queries/playlist.query'
-import React from 'react'
 
 export const PlaylistTabContent = ({
   activePlaylist,
@@ -17,6 +16,7 @@ export const PlaylistTabContent = ({
   const [currentTrackInfo, setCurrentTrackInfo] = useCurrentTrackInfo()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setTrackList] = useTrackList()
+
   const {
     data: playlist,
     refetch,
