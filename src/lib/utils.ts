@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import sf from 'seconds-formater'
 
 export function cn(...inputs: ClassValue[]): string {
   return twMerge(clsx(inputs))
@@ -31,3 +32,10 @@ export function generateFontCss(font: string): string {
 }
 
 export const trim = (s: string): string => s.trim()
+
+export const sf_s = (time: number) => sf.convert(time).format('MM:SS')
+export const sf_ms = (time: number) => sf.convert(time / 1000).format('MM:SS')
+
+export const getTrackKey = (
+  track: SpotifyApi.TrackObjectFull | Spotify.Track
+) => `${track?.name}-${track?.album.uri}`
