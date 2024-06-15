@@ -1,67 +1,31 @@
 import defaultPlaylistIcon from '@/assets/images/default-playlist.png'
-import { cn } from '@/lib/utils'
+import { cn, sf_ms } from '@/lib/utils'
 import { Pause, Play } from 'lucide-react'
 import {
   usePlaybackState,
-  usePlayerDevice,
   useSpotifyPlayer,
 } from 'react-spotify-web-playback-sdk'
-import sf from 'seconds-formater'
-import { useCurrentTrackInfo } from '@/atoms/atoms'
-import { FC, useCallback, useEffect, useMemo, useState } from 'react'
+import { HTMLAttributes, useCallback, useState } from 'react'
 import { AnimatedPlayIcon } from '@/components/compound-ui/animated-play-icon'
-import { spotifyClient } from '@/config/spotify-client.config'
 import { Box } from '@/components/ui/box'
 
-export type TrackItemProps = {
+export type TrackItemProps = HTMLAttributes<HTMLDivElement> & {
   track: SpotifyApi.TrackObjectFull
   index: number
-  playlist: SpotifyApi.PlaylistObjectFull
-  isActive: boolean
+  isActive?: boolean
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unnecessary-type-constraint
-export const useOptimisticState = <T extends any>(initialState: T) => {
-  const [state, setState] = useState<T>(initialState)
-
-  useEffect(() => {
-    setState(initialState)
-  }, [initialState])
-
-  return [state, setState] as const
-}
-
-export const TrackItem: FC<TrackItemProps> = ({ track, index, playlist }) => {
-  const playbackState = usePlaybackState(true, 100)
+export const TrackItem = ({
+  track,
+  index,
+  isActive = false,
+  ...rest
+}: TrackItemProps) => {
+  const playbackState = usePlaybackState()
   const player = useSpotifyPlayer()
-  const device = usePlayerDevice()
-  const [currentTrackInfo, setCurrentTrackInfo] = useCurrentTrackInfo()
   const [isHovered, setIsHovered] = useState(false)
   const artistName = track.artists?.[0]?.name
   const imageUrl = track.album.images?.[1]?.url || defaultPlaylistIcon
-  const trackDuration = useMemo(
-    () => sf.convert(track.duration_ms / 1000).format(),
-    [track.duration_ms]
-  )
-  const [isActive, setIsActive] = useOptimisticState(
-    track.uri === playbackState?.track_window.current_track?.uri &&
-      currentTrackInfo.playlistId === playlist.id
-  )
-
-  const handlePlayTrack = () => {
-    setIsActive(true)
-    spotifyClient.play({
-      device_id: device?.device_id,
-      context_uri: playlist?.uri,
-      offset: {
-        position: index,
-      },
-    })
-    setCurrentTrackInfo({
-      playlistId: playlist.id,
-      currentTrackIndex: index,
-    })
-  }
 
   const renderPlayButtonOrIndex = useCallback(() => {
     const PlayPauseIcon = playbackState?.paused ? Play : Pause
@@ -84,21 +48,14 @@ export const TrackItem: FC<TrackItemProps> = ({ track, index, playlist }) => {
 
   return (
     <Box
-      onClickOutside={(e, currentEl) => {
-        if (currentEl?.contains(e.target as Node)) return
-        const target = e.target as HTMLElement
-        if (target.closest('[data-type="track-item"]')) {
-          setIsActive(false)
-        }
-      }}
       data-type="track-item"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={handlePlayTrack}
       className={cn(
         'flex items-center gap-4 hover:bg-foreground/5 px-4 py-2 rounded-sm cursor-pointer',
         { 'bg-primary/10': isActive }
       )}
+      {...rest}
     >
       {renderPlayButtonOrIndex()}
       <div className="flex gap-2 items-center">
@@ -117,7 +74,7 @@ export const TrackItem: FC<TrackItemProps> = ({ track, index, playlist }) => {
             )}
           </p>
           <p className="text-xs text-muted-foreground">
-            {artistName} • {trackDuration}
+            {artistName} • {sf_ms(track.duration_ms)}
           </p>
         </div>
       </div>
