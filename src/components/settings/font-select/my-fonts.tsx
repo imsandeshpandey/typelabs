@@ -4,10 +4,14 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { useCallback } from 'react'
-import { Button } from '../../ui/button'
-import { useFont, useUserFonts } from '@/state/atoms'
-import { useToast } from '../../ui/use-toast'
-import { Tooltip, TooltipContent, TooltipTrigger } from '../../ui/tooltip'
+import { Button } from '@/components/ui/button'
+import { useFont, useUserFonts } from '@/atoms/atoms'
+import { useToast } from '@/components/ui/use-toast'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 import { Cross2Icon } from '@radix-ui/react-icons'
 import { cn, generateFontCss } from '@/lib/utils'
 import { useSoundFx } from '@/hooks/use-sound-fx.hook'

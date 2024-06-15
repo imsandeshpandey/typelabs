@@ -22,3 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+use-youtube-player.ts
+react-youtube.d.ts

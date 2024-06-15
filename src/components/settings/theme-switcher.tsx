@@ -4,7 +4,7 @@ import {
   useColorStyle,
   useCurrentThemeConfig,
   useTrueTheme,
-} from '@/state/atoms'
+} from '@/atoms/atoms'
 import { CSSProperties } from 'react'
 import {
   RadioCard,
@@ -14,8 +14,8 @@ import {
 
 export const ThemeSwitcher = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_, setColorStyle] = useColorStyle()
-  const [currentThemeConfig, setCurrentThemeConfig] = useCurrentThemeConfig()
+  const [colorStyle, setColorStyle] = useColorStyle()
+  const [, setCurrentThemeConfig] = useCurrentThemeConfig()
   const colors = themes
 
   const [theme] = useTrueTheme()
@@ -24,7 +24,7 @@ export const ThemeSwitcher = () => {
     <div className="grid grid-cols-6 gap-4 w-full flex-wrap">
       {colors.map((color) => {
         const primary = color.activeColor[theme]
-        const isActive = color.name === currentThemeConfig.name
+        const isActive = color.name === colorStyle
 
         const radius: string = color.cssVars.light?.radius || '0.5rem'
         const radiusStyle = +radius.split('rem')[0] / 2

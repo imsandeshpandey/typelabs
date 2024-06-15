@@ -9,8 +9,7 @@ import {
   useTheme,
   useTrueTheme,
   useUserFonts,
-} from '@/state/atoms'
-import React from 'react'
+} from '@/atoms/atoms'
 import { useEffect, useRef } from 'react'
 
 export function ThemeProvider() {

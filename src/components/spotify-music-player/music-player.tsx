@@ -104,8 +104,8 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({ className, ...props }) => {
       <div className="w-[10rem] text-sm flex gap-2 text-muted-foreground h-12 rounded-md">
         <Skeleton className="h-12 w-12 bg-background/20 rounded-sm" />
         <div>
-          <Skeleton className="h-3 w-24 mb-1 bg-background/20 rounded-sm" />
-          <Skeleton className="h-3 w-20 bg-background/20 rounded-sm" />
+          <Skeleton className="h-3 w-24 mb-1 bg-black/20 rounded-sm" />
+          <Skeleton className="h-3 w-20 bg-black/20 rounded-sm" />
         </div>
       </div>
     )

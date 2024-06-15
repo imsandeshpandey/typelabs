@@ -1,4 +1,4 @@
-import { useKeyboardSound } from '@/state/atoms'
+import { useKeyboardSound } from '@/atoms/atoms'
 import { Check, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { KeyboardSoundPackConfig } from '@/assets/sfx/keyboard-soundpacks/keyboard-soundpacks.type'

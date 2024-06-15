@@ -1,6 +1,6 @@
 import { FONTS } from '@/config/fonts.config'
 import { Dispatch, HTMLAttributes, SetStateAction, useState } from 'react'
-import { useFont, useUserFonts } from '@/state/atoms'
+import { useFont, useUserFonts } from '@/atoms/atoms'
 import { Label } from '../../ui/label'
 import { Input } from '../../ui/input'
 import {

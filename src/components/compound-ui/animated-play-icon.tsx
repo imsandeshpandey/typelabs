@@ -1,6 +1,5 @@
 import { FC, HTMLAttributes } from 'react'
 import { cn } from '../../lib/utils'
-import React from 'react'
 
 type AnimatedPlayIconProps = HTMLAttributes<HTMLDivElement> & {
   paused?: boolean

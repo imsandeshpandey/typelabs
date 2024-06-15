@@ -1,4 +1,4 @@
-import { useNotificationsVolume } from '@/state/atoms'
+import { useNotificationsVolume } from '@/atoms/atoms'
 
 import uiSounds from '@/assets/sfx/ui-sounds.wav'
 import useSound from 'use-sound'

@@ -11,7 +11,7 @@ import {
   uiVolumeAtom,
   useUiVolume,
   notificationsVolumeAtom,
-} from '@/state/atoms'
+} from '@/atoms/atoms'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -35,7 +35,7 @@ export const VolumeControls = () => {
   }, [volume])
 
   useEffect(() => {
-    player?.setVolume(volume)
+    player?.setVolume(volume / 2)
   }, [volume])
 
   useEffect(() => {

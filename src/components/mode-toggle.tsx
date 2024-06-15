@@ -9,8 +9,7 @@ import {
   SelectItem,
   SelectTrigger,
 } from './ui/select'
-import { useTheme } from '@/state/atoms'
-import React from 'react'
+import { useTheme } from '@/atoms/atoms'
 
 export function ModeToggle() {
   const [theme, setTheme] = useTheme()

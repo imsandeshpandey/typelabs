@@ -1,11 +1,7 @@
 import { PaintbrushIcon, SettingsIcon } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Dialog, DialogContent, DialogTrigger } from '../ui/dialog'
-import {
-  FontFamilyIcon,
-  FontStyleIcon,
-  KeyboardIcon,
-} from '@radix-ui/react-icons'
+import { FontFamilyIcon, KeyboardIcon } from '@radix-ui/react-icons'
 import { ScrollArea } from '../ui/scroll-area'
 import { Tabs, TabsContent } from '../ui/tabs'
 import { FontSelect } from './font-select/font-select'
@@ -17,8 +13,6 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
 import { KEYBINDS } from '@/config/keybinds.config'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { ThemeSwitcher } from './theme-switcher'
-import { Slider } from '../ui/slider'
-import { useBrowserZoom } from '@/state/atoms'
 const TABS = ['Fonts', 'Soundpack', 'Theme']
 
 const TabButton = (props: {
@@ -136,27 +130,5 @@ export const SettingsDialog = () => {
         </div>
       </DialogContent>
     </Dialog>
-  )
-}
-
-export const FontSizeSlider = () => {
-  const [zoom, setZoom] = useBrowserZoom()
-  return (
-    <div className="flex gap-2 items-center mb-8">
-      <FontStyleIcon />
-      <div className="max-w-[300px] flex-1">
-        <div className="flex [&>*:first-child]:w-0 [&>*:last-child]:opacity-0 justify-between">
-          {Array(5).fill(
-            <div className="h-1 w-[1px] [&>*:first-child]:w-0 [&>*:nth-child(1)]:opacity-0 -translate-x-1/2 bg-foreground/30" />
-          )}
-        </div>
-        <Slider
-          step={25}
-          value={[zoom - 50]}
-          onValueChange={([val]) => setZoom(val + 50)}
-        />
-      </div>
-      <FontStyleIcon className="w-8 h-8" />
-    </div>
   )
 }
