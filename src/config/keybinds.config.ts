@@ -25,7 +25,15 @@ export const KEYBINDS = {
     hotkey: 'Alt+Enter',
   },
   TOGGLE_PLAY: {
-    label: `${KEYMAPPER.Control} + Space`,
-    hotkey: 'Ctrl+Space',
+    label: `${KEYMAPPER.Control} + Down`,
+    hotkey: 'Ctrl+Down',
+  },
+  PREVIOUS_TRACK: {
+    label: `${KEYMAPPER.Control} + Left`,
+    hotkey: 'Ctrl+Left',
+  },
+  NEXT_TRACK: {
+    label: `${KEYMAPPER.Control} + Right`,
+    hotkey: 'Ctrl+Right',
   },
 }
