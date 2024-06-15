@@ -105,8 +105,8 @@ const Content = () => {
                   My Playlists
                 </DrawerTitle>
               </DrawerHeader>
-              <ScrollArea className="flex-1 overflow-y-auto">
-                <div className="h-0 flex flex-col gap-2 pr-4 pb-14">
+              <ScrollArea className="h-full overflow-y-auto">
+                <div className="h-[12rem] flex flex-col gap-2 pr-4">
                   {playlists?.items?.map((playlist) => {
                     return (
                       <PlaylistTab
@@ -117,6 +117,7 @@ const Content = () => {
                       />
                     )
                   })}
+                  <div className="min-h-14 w-full" />
                 </div>
               </ScrollArea>
               <div className="absolute bottom-0 justify-between h-14 w-[calc(100%-1rem)] bg-background/80 backdrop-blur-md border rounded-md items-center flex px-2">
