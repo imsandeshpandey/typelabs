@@ -11,24 +11,28 @@ import { PlaylistTab } from './playlist/playlist-tab'
 import { DrawerSkeleton } from './spotify-drawer.skeleton'
 import { generateFontCss } from '@/lib/utils'
 import { MusicPlayer } from './music-player'
-import { useCurrentTrackInfo, useTrackList } from '@/atoms/atoms'
+import { usePlayerContext, useTrackList } from '@/atoms/atoms'
 import { useEffect, useState } from 'react'
 import { useMyPlaylists } from '../../react-query/queries/my-playlists.query'
 import { usePlaylist } from '@/react-query/queries/playlist.query'
 import { PlaylistTabContentSkeleton } from './playlist/playlist-tab-content.skeleton'
-import React from 'react'
+import { AlertCircle, ListMusic, LogOutIcon, User2 } from 'lucide-react'
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
+import { useSpotifyAuth } from '@/providers/spotify-auth.provider'
+import { Button } from '../ui/button'
+import { useLogout } from '@/react-query/mutations/logout.mutation'
+import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
 
 export const SpotifyDrawer = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_, setTrackList] = useTrackList()
-  const [currentTrackInfo] = useCurrentTrackInfo()
+  const [, setTrackList] = useTrackList()
+  const [playerContext] = usePlayerContext()
   const { data: currentPlaylist, refetch } = usePlaylist(
-    currentTrackInfo.playlistId
+    playerContext.playlistId
   )
 
   useEffect(() => {
     refetch()
-  }, [currentTrackInfo.playlistId])
+  }, [playerContext.playlistId])
 
   useEffect(() => {
     setTrackList(currentPlaylist?.tracks?.items || [])
@@ -59,13 +63,20 @@ export const SpotifyDrawer = () => {
 }
 
 const Content = () => {
-  const [currentTrackInfo] = useCurrentTrackInfo()
+  const { user } = useSpotifyAuth()
+  const [playerContext] = usePlayerContext()
   const [activePlaylist, setActivePlaylist] = useState('')
   const { data: playlists, isLoading, error: playlistError } = useMyPlaylists()
 
   useEffect(() => {
-    setActivePlaylist(currentTrackInfo.playlistId)
-  }, [!!currentTrackInfo.playlistId])
+    setActivePlaylist(playerContext.playlistId)
+  }, [!!playerContext.playlistId])
+
+  const { mutate: logout, error } = useLogout({
+    onError: (error) => {
+      console.log(error)
+    },
+  })
 
   if (playlistError) {
     return (
@@ -88,14 +99,14 @@ const Content = () => {
         )}
         {!isLoading && (
           <>
-            <div className="flex flex-col">
+            <div className="flex flex-col relative">
               <DrawerHeader className="py-0 pb-4">
                 <DrawerTitle className="text-xl font-bold">
                   My Playlists
                 </DrawerTitle>
               </DrawerHeader>
-              <ScrollArea className="h-full overflow-y-auto">
-                <div className="h-0 flex flex-col gap-2 pr-4 pb-8">
+              <ScrollArea className="flex-1 overflow-y-auto">
+                <div className="h-0 flex flex-col gap-2 pr-4 pb-14">
                   {playlists?.items?.map((playlist) => {
                     return (
                       <PlaylistTab
@@ -108,8 +119,52 @@ const Content = () => {
                   })}
                 </div>
               </ScrollArea>
+              <div className="absolute bottom-0 justify-between h-14 w-[calc(100%-1rem)] bg-background/80 backdrop-blur-md border rounded-md items-center flex px-2">
+                <div className="flex gap-2 items-start">
+                  <Avatar>
+                    <AvatarImage
+                      className="object-cover"
+                      src={user.data?.images?.[0]?.url}
+                    />
+                    <AvatarFallback>
+                      {user.data?.display_name?.[0] || (
+                        <User2 className="h-6 w-6" />
+                      )}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="-mt-0.5">
+                    <h3 className="font-semibold">{user.data?.display_name}</h3>
+                    <p className="text-xs text-muted-foreground">
+                      {playlists?.items.length} playlists
+                    </p>
+                  </div>
+                </div>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Button
+                      size="icon"
+                      variant="secondary"
+                      onClick={() => logout()}
+                    >
+                      {!error && <LogOutIcon className="w-4 h-4" />}
+                      {!!error && (
+                        <AlertCircle className="text-rose-500 animate-blink w-4 h-4" />
+                      )}
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent className="text-xs">Logout</TooltipContent>
+                </Tooltip>
+              </div>
             </div>
-            <PlaylistTabContent activePlaylist={activePlaylist} />
+            {!!activePlaylist && (
+              <PlaylistTabContent activePlaylist={activePlaylist} />
+            )}
+            {!activePlaylist && (
+              <h2 className="m-auto font-bold text-xl flex gap-2 items-center">
+                <ListMusic className="h-10 w-10" />
+                No playlist selected
+              </h2>
+            )}
           </>
         )}
       </div>
