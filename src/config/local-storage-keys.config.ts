@@ -14,4 +14,4 @@ export const ACCESS_TOKEN_KEY = 'access_token'
 export const REFRESH_TOKEN_KEY = 'refresh_token'
 
 // SPOTIFY KEYS (Playlists)
-export const TRACK_INFO_KEY = 'track_info'
+export const PLAYER_CONTEXT_KEY = 'player_context'

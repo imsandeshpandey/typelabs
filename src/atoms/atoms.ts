@@ -44,7 +44,7 @@ export type PlayerContext = {
 }
 export const usePlayerContext = () => useAtom(playerContextAtom)
 export const playerContextAtom = atomWithStorage<PlayerContext>(
-  LK.TRACK_INFO_KEY,
+  LK.PLAYER_CONTEXT_KEY,
   {
     uri: '',
     trackIdx: 0,
