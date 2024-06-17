@@ -73,14 +73,23 @@ export const TrackItemCollection = ({ playlist }: TrackItemCollectionProps) => {
       },
     })
   }
-  const [activeTrackKey, setActiveTrackKey] = useOptimistic<string>(
-    getTrackKey(
+  const [activeTrackKey, setActiveTrackKey, setActiveTrackKeyDirect] =
+    useOptimistic<string>(
+      getTrackKey(
+        playbackState?.track_window
+          .current_track as unknown as SpotifyApi.TrackObjectFull
+      ),
+      handlePlayTrack
+    )
+  useEffect(() => {
+    const activeTrackKey = getTrackKey(
       playbackState?.track_window
         .current_track as unknown as SpotifyApi.TrackObjectFull
-    ),
-    handlePlayTrack
-  )
-  console.log('activeTrackIdx', activeTrackKey)
+    )
+    console.log('activeTrackKey', activeTrackKey)
+    setActiveTrackKeyDirect(activeTrackKey)
+  }, [playbackState?.track_window])
+
   return (
     <div className="flex h-full flex-col w-full pb-10 gap-1">
       <ScrollAreaRoot className="h-full overflow-y-auto pr-4">

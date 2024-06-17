@@ -38,4 +38,4 @@ export const sf_ms = (time: number) => sf.convert(time / 1000).format('MM:SS')
 
 export const getTrackKey = (
   track: SpotifyApi.TrackObjectFull | Spotify.Track
-) => `${track?.name}-${track?.album.uri}`
+) => `${track?.name}-${track?.album.name}-${track?.artists[0].name}`
