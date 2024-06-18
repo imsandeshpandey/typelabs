@@ -9,6 +9,8 @@ export const NOTIFICATIONS_VOLUME_KEY = 'notifications_volume'
 export const KEYBOARD_SOUND_ATOM = 'keyboard_sound_atom'
 export const BROWSER_ZOOM = 'browser_zoom'
 
+export const GAME_CONFIG_KEY = 'game_config'
+
 // SPOTIFY KEYS (OAuth)
 export const ACCESS_TOKEN_KEY = 'access_token'
 export const REFRESH_TOKEN_KEY = 'refresh_token'

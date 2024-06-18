@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
-import { useTimer } from '@/providers/timer.provider'
 import { cn } from '@/lib/utils'
 import { Slot } from '@radix-ui/react-slot'
+import { useTimer } from '@/global-state/timer.store'
 
 type DivProps = React.HTMLAttributes<HTMLDivElement>
 

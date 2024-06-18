@@ -1,20 +1,17 @@
-import React from 'react'
-import { useEngine } from '../providers/engine.provider'
+import { metricsStore } from '@/global-state/metrics.store'
 import CountUp from 'react-countup'
 
 export const Results = () => {
-  const errorPercentage = useEngine('errorPercentage')
-  const wpm = useEngine('wpm')
-  const rawWpm = useEngine('rawWpm')
+  const { errorPercentage, wpm, rawWpm } = metricsStore()
 
   return (
-    <div className="flex flex-col w-full lg:w-[900px] sm:mx-auto gap-2 mb-10 animate-in zoom-in-90">
-      <h1 className="font-bold text-lg text-muted-foreground mb-4">Results</h1>
-      <div className="flex justify-between w-full gap-10">
+    <div className="mb-10 flex w-full flex-col gap-2 animate-in zoom-in-90 sm:mx-auto lg:w-[900px]">
+      <h1 className="mb-4 text-lg font-bold text-muted-foreground">Results</h1>
+      <div className="flex w-full justify-between gap-10">
         <div className="flex-1">
           <div className="mx-auto w-fit">
             <h3 className="text-sm text-muted-foreground">raw wpm</h3>
-            <p className="font-bold text-5xl text-primary">
+            <p className="text-5xl font-bold text-primary">
               <CountUp end={rawWpm >> 0} duration={2} />
             </p>
           </div>
@@ -22,7 +19,7 @@ export const Results = () => {
         <div className="flex-1">
           <div className="mx-auto w-fit">
             <h3 className="text-sm text-muted-foreground">wpm</h3>
-            <p className="font-bold text-5xl text-primary">
+            <p className="text-5xl font-bold text-primary">
               <CountUp end={wpm >> 0} duration={2} />
             </p>
           </div>
@@ -30,7 +27,7 @@ export const Results = () => {
         <div className="flex-1">
           <div className="mx-auto w-fit">
             <h3 className="text-sm text-muted-foreground">acc</h3>
-            <p className="font-bold text-5xl text-primary">
+            <p className="text-5xl font-bold text-primary">
               <CountUp end={100 - errorPercentage} duration={2} />%
             </p>
           </div>

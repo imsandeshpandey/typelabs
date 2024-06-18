@@ -75,7 +75,6 @@ export const trackListAtom = atom<SpotifyApi.PlaylistTrackObject[]>([])
 // Computed value of the uri only of trackListAtom
 export const useTrackUriList = () => useAtom(trackUriListAtom)
 export const trackUriListAtom = atom((get) => {
-  console.log('uri again')
   return get(trackListAtom).map((track) => track.track.uri)
 })
 
@@ -85,3 +84,8 @@ export const themeAtom = atomWithStorage<'light' | 'dark' | 'system'>(
   LK.CURRENT_THEME_KEY,
   'dark'
 )
+
+export const useGameConfig = () => useAtom(gameConfigAtom)
+export const gameConfigAtom = atomWithStorage(LK.GAME_CONFIG_KEY, {
+  time: 30,
+})

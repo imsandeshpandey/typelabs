@@ -60,6 +60,7 @@
     "zustand-store-addons": "^0.1.12"
   },
   "devDependencies": {
+    "prettier-plugin-tailwindcss": "^0.6.5",
     "@tanstack/react-query-devtools": "^5.40.1",
     "@types/node": "^20.12.12",
     "@types/react": "^18.2.66",
