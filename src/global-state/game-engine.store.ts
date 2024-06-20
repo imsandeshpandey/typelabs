@@ -15,7 +15,7 @@ export type EngineStore = {
   setTextAreaFocus: (textAreaFocus: boolean) => void
   setText: (text: EngineStore['text']) => void
   setCaretPosition: (newPos: EngineStore['caretPosition']) => void
-  setUserInput: (newPos: EngineStore['userInput']) => void
+  setUserInput: (newUserInput: EngineStore['userInput']) => void
 
   restart: () => void
   generateText: () => void

@@ -1,38 +1,35 @@
+import { useEffect } from 'react'
+import { useHotkeys } from 'react-hotkeys-hook'
+import { useHasFocus } from '@/hooks/use-has-focus.hook'
 import { VALID_CHARACTERS_SET } from '@/config/game.config'
 import { engineStore } from '@/global-state/game-engine.store'
 import { useMetricsStore } from '@/global-state/metrics.store'
 import { timerStore, useTimer } from '@/global-state/timer.store'
-import { useHasFocus } from '@/hooks/use-has-focus.hook'
-import { useCallback, useEffect } from 'react'
-import { useHotkeys } from 'react-hotkeys-hook'
 
 export const EngineProvider = () => {
-  const onWindowBlurred = () => {
-    setTextAreaFocus(false)
-  }
-  useHasFocus({
-    onBlur: onWindowBlurred,
-  })
-
   const {
     textAreaFocus: hasFocus,
+    userInput,
+    textString,
     setTextAreaFocus,
     setCaretPosition,
-    userInput,
     setUserInput,
     generateText,
-    textString,
   } = engineStore()
 
-  const isRunning = useTimer('isRunning')
+  const { updateMetrics } = useMetricsStore('updateMetrics')
+  const { totalTime, hasTimerEnded, isRunning } = useTimer(
+    'totalTime',
+    'hasTimerEnded',
+    'isRunning'
+  )
 
-  const backspaceHandler = useCallback((userInput: string) => {
-    if (!userInput.length) return userInput
-    return userInput.slice(0, -1)
-  }, [])
+  useHasFocus({
+    onBlur: () => setTextAreaFocus(false),
+  })
 
   const backspace = () => {
-    setUserInput(backspaceHandler(userInput))
+    setUserInput(userInput.slice(0, -1))
   }
 
   const ctrlBackspace = () => {
@@ -45,7 +42,7 @@ export const EngineProvider = () => {
     setUserInput(userInputArr.join(''))
   }
 
-  const handleKeyInput = (e: KeyboardEvent) => {
+  function handleKeyInput(e: KeyboardEvent) {
     if (VALID_CHARACTERS_SET.has(e.key)) {
       const { startTimer, isPaused } = timerStore.getState()
       const userInput = engineStore.getState().userInput
@@ -56,39 +53,16 @@ export const EngineProvider = () => {
     }
   }
 
-  useHotkeys('backspace', backspace, {
-    ignoreModifiers: !hasFocus,
-  })
-  useHotkeys('ctrl+backspace', ctrlBackspace, {
-    ignoreModifiers: !hasFocus,
-  })
-
-  useHotkeys('*', handleKeyInput, {
-    ignoreEventWhen: () => !engineStore.getState().textAreaFocus,
-  })
-
-  useEffect(generateText, [generateText])
-
-  useEffect(() => {
-    if (!hasFocus && isRunning) return setTextAreaFocus(false)
-
-    if (isRunning) {
-      setTextAreaFocus(true)
-    }
-  }, [hasFocus])
-
-  useEffect(() => {
+  function updateCaretPosition() {
     const letter = document.getElementById(`letter-${userInput.length}`)
     const newPos = {
       x: letter?.offsetLeft || 0,
       y: letter?.offsetTop || 0,
     }
     setCaretPosition(newPos)
-  }, [userInput])
+  }
 
-  const { totalTime, hasTimerEnded } = useTimer('totalTime', 'hasTimerEnded')
-  const { updateMetrics } = useMetricsStore('updateMetrics')
-  useEffect(() => {
+  const calculateResults = () => {
     if (!hasTimerEnded) return
     const errorPercentage = getErrorPercentage(userInput, textString)
     const cpm = (userInput.length / totalTime) * 60
@@ -101,7 +75,21 @@ export const EngineProvider = () => {
       rawWpm,
       wpm,
     })
-  }, [hasTimerEnded])
+  }
+
+  useEffect(generateText, [])
+  useEffect(updateCaretPosition, [userInput])
+  useEffect(calculateResults, [hasTimerEnded])
+  useEffect(() => {
+    if (!hasFocus && isRunning) return setTextAreaFocus(false)
+    if (isRunning) setTextAreaFocus(true)
+  }, [hasFocus])
+
+  useHotkeys('backspace', backspace, { ignoreModifiers: !hasFocus })
+  useHotkeys('ctrl+backspace', ctrlBackspace, { ignoreModifiers: !hasFocus })
+  useHotkeys('*', handleKeyInput, {
+    ignoreEventWhen: () => !engineStore.getState().textAreaFocus,
+  })
 
   return <></>
 }
@@ -110,9 +98,7 @@ const getErrorPercentage = (input: string, trueStr: string) => {
   const total = input.length
   let errors = 0
   for (const i in input.split('')) {
-    if (input[i] !== trueStr[i]) {
-      errors++
-    }
+    if (input[i] !== trueStr[i]) errors++
   }
   return (errors * 100) / total
 }
