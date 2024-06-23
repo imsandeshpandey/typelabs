@@ -3,14 +3,12 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './globals.css'
 import './styles/themes.css'
-import { ThemeProvider } from './providers/theme.provider.tsx'
 import { TooltipProvider } from './components/ui/tooltip.tsx'
 import { EngineProvider } from './providers/engine.provider.tsx'
 import { TimerProvider } from './providers/timer.provider.tsx'
 import { Toaster } from './components/ui/toaster.tsx'
 import { KeyboardAudioProvider } from './providers/keyboard-audio.provider.tsx'
 import { QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import {
   SpotifyAuthProvider,
   useSpotifyAuth,
@@ -19,6 +17,7 @@ import { WebPlaybackSDK } from 'react-spotify-web-playback-sdk'
 import { useCallback } from 'react'
 import { UI_VOLUME_KEY } from './config/local-storage-keys.config.ts'
 import { queryClient } from './config/react-query.config.ts'
+import { StyleProvider } from './providers/style-provider.tsx'
 
 export const PlayerProvider = (props: { children: React.ReactNode }) => {
   const { user, accessToken } = useSpotifyAuth()
@@ -44,7 +43,7 @@ export const PlayerProvider = (props: { children: React.ReactNode }) => {
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider />
+    <StyleProvider />
     <SpotifyAuthProvider>
       <PlayerProvider>
         <TooltipProvider delayDuration={100}>
@@ -53,7 +52,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <TimerProvider />
           <EngineProvider />
           <KeyboardAudioProvider />
-          <ReactQueryDevtools />
         </TooltipProvider>
       </PlayerProvider>
     </SpotifyAuthProvider>

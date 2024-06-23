@@ -1,5 +1,6 @@
 // GAME KEYS
 export const FONT_SIZE_KEY = 'font_size'
+export const BORDER_RADIUS_KEY = 'border_radius'
 export const CURRENT_THEME_KEY = 'current_theme'
 export const CURRENT_STYLE_KEY = 'color_style'
 export const CURRENT_COLOR_STYLE_KEY = 'current_color_style'

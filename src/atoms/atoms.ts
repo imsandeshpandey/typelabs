@@ -1,4 +1,3 @@
-import { themes } from '@/config/themes.config'
 import { FONTS } from '@/config/fonts.config'
 import * as LK from '@/config/local-storage-keys.config'
 import { atom, useAtom } from 'jotai'
@@ -53,39 +52,20 @@ export const playerContextAtom = atomWithStorage<PlayerContext>(
   }
 )
 
-//Current Selected Theme Color "Zinc", "Rose", "Yellow", etc
-export const useColorStyle = () => useAtom(colorStyleAtom)
-export const colorStyleAtom = atomWithStorage(
-  LK.CURRENT_COLOR_STYLE_KEY,
-  'Zinc'
-)
-
-// Current Selected Theme Color "Zinc", "Rose", "Yellow", etc
-export const useCurrentThemeConfig = () => useAtom(currentThemeConfig)
-export const currentThemeConfig = atom(themes[0])
-
-// Current True Theme Mode (Light/Dark) being rendered
-export const useTrueTheme = () => useAtom(trueThemeAtom)
-export const trueThemeAtom = atom<'light' | 'dark'>('light')
-
 // List of tracks being played currently
 export const useTrackList = () => useAtom(trackListAtom)
 export const trackListAtom = atom<SpotifyApi.PlaylistTrackObject[]>([])
-
-// Computed value of the uri only of trackListAtom
-export const useTrackUriList = () => useAtom(trackUriListAtom)
-export const trackUriListAtom = atom((get) => {
-  return get(trackListAtom).map((track) => track.track.uri)
-})
-
-// Current User Selected Theme Mode
-export const useTheme = () => useAtom(themeAtom)
-export const themeAtom = atomWithStorage<'light' | 'dark' | 'system'>(
-  LK.CURRENT_THEME_KEY,
-  'dark'
-)
 
 export const useGameConfig = () => useAtom(gameConfigAtom)
 export const gameConfigAtom = atomWithStorage(LK.GAME_CONFIG_KEY, {
   time: 30,
 })
+
+export const styleAtom = atomWithStorage(LK.CURRENT_STYLE_KEY, 'carbon')
+export const useStyle = () => useAtom(styleAtom)
+
+export const fontSizeAtom = atomWithStorage(LK.FONT_SIZE_KEY, 24)
+export const useFontSize = () => useAtom(fontSizeAtom)
+
+export const borderRadiusAtom = atomWithStorage(LK.BORDER_RADIUS_KEY, 12)
+export const useBorderRadius = () => useAtom(borderRadiusAtom)
