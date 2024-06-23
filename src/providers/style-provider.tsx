@@ -25,6 +25,6 @@ export const StyleProvider = () => {
     root.style.fontFamily = generateFontCss(currentFont)
   }, [currentFont])
 
-  const stylePath = `${window.origin}/public/themes/${style}.css`
+  const stylePath = `${window.origin}/themes/${style}.css`
   return <link rel="stylesheet" type="text/css" href={stylePath} />
 }
