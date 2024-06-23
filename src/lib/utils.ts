@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import sf from 'seconds-formater'
+import { Theme } from '@/styles/themes/theme.type'
 
 export function cn(...inputs: ClassValue[]): string {
   return twMerge(clsx(inputs))
@@ -54,3 +55,14 @@ export const getAlbumUrl = (id: string) =>
 
 export const getArtistUrl = (id: string) =>
   `https://open.spotify.com/artist/${id}`
+export const applyTheme = (style: string) => {
+  console.log(style)
+  import(`@/styles/themes/theme_${style}.ts`)
+    .then((module) => module['theme_' + style])
+    .then((theme) => {
+      const root = document.documentElement
+      Object.keys(theme).forEach((key) => {
+        root.style.setProperty(key, theme[key as keyof Theme])
+      })
+    })
+}

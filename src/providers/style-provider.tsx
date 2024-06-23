@@ -1,7 +1,8 @@
 import { useBorderRadius, useFont, useStyle, useUserFonts } from '@/atoms/atoms'
 import { DEFAULT_FONT, FONTS } from '@/config/fonts.config'
+import { applyTheme } from '@/lib/utils'
 import { generateFontCss } from '@/lib/utils'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 
 export const StyleProvider = () => {
   const root = document.documentElement
@@ -9,9 +10,6 @@ export const StyleProvider = () => {
   const [userFonts] = useUserFonts()
   const [style] = useStyle()
   const [radius] = useBorderRadius()
-  const lastTheme = useRef(
-    [...root.classList].find((c) => c.startsWith('theme_')) || 'theme_'
-  )
 
   useEffect(() => {
     const fontCollection = [...userFonts, ...FONTS]
@@ -29,9 +27,7 @@ export const StyleProvider = () => {
   }, [currentFont])
 
   useEffect(() => {
-    root.classList.remove(lastTheme.current)
-    root.classList.add(`theme_${style}`)
-    lastTheme.current = `theme_${style}`
+    applyTheme(style)
   }, [style])
 
   return <></>

@@ -5,6 +5,7 @@ import { useStyle } from '../atoms/atoms'
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -12,31 +13,23 @@ import {
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import styleList from '@/styles/theme-list.json'
-import { ScrollArea } from './ui/scroll-area'
+import { applyTheme } from '@/lib/utils'
 
 export const ThemeSwitcherList = () => {
   const scrollerRef = useRef<HTMLDivElement>(null)
   const [style, setStyle] = useStyle()
-  const initialFocusedStyleIndex = useMemo(
-    () => styleList.findIndex((s) => s.name == style) || 0,
-    []
-  )
-  const [focusedStyleIndex, setFocusedStyleIndex] = useState(
-    initialFocusedStyleIndex
-  )
-  const [selectedStyleIndex, setSelectedStyleIndex] = useState(
-    initialFocusedStyleIndex
-  )
+  const [isOpen, setIsOpen] = useState(false)
+  const [focusedStyle, setFocusedStyle] = useState(style)
   const [search, setSearch] = useState('')
   const [isHoverDisabled, setIsHoverDisabled] = useState(false)
 
   const filteredStyleList = useMemo(() => {
     const newList = [] as ({ index: number } & (typeof styleList)[number])[]
     styleList.map((s, i) => {
-      if (
-        s.name.toLowerCase().includes(search.toLowerCase()) ||
-        `${i + 1}`.includes(search)
-      ) {
+      const includesName = s.name.toLowerCase().includes(search.toLowerCase())
+      const includesIndex = `${i + 1}`.includes(search)
+
+      if (includesName || includesIndex) {
         newList.push({ ...s, index: i })
       }
     })
@@ -46,58 +39,58 @@ export const ThemeSwitcherList = () => {
   const handleMouseMove = () => setIsHoverDisabled(false)
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    setFocusedStyleIndex((prev) => {
-      let newIdx = prev
+    setFocusedStyle((prev) => {
+      const prevIdx = filteredStyleList.findIndex((s) => s.name === prev)
+      let newIdx = prevIdx
       if (!isHoverDisabled) setIsHoverDisabled(true)
+
       if (e.key === 'ArrowUp') {
-        newIdx = prev - 1
-        if (prev === 0) newIdx = filteredStyleList.length - 1
-      } else if (e.key === 'ArrowDown') {
-        newIdx = prev + 1
-        if (prev === filteredStyleList.length - 1) newIdx = 0
+        newIdx = prevIdx - 1
+        if (prevIdx === 0) newIdx = filteredStyleList.length - 1
       }
+      if (e.key === 'ArrowDown') {
+        newIdx = prevIdx + 1
+        if (prevIdx === filteredStyleList.length - 1) newIdx = 0
+      }
+
       const el = document.getElementById(`style-${newIdx}`)
+      const scrollerHeight = scrollerRef.current?.offsetHeight || 0
       const elHeight = el?.offsetHeight || 0
-      const elPosition = (el?.getBoundingClientRect().y || 0) - elHeight
-
-      const scrollerHeight = scrollerRef.current?.clientHeight || 0
+      const elPos = (el?.getBoundingClientRect().y || 0) - 2 * elHeight
       const scrollerStart = scrollerRef.current?.offsetTop || 0
-      const scrollerEnd = scrollerStart + scrollerHeight - elHeight
-
-      if (el && (elPosition < scrollerStart || elPosition > scrollerEnd)) {
+      const scrollerEnd = scrollerStart + scrollerHeight
+      if (el && (elPos < scrollerStart || elPos > scrollerEnd))
         el.scrollIntoView()
-      }
-      return newIdx
+
+      return filteredStyleList[newIdx].name
     })
-    if (e.key === 'Enter' || e.key === ' ') {
-      updateSelectedStyleIndex()
-    }
+    if (e.key === 'Enter' || e.key === ' ') updateStyle()
   }
-  const updateSelectedStyleIndex = () => {
-    const itemIdx = filteredStyleList[focusedStyleIndex]?.index
-    setSelectedStyleIndex(itemIdx)
-  }
+  const updateStyle = () => setStyle(focusedStyle)
 
   useEffect(() => {
-    setTimeout(() => setStyle(styleList[focusedStyleIndex].name), 100)
-  }, [focusedStyleIndex])
-
-  useEffect(() => {
+    if (!isOpen) return
     document.addEventListener('mousemove', handleMouseMove)
     return () => document.removeEventListener('mousemove', handleMouseMove)
-  }, [search])
+  }, [search, isOpen])
 
   useEffect(() => {
+    if (!isOpen) return
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [focusedStyleIndex, search])
+  }, [focusedStyle, search, isOpen])
+
+  useEffect(() => {
+    if (!isOpen) return
+    const timeout = setTimeout(() => applyTheme(focusedStyle), 100)
+    return () => clearTimeout(timeout)
+  }, [focusedStyle])
 
   return (
     <Dialog
       onOpenChange={(open) => {
-        if (!open) {
-          setTimeout(() => setStyle(styleList[selectedStyleIndex].name), 200)
-        }
+        setIsOpen(open)
+        !open && applyTheme(style)
       }}
     >
       <DialogTrigger asChild>
@@ -109,10 +102,14 @@ export const ThemeSwitcherList = () => {
           {style}
         </Button>
       </DialogTrigger>
-
-      <DialogContent className="flex h-fit max-h-[80%] min-w-full flex-col sm:min-w-[80%]">
+      <DialogContent className="flex h-fit max-h-[80%] min-w-full flex-col overflow-hidden sm:min-w-[80%]">
         <DialogHeader className="w-full">
-          <DialogTitle>Themes</DialogTitle>
+          <DialogTitle className="text-xl font-semibold">Themes</DialogTitle>
+          <DialogDescription>
+            Select a theme to change the color scheme of the app.
+            <br />
+            You can also search for a theme by name or the index.
+          </DialogDescription>
         </DialogHeader>
         <Input
           value={search}
@@ -121,58 +118,58 @@ export const ThemeSwitcherList = () => {
           placeholder="Search"
           className="bg w-full border border-border"
         />
-        <ScrollArea ref={scrollerRef} className="overflow-y-auto px-1">
-          <div className="min-w-full flex-col gap-1 px-2">
-            {filteredStyleList.map((style, idx) => {
-              if (!style) return
-              const { index: i } = style
-              const isActive = idx === focusedStyleIndex
-              const isSelected = i === selectedStyleIndex
-              return (
-                <div
-                  id={`style-${idx}`}
-                  onMouseEnter={() =>
-                    !isHoverDisabled && setFocusedStyleIndex(idx)
-                  }
-                  onMouseLeave={() =>
-                    setStyle(styleList[selectedStyleIndex].name)
-                  }
-                  onClick={updateSelectedStyleIndex}
-                  className={cn(
-                    'flex cursor-pointer items-center justify-between rounded-sm border-2 border-transparent px-2 py-1 text-foreground',
-                    isActive && 'border-primary bg-primary/20'
-                  )}
-                >
-                  <p className={cn(isSelected && 'flex items-center gap-1')}>
-                    {isSelected && <Check className="-mb-1 h-4 w-4" />}
-                    {!isSelected && (
-                      <span className="text-xs text-muted-foreground">
-                        {i + 1}.
-                      </span>
-                    )}
 
-                    {formatThemeName(style.name)}
-                  </p>
-                  <div className="flex gap-1">
-                    {[style.mainColor, style.textColor, style.subColor].map(
-                      (color, i) => {
-                        return (
-                          <div
-                            style={{
-                              backgroundColor: color,
-                            }}
-                            className="flex h-3 w-3 items-center gap-1 rounded-full border border-foreground"
-                            key={i}
-                          />
-                        )
-                      }
-                    )}
-                  </div>
+        <div
+          ref={scrollerRef}
+          className="scroll flex flex-col gap-1 overflow-y-auto"
+        >
+          {filteredStyleList.map((currStyle, idx) => {
+            if (!currStyle) return
+            const { index: i, name } = currStyle
+            const isActive = name === focusedStyle
+            const isSelected = name === style
+            return (
+              <div
+                id={`style-${idx}`}
+                onMouseEnter={() => !isHoverDisabled && setFocusedStyle(name)}
+                onClick={updateStyle}
+                className={cn(
+                  'flex cursor-pointer items-center justify-between rounded-sm border-2 border-transparent px-2 py-1 text-foreground',
+                  isSelected && 'border-primary bg-primary/20',
+                  isActive && 'bg-foreground/20'
+                )}
+              >
+                <p className={cn(isSelected && 'flex items-center gap-1')}>
+                  {isSelected && <Check className="-mb-1 h-4 w-4" />}
+                  {!isSelected && (
+                    <span className="mr-1 text-xs text-muted-foreground">
+                      {i + 1}.
+                    </span>
+                  )}
+
+                  {formatThemeName(name)}
+                </p>
+                <div className="flex gap-1">
+                  {[
+                    currStyle.mainColor,
+                    currStyle.textColor,
+                    currStyle.subColor,
+                  ].map((color, i) => {
+                    return (
+                      <div
+                        style={{
+                          backgroundColor: color,
+                        }}
+                        className="flex h-3 w-3 items-center gap-1 rounded-full border border-foreground"
+                        key={i}
+                      />
+                    )
+                  })}
                 </div>
-              )
-            })}
-          </div>
-        </ScrollArea>
+              </div>
+            )
+          })}
+        </div>
       </DialogContent>
     </Dialog>
   )

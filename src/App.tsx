@@ -21,6 +21,7 @@ import { ThemeSwitcherList } from './components/theme-switcher-list'
 
 function App() {
   const { hasTimerEnded, pauseTimer } = useTimer('hasTimerEnded', 'pauseTimer')
+
   const {
     setTextAreaFocus: setFocus,
     generateText,
