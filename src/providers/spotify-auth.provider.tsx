@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   PropsWithChildren,
   createContext,
@@ -41,7 +40,6 @@ export const SpotifyAuthProvider = ({ children }: PropsWithChildren) => {
     onSuccess: (data): void => {
       setAccessToken(data.accessToken)
       setExpiresIn(data.expiresIn)
-      console.log('authorize')
     },
     onError: (err) => {
       console.log(err)

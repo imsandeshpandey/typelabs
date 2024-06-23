@@ -1,6 +1,5 @@
 import { MouseEventHandler, ReactNode, WheelEvent, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
 import { Slider } from '../ui/slider'
 import { PrimitiveAtom, useAtom } from 'jotai'
 
@@ -48,29 +47,23 @@ export const VolumeSlider = ({
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className="group flex flex-col items-start relative w-fit pr-2 rounded-md"
+      className="group relative flex w-fit flex-col items-start rounded-md pr-2"
     >
       {!!label && (
-        <p className=" text-xs flex gap-1 items-center select-none px-2 pt-2 text-muted-foreground">
+        <p className="flex select-none items-center gap-1 px-2 pt-2 text-xs text-muted-foreground">
           {label}
         </p>
       )}
-      <div className="flex gap-2 items-center">
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button
-              onClick={toggleMute}
-              variant="ghost"
-              className="p-2 rounded-md hover:bg-background/20"
-              size="icon"
-            >
-              {icon}
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent className="select-none">
-            {volume == 0 ? 'Unmute' : 'Mute'}
-          </TooltipContent>
-        </Tooltip>
+      <div className="flex items-center gap-2">
+        <Button
+          onClick={toggleMute}
+          variant="ghost"
+          className="rounded-md p-2 hover:bg-background/20"
+          size="icon"
+          tooltipContent={volume == 0 ? 'Unmute' : 'Mute'}
+        >
+          {icon}
+        </Button>
 
         <Slider
           tooltipContent={(volume * 100) >> 0}

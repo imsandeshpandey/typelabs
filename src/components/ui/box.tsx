@@ -12,12 +12,14 @@ export type BoxProps = DivProps & {
 }
 
 export const Box = forwardRef<HTMLDivElement, BoxProps>(
-  ({ onClickOutside, asChild, gameResponsive, ...props }, forwardedRef) => {
+  (
+    { onClickOutside, asChild, gameResponsive = false, ...props },
+    forwardedRef
+  ) => {
     const Comp = asChild ? Slot : 'div'
 
     const ref = useRef<HTMLDivElement>(null)
-    const isPaused = useTimer('isPaused')
-    const isRunning = useTimer('isRunning')
+    const { isRunning, isPaused } = useTimer('isRunning', 'isPaused')
 
     const handleClickOutside = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) {
@@ -39,7 +41,7 @@ export const Box = forwardRef<HTMLDivElement, BoxProps>(
         className={cn(
           'transition-opacity',
           props.className,
-          !!gameResponsive && !isPaused && isRunning && 'opacity-0'
+          gameResponsive && !isPaused && isRunning && 'opacity-0'
         )}
       >
         {props.children}

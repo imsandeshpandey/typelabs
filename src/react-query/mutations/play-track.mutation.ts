@@ -13,7 +13,6 @@ export const usePlayTrack = (options?: {
       spotifyClient.play(options),
     onSuccess: () => {
       spotifyClient.setRepeat('context')
-      console.log(context?.shuffle)
       spotifyClient.setShuffle(!!context?.shuffle)
       options?.onSuccess?.()
     },

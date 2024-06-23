@@ -39,3 +39,18 @@ export const sf_ms = (time: number) => sf.convert(time / 1000).format('MM:SS')
 export const getTrackKey = (
   track: SpotifyApi.TrackObjectFull | Spotify.Track
 ) => `${track?.name}-${track?.album.name}-${track?.artists[0].name}`
+
+export const formatThemeName = (name: string) => {
+  let formattedName = name.replace(/_/g, ' ')
+  formattedName = formattedName.charAt(0).toUpperCase() + formattedName.slice(1)
+  return formattedName
+}
+
+export const getTrackUrl = (id: string) =>
+  `https://open.spotify.com/track/${id}`
+
+export const getAlbumUrl = (id: string) =>
+  `https://open.spotify.com/album/${id}`
+
+export const getArtistUrl = (id: string) =>
+  `https://open.spotify.com/artist/${id}`
