@@ -7,7 +7,7 @@ import { KeyboardSoundPackConfig } from '@/assets/sfx/keyboard-soundpacks/keyboa
 
 // Current Selected Font
 export const useFont = () => useAtom(fontAtom)
-export const fontAtom = atomWithStorage(LK.CURRENT_FONT_KEY, FONTS[2])
+export const fontAtom = atomWithStorage<string>(LK.CURRENT_FONT_KEY, FONTS[2])
 
 // Collection of user added fonts
 export const useUserFonts = () => useAtom(userFontsAtom)

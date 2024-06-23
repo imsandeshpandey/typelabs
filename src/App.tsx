@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
 import { ListPlus, RotateCw } from 'lucide-react'
-import { ModeToggle } from './components/mode-toggle'
-import { KeyboardIcon } from '@radix-ui/react-icons'
 import { TextArea } from './components/text-area'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { Box } from './components/ui/box'
 import { KEYBINDS } from './config/keybinds.config'
 import { ConnectSpotifyButton } from './components/spotify-music-player/connect-spotify-button'
 import { SpotifyDrawer } from './components/spotify-music-player/spotify-drawer'
-import { SettingsDialog } from './components/settings/settings-button'
+import { UserInfo } from './components/spotify-user-info'
+import { SettingsDialog } from './components/settings/settings-dialog'
 import { Results } from './components/results'
 import { VolumeControls } from './components/volume/volume-control-popover'
 import { GameButton } from './components/game-button'
@@ -16,6 +15,9 @@ import { useSpotifyAuth } from './providers/spotify-auth.provider'
 import { NoSpotifyPremiumButton } from './components/no-spotify-premium-button'
 import { useTimer } from './global-state/timer.store'
 import { useEngine } from './global-state/game-engine.store'
+import { Logo } from './assets/svgs/keyboard-icon'
+import { generateFontCss } from './lib/utils'
+import { ThemeSwitcherList } from './components/theme-switcher-list'
 
 function App() {
   const { hasTimerEnded, pauseTimer } = useTimer('hasTimerEnded', 'pauseTimer')
@@ -48,14 +50,18 @@ function App() {
   const CurrentView = showResults ? Results : TextArea
   return (
     <div className="mx-auto flex h-screen w-[calc(100%-64px)] max-w-[1200px] flex-col md:w-[80%]">
-      <div className="flex w-full items-center justify-between py-4">
-        <h1 className="flex select-none items-start gap-2 font-robotoMono text-2xl font-semibold text-muted-foreground">
-          <KeyboardIcon className="h-10 w-10 text-primary" />
+      <div className="flex w-full items-center py-4">
+        <h1
+          style={{
+            fontFamily: generateFontCss('Poppins'),
+          }}
+          className="font-regular flex select-none items-center gap-2 text-3xl text-foreground"
+        >
+          <Logo className="-mb-1 h-12 w-12 stroke-main" />
           typelabs
         </h1>
-        <Box gameResponsive className="flex items-center gap-4">
+        <Box gameResponsive>
           <SettingsDialog />
-          <ModeToggle />
         </Box>
       </div>
 
@@ -94,6 +100,10 @@ function App() {
       <Box gameResponsive className="flex w-full items-end gap-2 py-2">
         <VolumeControls />
         <SpotifyPlayer />
+        <div className="fixed bottom-0 right-0 flex flex-col items-end p-1">
+          <UserInfo />
+          <ThemeSwitcherList />
+        </div>
       </Box>
     </div>
   )

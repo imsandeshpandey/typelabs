@@ -113,7 +113,7 @@ const Content = () => {
       </DialogHeader>
       <form action="submit" id="font-form" onSubmit={handleSubmit}>
         <Input
-          className="z-10"
+          className="z-10 border border-border bg-muted"
           ref={inputRef}
           form="font-form"
           id="font-input"

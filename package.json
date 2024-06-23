@@ -10,6 +10,7 @@
     "lint": "eslint src/"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^0.8.2",
     "@hookform/resolvers": "^3.4.0",
     "@quentin-sommer/react-useragent": "^3.2.0",
     "@radix-ui/react-avatar": "^1.0.4",
@@ -60,7 +61,6 @@
     "zustand-store-addons": "^0.1.12"
   },
   "devDependencies": {
-    "prettier-plugin-tailwindcss": "^0.6.5",
     "@tanstack/react-query-devtools": "^5.40.1",
     "@types/node": "^20.12.12",
     "@types/react": "^18.2.66",
@@ -74,6 +74,7 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.6.5",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
