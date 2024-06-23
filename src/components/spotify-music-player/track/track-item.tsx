@@ -36,14 +36,14 @@ export const TrackItem = ({
             e.stopPropagation()
             player?.togglePlay()
           }}
-          className="hover:bg-muted p-1 rounded-full"
+          className="rounded-full p-1 hover:bg-muted"
         >
           <PlayPauseIcon className="h-4 w-4" />
         </button>
       )
 
     if (isHovered) return <Play className="h-4 w-4 text-muted-foreground" />
-    return <p className="text-muted-foreground w-4">{index + 1}.</p>
+    return <p className="w-4 text-muted-foreground">{index + 1}.</p>
   }, [isActive, index, isHovered])
 
   return (
@@ -52,29 +52,37 @@ export const TrackItem = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        'flex items-center gap-4 hover:bg-foreground/5 px-4 py-2 rounded-sm cursor-pointer',
+        'flex cursor-pointer items-center gap-4 rounded-sm px-4 py-2 hover:bg-foreground/5',
         { 'bg-primary/10': isActive }
       )}
       {...rest}
     >
       {renderPlayButtonOrIndex()}
-      <div className="flex gap-2 items-center">
-        <img src={imageUrl} className="h-8 w-8 rounded-[4px]" />
-        <div className="flex flex-col">
-          <p className="text-sm font-medium flex gap-1 items-center">
-            {track.name}
-            {isActive && (
-              <AnimatedPlayIcon
-                className="ml-2"
-                paused={playbackState?.paused}
-                barProps={{
-                  className: 'bg-primary',
-                }}
-              />
-            )}
-          </p>
+      <div className="flex flex-1 items-center justify-between gap-2">
+        <div className="flex flex-[3] gap-2">
+          <img src={imageUrl} className="h-8 w-8 rounded-[4px]" />
+          <div className="flex flex-col">
+            <p className="flex items-center gap-1 text-sm font-medium">
+              {track.name}
+              {isActive && (
+                <AnimatedPlayIcon
+                  className="ml-2"
+                  paused={playbackState?.paused}
+                  barProps={{
+                    className: 'bg-primary',
+                  }}
+                />
+              )}
+            </p>
+            <p className="max-w-[12rem] text-xs text-muted-foreground">
+              {artistName}
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-[2] items-center justify-between gap-2">
+          <p className="text-xs text-muted-foreground"> {track.album.name}</p>
           <p className="text-xs text-muted-foreground">
-            {artistName} • {sf_ms(track.duration_ms)}
+            {sf_ms(track.duration_ms)}
           </p>
         </div>
       </div>

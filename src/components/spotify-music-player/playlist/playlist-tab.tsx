@@ -12,23 +12,33 @@ export const PlaylistTab = ({
   setActivePlaylist: (playlist: string) => void
 }) => {
   const isActive = activePlaylist === playlist.id
+
   return (
     <Button
       onClick={() => setActivePlaylist(playlist.id)}
       variant="ghost"
+      size="icon"
       className={cn(
-        'hover:bg-muted min-w-[15rem] text-left whitespace-normal rounded-lg justify-normal h-12 gap-4 border-2 border-transparent focus-visible:ring-0 focus:border-2 focus:border-foreground',
+        'justify-normal gap-4 whitespace-normal rounded-lg border-2 border-transparent p-1 text-left hover:bg-muted focus:border-2 focus:border-foreground focus-visible:ring-0 md:min-w-[15rem]',
+        'h-12 w-12 justify-center',
+        'md:w-auto md:justify-start md:px-4',
         {
           'border-2 border-primary bg-primary/10 focus:border-primary':
             isActive,
         }
       )}
+      tooltipContent={playlist.name}
+      tooltipContentProps={{
+        className: 'md:hidden',
+      }}
     >
       <img
         src={playlist.images?.[0].url || defaultPlaylistIcon}
         className="h-8 w-8 rounded-sm"
       />
-      {playlist.name}
+      <span className="hidden animate-in slide-in-from-left-10 md:block">
+        {playlist.name}
+      </span>
     </Button>
   )
 }

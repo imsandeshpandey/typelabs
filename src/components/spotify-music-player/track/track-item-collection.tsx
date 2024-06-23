@@ -1,10 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { TrackItem } from './track-item'
-import { Virtuoso, VirtuosoHandle } from 'react-virtuoso'
+import { Virtuoso } from 'react-virtuoso'
 import { ScrollAreaRoot, ScrollAreaViewport } from '@/components/ui/scroll-area'
 import { usePlayerContext } from '@/atoms/atoms'
 import { useTrackListQuery } from '@/react-query/queries/use-tracklist.query'
-import { Loader2 } from 'lucide-react'
 import {
   usePlaybackState,
   usePlayerDevice,
@@ -12,13 +11,18 @@ import {
 import { usePlayTrack } from '@/react-query/mutations/play-track.mutation'
 import useOptimistic from '@/hooks/use-optimistic.hook'
 import { getTrackKey } from '@/lib/utils'
+import { Skeleton } from '@/components/ui/skeleton'
+import { Clock } from 'lucide-react'
 
 type TrackItemCollectionProps = {
   playlist: SpotifyApi.SinglePlaylistResponse
+  onScrolled: (startIndex: number) => void
 }
 
-export const TrackItemCollection = ({ playlist }: TrackItemCollectionProps) => {
-  const virtuosoRef = useRef<VirtuosoHandle>(null)
+export const TrackItemCollection = ({
+  playlist,
+  onScrolled,
+}: TrackItemCollectionProps) => {
   const device = usePlayerDevice()
   const playbackState = usePlaybackState()
   const [playerContext, setPlayerContext] = usePlayerContext()
@@ -44,14 +48,6 @@ export const TrackItemCollection = ({ playlist }: TrackItemCollectionProps) => {
     const tracklistTracks = tracks?.pages.map((page) => page.items).flat() || []
     setTrackList([...playlistTracks, ...tracklistTracks])
   }, [tracks])
-
-  const LoadingFooter = () =>
-    !!isFetchingNextPage && (
-      <div className="flex gap-3 text-muted-foreground items-center px-4 py-2">
-        <Loader2 className="animate-spin h-5 w-5" />
-        Loading Tracks
-      </div>
-    )
 
   const handlePlayTrack = async (trackKey: string) => {
     if (!device?.device_id) return
@@ -86,24 +82,28 @@ export const TrackItemCollection = ({ playlist }: TrackItemCollectionProps) => {
       playbackState?.track_window
         .current_track as unknown as SpotifyApi.TrackObjectFull
     )
-    console.log('activeTrackKey', activeTrackKey)
     setActiveTrackKeyDirect(activeTrackKey)
   }, [playbackState?.track_window])
 
   return (
-    <div className="flex h-full flex-col w-full pb-10 gap-1">
-      <ScrollAreaRoot className="h-full overflow-y-auto pr-4">
-        <ScrollAreaViewport ref={setScrollParent}>
+    <div className="flex h-full w-full flex-col gap-1 pb-10">
+      <div className="flex items-center justify-between gap-2 px-4 pb-2">
+        <div className="flex flex-[3] gap-5">
+          <p className="text-xs text-muted-foreground">#</p>
+          <p className="text-xs text-muted-foreground">Title</p>
+        </div>
+        <div className="flex flex-[2] justify-between gap-4">
+          <p className="px-1 text-xs text-muted-foreground">Album</p>
+          <Clock className="mr-6 h-4 w-4 text-muted-foreground" />
+        </div>
+      </div>
+
+      <ScrollAreaRoot className="no-scrollbar h-full overflow-y-auto pr-4">
+        <ScrollAreaViewport className="no-scrollbar" ref={setScrollParent}>
           <Virtuoso
-            initialTopMostItemIndex={
-              playerContext.playlistId === playlist.id
-                ? playerContext.trackIdx
-                : 0
-            }
-            ref={virtuosoRef}
+            rangeChanged={({ startIndex }) => onScrolled(startIndex)}
             data={trackList}
-            increaseViewportBy={200}
-            className="!h-10"
+            className="!h-0"
             customScrollParent={scrollParent ?? undefined}
             endReached={() => {
               if (trackList.length === playlist.tracks.total) return
@@ -124,7 +124,7 @@ export const TrackItemCollection = ({ playlist }: TrackItemCollectionProps) => {
               )
             }}
             components={{
-              Footer: LoadingFooter,
+              Footer: () => isFetchingNextPage && <LoadingNewTracks />,
             }}
           />
         </ScrollAreaViewport>
@@ -132,3 +132,14 @@ export const TrackItemCollection = ({ playlist }: TrackItemCollectionProps) => {
     </div>
   )
 }
+
+const LoadingNewTracks = () => (
+  <div className="my-2 ml-4 flex items-center gap-1">
+    <Skeleton className="h-4 w-7 rounded-sm bg-sub" />
+    <Skeleton className="flex h-9 w-9 items-center gap-2 bg-sub px-2" />
+    <div>
+      <Skeleton className="mb-1 h-4 w-20 rounded-sm bg-sub" />
+      <Skeleton className="h-3 w-[10rem] rounded-sm bg-sub" />
+    </div>
+  </div>
+)
