@@ -1,0 +1,2486 @@
+/* 8008.css */
+.theme_8008 {
+  --bg-color: 217 15% 24%;
+  --main-color: 342 88% 63%;
+  --caret-color: 342 88% 63%;
+  --sub-color: 216 14% 63%;
+  --sub-alt-color: 0 0% 0%;
+  --sub-alt-color: 216 14% 21%;
+  --text-color: 214 19% 93%;
+  --error-color: 0 69% 53%;
+  --error-extra-color: 0 68% 28%;
+  --colorful-error-color: 68 69% 53%;
+  --colorful-error-extra-color: 68 60% 36%;
+}
+
+/* 80s_after_dark.css */
+.theme_80s_after_dark {
+  --bg-color: 236 33% 16%;
+  --main-color: 330 93% 82%;
+  --caret-color: 195 66% 76%;
+  --sub-color: 195 66% 76%;
+  --sub-alt-color: 237 31% 13%;
+  --text-color: 207 22% 90%;
+  --error-color: 58 100% 76%;
+  --error-extra-color: 58 100% 76%;
+  --colorful-error-color: 58 100% 76%;
+  --colorful-error-extra-color: 58 100% 76%;
+}
+
+/* 9009.css */
+.theme_9009 {
+  --bg-color: 45 26% 91%;
+  --main-color: 180 6% 3%;
+  --caret-color: 122 17% 57%;
+  --sub-color: 48 11% 55%;
+  --sub-alt-color: 47 17% 79%;
+  --text-color: 180 6% 3%;
+  --error-color: 7 43% 62%;
+  --error-extra-color: 7 27% 51%;
+  --colorful-error-color: 7 43% 62%;
+  --colorful-error-extra-color: 7 27% 51%;
+}
+
+/* aether.css */
+.theme_aether {
+  --bg-color: 210 33% 9%;
+  --main-color: 312 37% 89%;
+  --caret-color: 312 37% 89%;
+  --sub-color: 293 63% 64%;
+  --sub-alt-color: 263 24% 17%;
+  --text-color: 312 37% 89%;
+  --error-color: 360 100% 66%;
+  --error-extra-color: 349 100% 45%;
+  --colorful-error-color: 360 100% 66%;
+  --colorful-error-extra-color: 349 100% 45%;
+}
+
+/* alduin.css */
+.theme_alduin {
+  --bg-color: 0 0% 11%;
+  --main-color: 50 43% 78%;
+  --caret-color: 0 0% 89%;
+  --sub-color: 0 0% 27%;
+  --sub-alt-color: 0 0% 14%;
+  --text-color: 45 29% 95%;
+  --error-color: 0 33% 53%;
+  --error-extra-color: 14 60% 19%;
+  --colorful-error-color: 0 33% 53%;
+  --colorful-error-extra-color: 14 60% 19%;
+}
+
+/* alpine.css */
+.theme_alpine {
+  --bg-color: 250 10% 45%; /*Background*/
+  --main-color: 0 0% 100%; /*Color after typing, monkeytype logo, WPM Number acc number etc*/
+  --caret-color: 249 10% 37%; /*Cursor Color*/
+  --sub-color: 248 20% 65%;
+  --sub-alt-color: 250 10% 50%; /*WPM text color of scrollbar and general color, before typed color*/
+  --text-color: 0 0% 100%; /*Color of text after hovering over it*/
+  --error-color: 0 77% 53%;
+  --error-extra-color: 0 63% 40%;
+  --colorful-error-color: 0 77% 53%;
+  --colorful-error-extra-color: 0 63% 40%;
+}
+
+/* anti_hero.css */
+.theme_anti_hero {
+  --bg-color: 240 100% 9%;
+  --main-color: 0 100% 84%;
+  --caret-color: 0 0% 100%;
+  --sub-color: 336 100% 62%;
+  --sub-alt-color: 241 87% 15%;
+  --text-color: 306 40% 91%;
+  --error-color: 190 100% 78%;
+  --error-extra-color: 202 34% 50%;
+  --colorful-error-color: 190 100% 78%;
+  --colorful-error-extra-color: 202 34% 50%;
+}
+
+/* arch.css */
+.theme_arch {
+  --bg-color: 228 17% 6%;
+  --main-color: 175 30% 61%;
+  --caret-color: 175 30% 61%;
+  --sub-color: 234 18% 33%;
+  --sub-alt-color: 227 23% 12%;
+  --text-color: 0 5% 96%;
+  --error-color: 356 100% 64%;
+  --error-extra-color: 356 61% 43%;
+  --colorful-error-color: 356 100% 64%;
+  --colorful-error-extra-color: 356 61% 43%;
+}
+
+/* aurora.css */
+.theme_aurora {
+  --bg-color: 201 95% 8%;
+  --main-color: 153 100% 46%;
+  --caret-color: 153 100% 46%;
+  --sub-color: 191 49% 28%;
+  --sub-alt-color: 202 100% 4%;
+  --text-color: 0 0% 100%;
+  --error-color: 313 44% 51%;
+  --error-extra-color: 323 46% 42%;
+  --colorful-error-color: 313 44% 51%;
+  --colorful-error-extra-color: 323 46% 42%;
+}
+
+/* beach.css */
+.theme_beach {
+  --bg-color: 48 100% 84%;
+  --main-color: 152 36% 70%;
+  --caret-color: 41 100% 68%;
+  --sub-color: 41 100% 68%;
+  --sub-alt-color: 44 87% 76%;
+  --text-color: 149 14% 41%;
+  --error-color: 2 100% 71%;
+  --error-extra-color: 2 100% 71%;
+  --colorful-error-color: 2 100% 71%;
+  --colorful-error-extra-color: 2 100% 71%;
+}
+
+/* bento.css */
+.theme_bento {
+  --bg-color: 218 26% 24%;
+  --main-color: 350 100% 74%;
+  --caret-color: 350 100% 74%;
+  --sub-color: 201 31% 42%;
+  --sub-alt-color: 218 26% 20%;
+  --text-color: 17 100% 99%;
+  --error-color: 355 85% 55%;
+  --error-extra-color: 0 85% 60%;
+  --colorful-error-color: 355 97% 56%;
+  --colorful-error-extra-color: 0 85% 60%;
+}
+
+/* bingsu.css */
+.theme_bingsu {
+  /* --bg-color: linear-gradient(215deg, 354 15% 76%, 353 4% 42%); */
+  --bg-color: 349 11% 69%;
+  --main-color: 337 15% 45%;
+  --caret-color: 312 11% 91%;
+  --sub-color: 339 13% 25%;
+  --sub-alt-color: 341 10% 63%;
+  --text-color: 312 11% 91%;
+  --error-color: 338 77% 32%;
+  --error-extra-color: 338 80% 22%;
+  --colorful-error-color: 338 77% 32%;
+  --colorful-error-extra-color: 338 80% 22%;
+}
+
+/* bliss.css */
+.theme_bliss {
+  --bg-color: 180 1% 15%;
+  --main-color: 15 57% 86%;
+  --caret-color: 15 57% 86%;
+  --sub-color: 8 8% 37%;
+  --sub-alt-color: 20 3% 20%;
+  --text-color: 0 0% 100%;
+  --error-color: 0 49% 50%;
+  --error-extra-color: 0 45% 37%;
+  --colorful-error-color: 0 49% 50%;
+  --colorful-error-extra-color: 0 45% 37%;
+}
+
+/* blueberry_dark.css */
+.theme_blueberry_dark {
+  --bg-color: 222 33% 19%;
+  --main-color: 209 100% 84%;
+  --caret-color: 314 52% 39%;
+  --sub-color: 213 29% 50%;
+  --sub-alt-color: 221 32% 15%;
+  --text-color: 209 45% 70%;
+  --error-color: 341 71% 57%;
+  --error-extra-color: 340 47% 72%;
+  --colorful-error-color: 341 71% 57%;
+  --colorful-error-extra-color: 340 47% 72%;
+}
+
+/* blueberry_light.css */
+.theme_blueberry_light {
+  --bg-color: 227 57% 91%;
+  --main-color: 209 20% 39%;
+  --caret-color: 341 71% 57%;
+  --sub-color: 215 25% 66%;
+  --sub-alt-color: 228 32% 82%;
+  --text-color: 208 19% 50%;
+  --error-color: 341 71% 57%;
+  --error-extra-color: 340 47% 72%;
+  --colorful-error-color: 341 71% 57%;
+  --colorful-error-extra-color: 340 47% 72%;
+}
+
+/* blue_dolphin.css */
+.theme_blue_dolphin {
+  --bg-color: 197 100% 16%;
+  --main-color: 305 100% 90%;
+  --caret-color: 187 100% 42%;
+  --sub-color: 186 100% 50%;
+  --sub-alt-color: 195 98% 19%;
+  --text-color: 190 100% 75%;
+  --error-color: 323 100% 87%;
+  --error-extra-color: 357 100% 75%;
+  --colorful-error-color: 270 96% 82%;
+  --colorful-error-extra-color: 357 100% 75%;
+}
+
+/* botanical.css */
+.theme_botanical {
+  --bg-color: 173 14% 55%;
+  --main-color: 193 27% 94%;
+  --caret-color: 176 19% 72%;
+  --sub-color: 171 9% 31%;
+  --sub-alt-color: 174 12% 51%;
+  --text-color: 193 27% 94%;
+  --error-color: 19 79% 84%;
+  --error-extra-color: 19 87% 70%;
+  --colorful-error-color: 19 79% 84%;
+  --colorful-error-extra-color: 19 87% 70%;
+}
+
+/* bouquet.css */
+.theme_bouquet {
+  --bg-color: 165 47% 17%;
+  --main-color: 3 65% 76%;
+  --caret-color: 3 65% 76%;
+  --sub-color: 165 38% 40%;
+  --sub-alt-color: 166 43% 21%;
+  --text-color: 37 34% 87%;
+  --error-color: 11 68% 50%;
+  --error-extra-color: 11 70% 33%;
+  --colorful-error-color: 11 68% 50%;
+  --colorful-error-extra-color: 11 70% 33%;
+}
+
+/* breeze.css */
+.theme_breeze {
+  --bg-color: 28 44% 84%;
+  --main-color: 260 28% 53%;
+  --caret-color: 260 28% 53%;
+  --sub-color: 196 52% 48%;
+  --sub-alt-color: 26 61% 91%;
+  --text-color: 196 55% 24%;
+  --error-color: 260 28% 53%;
+  --error-extra-color: 331 44% 43%;
+  --colorful-error-color: 60 92% 71%;
+  --colorful-error-extra-color: 149 65% 64%;
+}
+
+/* bushido.css */
+.theme_bushido {
+  --bg-color: 220 17% 17%;
+  --main-color: 356 81% 61%;
+  --caret-color: 356 81% 61%;
+  --sub-color: 221 12% 40%;
+  --sub-alt-color: 219 23% 14%;
+  --text-color: 32 42% 94%;
+  --error-color: 356 81% 61%;
+  --error-extra-color: 356 50% 40%;
+  --colorful-error-color: 54 81% 61%;
+  --colorful-error-extra-color: 54 51% 49%;
+}
+
+/* cafe.css */
+.theme_cafe {
+  --bg-color: 33 40% 68%;
+  --main-color: 36 14% 7%;
+  --caret-color: 36 14% 7%;
+  --sub-color: 20 3% 83%;
+  --sub-alt-color: 34 30% 62%;
+  --text-color: 36 14% 7%;
+  --error-color: 357 66% 47%;
+  --error-extra-color: 356 76% 38%;
+  --colorful-error-color: 357 66% 47%;
+  --colorful-error-extra-color: 356 76% 38%;
+}
+
+/* camping.css */
+.theme_camping {
+  --bg-color: 35 69% 94%;
+  --main-color: 108 24% 44%;
+  --caret-color: 108 24% 44%;
+  --sub-color: 35 16% 71%;
+  --sub-alt-color: 36 37% 85%;
+  --text-color: 108 4% 24%;
+  --error-color: 1 38% 49%;
+  --error-extra-color: 1 38% 36%;
+  --colorful-error-color: 1 38% 49%;
+  --colorful-error-extra-color: 1 38% 36%;
+}
+
+/* carbon.css */
+.theme_carbon {
+  --bg-color: 0 0% 19%;
+  --main-color: 25 93% 51%;
+  --caret-color: 25 93% 51%;
+  --sub-color: 0 0% 38%;
+  --sub-alt-color: 0 0% 17%;
+  --text-color: 40 69% 87%;
+  --error-color: 0 79% 54%;
+  --error-extra-color: 354 50% 33%;
+  --colorful-error-color: 0 79% 54%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* catppuccin.css */
+.theme_catppuccin {
+  --bg-color: 240 21% 15%;
+  --caret-color: 0 59% 88%;
+  --main-color: 267 84% 81%;
+  --sub-color: 230 13% 55%;
+  --sub-alt-color: 240 21% 12%;
+  --text-color: 226 64% 88%;
+  --error-color: 343 81% 75%;
+  --error-extra-color: 350 65% 77%;
+  --colorful-error-color: 343 81% 75%;
+  --colorful-error-extra-color: 350 65% 77%;
+}
+
+/* chaos_theory.css */
+.theme_chaos_theory {
+  --bg-color: 248 29% 10%;
+  --main-color: 317 97% 73%;
+  --caret-color: 210 31% 90%;
+  --text-color: 210 31% 90%;
+  --error-color: 317 97% 73%;
+  --sub-color: 228 15% 47%;
+  --sub-alt-color: 243 24% 15%;
+  --error-color: 354 100% 67%;
+  --error-extra-color: 354 49% 46%;
+  --colorful-error-color: 354 100% 67%;
+  --colorful-error-extra-color: 354 49% 46%;
+}
+
+/* cheesecake.css */
+.theme_cheesecake {
+  --bg-color: 40 91% 91%;
+  --main-color: 341 55% 36%;
+  --caret-color: 341 54% 35%;
+  --sub-color: 328 77% 48%;
+  --sub-alt-color: 40 68% 85%;
+  --text-color: 343 6% 21%;
+  --error-color: 130 83% 65%;
+  --error-extra-color: 130 83% 65%;
+  --colorful-error-color: 130 83% 65%;
+  --colorful-error-extra-color: 130 83% 65%;
+}
+
+/* cherry_blossom.css */
+.theme_cherry_blossom {
+  --bg-color: 216 5% 21%;
+  --main-color: 305 60% 60%;
+  --caret-color: 0 0% 100%;
+  --sub-color: 210 4% 49%;
+  --sub-alt-color: 210 4% 18%;
+  --text-color: 55 12% 80%;
+  --error-color: 354 55% 54%;
+  --error-extra-color: 354 69% 49%;
+  --colorful-error-color: 354 85% 51%;
+  --colorful-error-extra-color: 354 80% 24%;
+}
+
+/* comfy.css */
+.theme_comfy {
+  --bg-color: 212 20% 36%;
+  --main-color: 8 78% 87%;
+  --caret-color: 194 31% 71%;
+  --sub-color: 194 31% 71%;
+  --sub-alt-color: 212 21% 33%;
+  --text-color: 9 26% 95%;
+  --error-color: 349 55% 53%;
+  --error-extra-color: 349 55% 53%;
+  --colorful-error-color: 349 55% 53%;
+  --colorful-error-extra-color: 349 55% 53%;
+}
+
+/* copper.css */
+.theme_copper {
+  --bg-color: 13 25% 21%;
+  --main-color: 13 39% 52%;
+  --caret-color: 12 51% 51%;
+  --sub-color: 175 30% 61%;
+  --sub-alt-color: 14 27% 25%;
+  --text-color: 13 16% 89%;
+  --error-color: 0 64% 39%;
+  --error-extra-color: 0 93% 48%;
+  --colorful-error-color: 0 64% 39%;
+  --colorful-error-extra-color: 0 93% 48%;
+}
+
+/* creamsicle.css */
+.theme_creamsicle {
+  --bg-color: 19 100% 71%;
+  --main-color: 60 40% 98%;
+  --caret-color: 60 40% 98%;
+  --sub-color: 19 100% 56%;
+  --sub-alt-color: 19 99% 66%;
+  --text-color: 60 40% 98%;
+  --error-color: 275 86% 36%;
+  --error-extra-color: 275 86% 36%;
+  --colorful-error-color: 275 86% 36%;
+  --colorful-error-extra-color: 275 86% 36%;
+}
+
+/* cyberspace.css */
+.theme_cyberspace {
+  --bg-color: 120 8% 10%;
+  --main-color: 156 100% 40%;
+  --caret-color: 156 100% 40%;
+  --sub-color: 259 51% 65%;
+  --sub-alt-color: 120 7% 8%;
+  --text-color: 153 88% 87%;
+  --error-color: 0 100% 69%;
+  --error-extra-color: 0 67% 49%;
+  --colorful-error-color: 0 100% 69%;
+  --colorful-error-extra-color: 0 67% 49%;
+}
+
+/* cy_red.css */
+.theme_cy_red {
+  --bg-color: 0 49% 29%;
+  --main-color: 0 74% 61%;
+  --caret-color: 0 49% 22%;
+  --sub-color: 0 100% 69%;
+  --sub-alt-color: 0 48% 17%;
+  --text-color: 0 100% 83%;
+  --error-color: 228 49% 71%;
+  --error-extra-color: 228 34% 46%;
+  --colorful-error-color: 228 49% 71%;
+  --colorful-error-extra-color: 228 34% 46%;
+}
+
+/* dark.css */
+.theme_dark {
+  --bg-color: 0 0% 7%;
+  --main-color: 0 0% 93%;
+  --caret-color: 0 0% 93%;
+  --sub-color: 0 0% 27%;
+  --sub-alt-color: 0 0% 10%;
+  --text-color: 0 0% 93%;
+  --error-color: 0 69% 53%;
+  --error-extra-color: 0 68% 28%;
+  --colorful-error-color: 0 69% 53%;
+  --colorful-error-extra-color: 0 68% 28%;
+}
+
+/* dark_magic_girl.css */
+.theme_dark_magic_girl {
+  --bg-color: 202 66% 10%;
+  --main-color: 336 77% 83%;
+  --caret-color: 259 52% 69%;
+  --sub-color: 165 65% 74%;
+  --sub-alt-color: 204 67% 8%;
+  --text-color: 259 52% 69%;
+  --error-color: 334 72% 63%;
+  --error-extra-color: 334 72% 63%;
+  --colorful-error-color: 171 100% 35%;
+  --colorful-error-extra-color: 334 72% 63%;
+}
+
+/* dark_note.css */
+.theme_dark_note {
+  --bg-color: 0 0% 12%;
+  --main-color: 35 82% 72%;
+  --caret-color: 326 11% 88%;
+  --sub-color: 192 13% 52%;
+  --sub-alt-color: 0 0% 8%;
+  --text-color: 217 61% 89%;
+  --error-color: 0 100% 50%;
+  --error-extra-color: 199 27% 47%;
+  --colorful-error-color: var(--error-color);
+  --colorful-error-extra-color: var(--error-extra-color);
+  /* custom vars */
+  --theme-bg-stripe-color: 229 11% 29%;
+  --theme-bg-stripe-opacity: 0.1;
+  --theme-accent-stripe-color: 41 100% 37%;
+  --current-color: var(--text-color);
+}
+
+/* darling.css */
+.theme_darling {
+  --bg-color: 354 96% 89%;
+  --main-color: 0 0% 100%;
+  --caret-color: 0 0% 100%;
+  --sub-color: 0 100% 32%;
+  --sub-alt-color: 357 68% 84%;
+  --text-color: 0 0% 100%;
+  --error-color: 213 73% 53%;
+  --error-extra-color: 213 73% 53%;
+  --colorful-error-color: 213 73% 53%;
+  --colorful-error-extra-color: 213 73% 53%;
+  --font: Roboto Mono;
+}
+
+/* deku.css */
+.theme_deku {
+  --bg-color: 180 93% 28%;
+  --main-color: 2 58% 45%;
+  --caret-color: 2 58% 45%;
+  --sub-color: 185 41% 25%;
+  --sub-alt-color: 181 80% 27%;
+  --text-color: 37 45% 94%;
+  --error-color: 2 58% 45%;
+  --error-extra-color: 0 71% 19%;
+  --colorful-error-color: 54 75% 49%;
+  --colorful-error-extra-color: 56 80% 31%;
+}
+
+/* desert_oasis.css */
+.theme_desert_oasis {
+  --bg-color: 41 100% 92%; /*Background*/
+  --main-color: 45 99% 41%; /*Color after typing, monkeytype logo, WPM Number acc number etc*/
+  --caret-color: 216 99% 61%; /*Cursor Color*/
+  --sub-color: 217 100% 50%; /*WPM text color of scrollbar and general color, before typed color*/
+  --sub-alt-color: 42 58% 83%;
+  --text-color: 47 100% 10%; /*Color of text after hovering over it*/
+  --error-color: 94 49% 49%;
+  --error-extra-color: 92 52% 32%;
+  --colorful-error-color: 94 49% 49%;
+  --colorful-error-extra-color: 92 52% 32%;
+}
+
+/* dev.css */
+.theme_dev {
+  --bg-color: 217 19% 13%;
+  --main-color: 195 72% 49%;
+  --caret-color: 220 22% 38%;
+  --sub-color: 220 22% 38%;
+  --sub-alt-color: 215 22% 11%;
+  --text-color: 60 18% 75%;
+  --error-color: 354 74% 41%;
+  --error-extra-color: 354 75% 30%;
+  --colorful-error-color: 354 74% 41%;
+  --colorful-error-extra-color: 354 75% 30%;
+}
+
+/* diner.css */
+.theme_diner {
+  --bg-color: 206 29% 46%;
+  --main-color: 48 46% 56%;
+  --caret-color: 7 43% 47%;
+  --sub-color: 216 30% 38%;
+  --sub-alt-color: 207 29% 42%;
+  --text-color: 50 26% 83%;
+  --error-color: 7 43% 47%;
+  --error-extra-color: 354 50% 33%;
+  --colorful-error-color: 7 43% 47%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* dino.css */
+.theme_dino {
+  --bg-color: 0 0% 100%;
+  --main-color: 140 65% 55%;
+  --caret-color: 140 65% 55%;
+  --sub-color: 0 0% 84%;
+  --sub-alt-color: 138 83% 89%;
+  --text-color: 144 8% 12%;
+  --error-color: 0 100% 69%;
+  --error-extra-color: 0 67% 49%;
+  --colorful-error-color: 0 100% 69%;
+  --colorful-error-extra-color: 0 67% 49%;
+}
+
+/* discord.css */
+.theme_discord {
+  --bg-color: 223 7% 21%;
+  --main-color: 235 77% 64%;
+  --caret-color: 235 77% 64%;
+  --sub-color: 229 6% 36%;
+  --sub-alt-color: 220 7% 18%;
+  --text-color: 223 11% 88%;
+  --error-color: 2 70% 58%;
+  --error-extra-color: 2 70% 58%;
+  --colorful-error-color: 2 70% 58%;
+  --colorful-error-extra-color: 2 70% 58%;
+}
+
+/* dmg.css */
+.theme_dmg {
+  --bg-color: 210 3% 86%;
+  --main-color: 332 76% 39%;
+  --caret-color: 231 45% 40%;
+  --sub-color: 233 52% 46%;
+  --sub-alt-color: 231 18% 78%;
+  --text-color: 0 0% 25%;
+  --error-color: 332 76% 39%;
+  --error-extra-color: 334 48% 39%;
+  --colorful-error-color: 85 32% 48%;
+  --colorful-error-extra-color: 120 34% 29%;
+}
+
+/* dollar.css */
+.theme_dollar {
+  --bg-color: 60 23% 86%;
+  --main-color: 120 12% 48%;
+  --caret-color: 135 3% 27%;
+  --sub-color: 80 20% 51%;
+  --sub-alt-color: 78 15% 78%;
+  --text-color: 132 3% 34%;
+  --error-color: 0 100% 42%;
+  --error-extra-color: 0 86% 74%;
+  --colorful-error-color: 354 55% 54%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* dots.css */
+.theme_dots {
+  --bg-color: 227 28% 10%;
+  --caret-color: 0 0% 100%;
+  --main-color: 0 0% 100%;
+  --sub-color: 228 15% 47%;
+  --sub-alt-color: 229 24% 14%;
+  --text-color: 0 0% 100%;
+  --error-color: 0 69% 53%;
+  --error-extra-color: 0 68% 28%;
+  --colorful-error-color: 0 69% 53%;
+  --colorful-error-extra-color: 0 68% 28%;
+}
+
+/* dracula.css */
+.theme_dracula {
+  --bg-color: 231 15% 18%;
+  --main-color: 265 89% 78%;
+  --caret-color: 265 89% 78%;
+  --sub-color: 225 27% 51%;
+  --sub-alt-color: 230 16% 15%;
+  --text-color: 60 30% 96%;
+  --error-color: 0 100% 67%;
+  --error-extra-color: 65 92% 76%;
+  --colorful-error-color: 0 100% 67%;
+  --colorful-error-extra-color: 65 92% 76%;
+}
+
+/* drowning.css */
+.theme_drowning {
+  --bg-color: 244 23% 12%;
+  --main-color: 219 42% 50%;
+  --caret-color: 219 77% 61%;
+  --sub-color: 216 27% 43%;
+  --sub-alt-color: 236 22% 15%;
+  --text-color: 240 10% 62%;
+  --error-color: 354 45% 54%;
+  --error-extra-color: 354 50% 33%;
+  --colorful-error-color: 354 45% 54%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* dualshot.css */
+.theme_dualshot {
+  --bg-color: 0 0% 45%;
+  --main-color: 180 1% 13%;
+  --caret-color: 180 1% 13%;
+  --sub-color: 0 0% 67%;
+  --sub-alt-color: 0 0% 39%;
+  --text-color: 180 1% 13%;
+  --error-color: 357 66% 47%;
+  --error-extra-color: 356 76% 38%;
+  --colorful-error-color: 357 66% 47%;
+  --colorful-error-extra-color: 356 76% 38%;
+}
+
+/* earthsong.css */
+.theme_earthsong {
+  /*Personal preference: 'flip test colors'= on*/
+  --bg-color: 30 11% 15%;
+  --main-color: 122 30% 45%;
+  --caret-color: 192 82% 40%;
+  --sub-color: 39 91% 57%;
+  --sub-alt-color: 36 9% 10%;
+  --text-color: 30 55% 78%;
+  --error-color: 354 50% 33%;
+  --error-extra-color: 4 100% 68%;
+  --colorful-error-color: 354 50% 33%;
+  --colorful-error-extra-color: 4 100% 68%;
+}
+
+/* everblush.css */
+.theme_everblush {
+  --bg-color: 198 20% 10%;
+  --caret-color: 180 39% 59%;
+  --main-color: 110 46% 65%;
+  --sub-color: 168 2% 52%;
+  --sub-alt-color: 198 12% 16%;
+  --text-color: 0 0% 85%;
+  --error-color: 0 68% 68%;
+  --error-extra-color: 0 78% 72%;
+  --colorful-error-color: 0 68% 68%;
+  --colorful-error-extra-color: 0 78% 72%;
+}
+
+/* evil_eye.css */
+.theme_evil_eye {
+  --bg-color: 199 100% 38%;
+  --main-color: 37 45% 94%;
+  --caret-color: 37 45% 94%;
+  --sub-color: 207 99% 31%;
+  --sub-alt-color: 203 88% 40%;
+  --text-color: 240 2% 9%;
+  --error-color: 354 55% 54%;
+  --error-extra-color: 354 50% 33%;
+  --colorful-error-color: 354 55% 54%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* ez_mode.css */
+.theme_ez_mode {
+  --bg-color: 208 100% 39%;
+  --main-color: 315 94% 68%;
+  --caret-color: 118 67% 57%;
+  --sub-color: 208 93% 52%;
+  --sub-alt-color: 208 100% 34%;
+  --text-color: 0 0% 100%;
+  --error-color: 118 67% 57%;
+  --error-extra-color: 117 52% 48%;
+  --colorful-error-color: 118 67% 57%;
+  --colorful-error-extra-color: 117 52% 48%;
+}
+
+/* fire.css */
+.theme_fire {
+  --bg-color: 0 100% 3%;
+  --main-color: 0 81% 39%;
+  --caret-color: 0 81% 39%;
+  --sub-color: 0 33% 31%;
+  --sub-alt-color: 0 52% 8%;
+  --text-color: 0 0% 100%;
+  --error-color: 234 59% 45%;
+  --error-extra-color: 234 36% 41%;
+  --colorful-error-color: 234 59% 45%;
+  --colorful-error-extra-color: 234 36% 41%;
+}
+
+/* fledgling.css */
+.theme_fledgling {
+  --bg-color: 273 8% 23%;
+  --main-color: 351 96% 71%;
+  --caret-color: 0 0% 28%;
+  --sub-color: 340 25% 45%;
+  --sub-alt-color: 270 10% 20%;
+  --text-color: 6 28% 86%;
+  --error-color: 351 91% 55%;
+  --error-extra-color: 351 100% 37%;
+  --colorful-error-color: 351 100% 52%;
+  --colorful-error-extra-color: 0 0% 0%;
+}
+
+/* fleuriste.css */
+.theme_fleuriste {
+  --bg-color: 36 30% 68%;
+  --main-color: 162 17% 30%;
+  --caret-color: 37 21% 45%;
+  --sub-color: 331 29% 30%;
+  --sub-alt-color: 36 22% 62%;
+  --text-color: 161 47% 7%;
+  --error-color: 0 100% 30%;
+  --error-extra-color: 0 75% 31%;
+  --colorful-error-color: 0 48% 44%;
+  --colorful-error-extra-color: 0 46% 52%;
+}
+
+/* floret.css */
+.theme_floret {
+  --bg-color: 187 100% 9%;
+  --main-color: 46 100% 71%;
+  --caret-color: 57 52% 51%;
+  --sub-color: 193 13% 53%;
+  --sub-alt-color: 186 38% 15%;
+  --text-color: 0 0% 90%;
+  --error-color: 28 100% 27%;
+  --error-extra-color: 192 100% 28%;
+  --colorful-error-color: 28 100% 27%;
+  --colorful-error-extra-color: 193 21% 49%;
+}
+
+/* froyo.css */
+.theme_froyo {
+  --bg-color: 41 27% 84%;
+  --main-color: 180 1% 49%;
+  --caret-color: 180 1% 49%;
+  --sub-color: 44 35% 53%;
+  --sub-alt-color: 40 17% 79%;
+  --text-color: 180 1% 49%;
+  --error-color: 6 82% 71%;
+  --error-extra-color: 6 60% 59%;
+  --colorful-error-color: 6 82% 71%;
+  --colorful-error-extra-color: 6 60% 59%;
+}
+
+/* frozen_llama.css */
+.theme_frozen_llama {
+  --bg-color: 174 77% 78%;
+  --main-color: 265 42% 46%;
+  --caret-color: 0 0% 100%;
+  --sub-color: 261 96% 78%;
+  --sub-alt-color: 174 68% 70%;
+  --text-color: 0 0% 100%;
+  --error-color: 359 78% 52%;
+  --error-extra-color: 359 78% 52%;
+  --colorful-error-color: 359 78% 52%;
+  --colorful-error-extra-color: 359 78% 52%;
+}
+
+/* fruit_chew.css */
+.theme_fruit_chew {
+  --bg-color: 300 4% 83%;
+  --main-color: 297 52% 25%;
+  --caret-color: 0 70% 43%;
+  --sub-color: 298 14% 66%;
+  --sub-alt-color: 300 9% 77%;
+  --text-color: 300 4% 15%;
+  --error-color: 2 70% 44%;
+  --error-extra-color: 0 63% 40%;
+  --colorful-error-color: 2 70% 44%;
+  --colorful-error-extra-color: 0 63% 40%;
+}
+
+/* fundamentals.css */
+.theme_fundamentals {
+  --bg-color: 180 1% 45%;
+  --main-color: 125 17% 57%;
+  --caret-color: 193 66% 28%;
+  --sub-color: 30 10% 77%;
+  --sub-alt-color: 180 1% 40%;
+  --text-color: 0 0% 7%;
+  --error-color: 266 27% 38%;
+  --error-extra-color: 265 28% 27%;
+  --colorful-error-color: 266 27% 38%;
+  --colorful-error-extra-color: 265 28% 27%;
+}
+
+/* future_funk.css */
+.theme_future_funk {
+  --bg-color: 267 46% 19%;
+  --main-color: 37 45% 94%;
+  --caret-color: 37 45% 94%;
+  --sub-color: 267 100% 78%;
+  --sub-alt-color: 266 45% 16%;
+  --text-color: 37 45% 94%;
+  --error-color: 333 84% 62%;
+  --error-extra-color: 332 74% 43%;
+  --colorful-error-color: 333 84% 62%;
+  --colorful-error-extra-color: 332 74% 43%;
+}
+
+/* godspeed.css */
+.theme_godspeed {
+  --bg-color: 47 39% 86%;
+  --main-color: 201 34% 70%;
+  --caret-color: 45 85% 71%;
+  --sub-color: 49 11% 64%;
+  --sub-alt-color: 46 24% 83%;
+  --text-color: 216 2% 40%;
+  --error-color: 354 55% 54%;
+  --error-extra-color: 354 50% 33%;
+  --colorful-error-color: 354 55% 54%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* graen.css */
+.theme_graen {
+  --bg-color: 150 11% 21%;
+  --main-color: 34 16% 58%;
+  --caret-color: 351 66% 23%;
+  --sub-color: 144 9% 10%;
+  --sub-alt-color: 144 12% 24%;
+  --text-color: 34 16% 58%;
+  --error-color: 351 66% 23%;
+  --error-extra-color: 350 86% 20%;
+  --colorful-error-color: 351 66% 23%;
+  --colorful-error-extra-color: 350 86% 20%;
+}
+
+/* grand_prix.css */
+.theme_grand_prix {
+  --bg-color: 213 26% 29%;
+  --main-color: 66 62% 51%;
+  --caret-color: 66 62% 51%;
+  --sub-color: 213 16% 43%;
+  --sub-alt-color: 215 24% 34%;
+  --text-color: 224 22% 80%;
+  --error-color: 14 97% 57%;
+  --error-extra-color: 14 97% 57%;
+  --colorful-error-color: 14 97% 57%;
+  --colorful-error-extra-color: 14 97% 57%;
+}
+
+/* grape.css */
+.theme_grape {
+  --bg-color: 283 100% 12%;
+  --main-color: 34 100% 50%;
+  --caret-color: 34 100% 50%;
+  --sub-color: 313 53% 28%;
+  --sub-alt-color: 281 100% 9%;
+  --text-color: 0 0% 100%;
+  --error-color: 340 100% 63%;
+  --error-extra-color: 340 71% 44%;
+  --colorful-error-color: 340 100% 63%;
+  --colorful-error-extra-color: 340 71% 44%;
+}
+
+/* gruvbox_dark.css */
+.theme_gruvbox_dark {
+  --bg-color: 0 0% 16%;
+  --main-color: 40 73% 49%;
+  --caret-color: 42 95% 58%;
+  --sub-color: 27 10% 36%;
+  --sub-alt-color: 0 0% 13%;
+  --text-color: 43 59% 81%;
+  --error-color: 6 96% 59%;
+  --error-extra-color: 2 75% 46%;
+  --colorful-error-color: 2 75% 46%;
+  --colorful-error-extra-color: 358 100% 31%;
+}
+
+/* gruvbox_light.css */
+.theme_gruvbox_light {
+  --bg-color: 48 87% 88%;
+  --main-color: 122 21% 51%;
+  --caret-color: 122 21% 51%;
+  --sub-color: 35 17% 59%;
+  --sub-alt-color: 44 37% 77%;
+  --text-color: 20 5% 22%;
+  --error-color: 2 75% 46%;
+  --error-extra-color: 358 100% 31%;
+  --colorful-error-color: 2 75% 46%;
+  --colorful-error-extra-color: 358 100% 31%;
+}
+
+/* hammerhead.css */
+.theme_hammerhead {
+  --bg-color: 229 73% 4%;
+  --main-color: 170 56% 56%;
+  --caret-color: 170 56% 56%;
+  --sub-color: 208 43% 23%;
+  --sub-alt-color: 210 60% 10%;
+  --text-color: 193 49% 92%;
+  --error-color: 0 77% 53%;
+  --error-extra-color: 0 63% 40%;
+  --colorful-error-color: 0 77% 53%;
+  --colorful-error-extra-color: 0 63% 40%;
+}
+
+/* hanok.css */
+.theme_hanok {
+  --bg-color: 43 21% 81%;
+  --main-color: 25 32% 24%;
+  --caret-color: 25 32% 24%;
+  --sub-color: 24 20% 45%;
+  --sub-alt-color: 34 23% 75%;
+  --text-color: 180 2% 23%;
+  --error-color: 354 55% 54%;
+  --error-extra-color: 354 50% 33%;
+  --colorful-error-color: 354 55% 54%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* hedge.css */
+.theme_hedge {
+  --bg-color: 99 31% 28%;
+  --main-color: 98 32% 45%;
+  --caret-color: 57 68% 84%;
+  --sub-color: 52 61% 82%;
+  --sub-alt-color: 98 31% 24%;
+  --text-color: 49 67% 90%;
+  --error-color: 359 57% 52%;
+  --error-extra-color: 352 50% 31%;
+  --colorful-error-color: 12 76% 61%;
+  --colorful-error-extra-color: 27 87% 67%;
+}
+
+/* honey.css */
+.theme_honey {
+  --bg-color: 42 100% 47%;
+  --main-color: 57 100% 64%;
+  --caret-color: 41 100% 24%;
+  --sub-color: 39 100% 33%;
+  --sub-alt-color: 42 100% 44%;
+  --text-color: 53 62% 87%;
+  --error-color: 0 73% 54%;
+  --error-extra-color: 0 56% 27%;
+  --colorful-error-color: 0 73% 54%;
+  --colorful-error-extra-color: 0 56% 27%;
+}
+
+/* horizon.css */
+.theme_horizon {
+  --bg-color: 228 15% 13%;
+  --main-color: 31 33% 65%;
+  --caret-color: 0 0% 73%;
+  --sub-color: 14 60% 65%;
+  --sub-alt-color: 232 15% 11%;
+  --text-color: 0 0% 73%;
+  --error-color: 346 61% 58%;
+  --error-extra-color: 0 100% 62%;
+  --colorful-error-color: 346 61% 58%;
+  --colorful-error-extra-color: 346 61% 58%;
+}
+
+/* husqy.css */
+.theme_husqy {
+  --bg-color: 0 0% 0%;
+  --main-color: 270 100% 77%;
+  --caret-color: 270 100% 77%;
+  --sub-color: 270 100% 59%;
+  --sub-alt-color: 300 100% 6%;
+  --text-color: 270 100% 92%;
+  --error-color: 0 69% 53%;
+  --error-extra-color: 0 68% 28%;
+  --colorful-error-color: 0 69% 53%;
+  --colorful-error-extra-color: 0 68% 28%;
+}
+
+/* iceberg_dark.css */
+.theme_iceberg_dark {
+  --bg-color: 229 20% 11%;
+  --caret-color: 230 15% 85%;
+  --main-color: 215 37% 65%;
+  --sub-color: 230 14% 41%;
+  --sub-alt-color: 231 17% 16%;
+  --text-color: 229 11% 80%;
+  --error-color: 0 65% 68%;
+  --error-extra-color: 25 65% 68%;
+  --colorful-error-color: 0 65% 68%;
+  --colorful-error-extra-color: 25 65% 68%;
+}
+
+/* iceberg_light.css */
+.theme_iceberg_light {
+  --bg-color: 225 10% 92%;
+  --caret-color: 230 25% 20%;
+  --main-color: 220 56% 40%;
+  --sub-color: 230 16% 72%;
+  --sub-alt-color: 231 16% 83%;
+  --text-color: 230 20% 25%;
+  --error-color: 340 55% 56%;
+  --error-extra-color: 340 59% 51%;
+  --colorful-error-color: 340 55% 56%;
+  --colorful-error-extra-color: 340 59% 51%;
+}
+
+/* incognito.css */
+.theme_incognito {
+  --bg-color: 0 0% 5%;
+  --main-color: 36 100% 50%;
+  --caret-color: 36 100% 50%;
+  --sub-color: 0 0% 33%;
+  --sub-alt-color: 0 0% 8%;
+  --text-color: 0 0% 78%;
+  --error-color: 0 75% 58%;
+  --error-extra-color: 0 75% 58%;
+  --colorful-error-color: 0 54% 45%;
+  --colorful-error-extra-color: 0 54% 45%;
+}
+
+/* ishtar.css */
+.theme_ishtar {
+  --bg-color: 0 0% 13%;
+  --main-color: 5 85% 31%;
+  --caret-color: 33 53% 51%;
+  --sub-color: 33 11% 46%;
+  --sub-alt-color: 0 0% 15%;
+  --text-color: 33 85% 87%;
+  --error-color: 5 84% 40%;
+  --error-extra-color: 0 68% 28%;
+  --colorful-error-color: 68 69% 53%;
+  --colorful-error-extra-color: 68 60% 36%;
+}
+
+/* iv_clover.css */
+.theme_iv_clover {
+  --bg-color: 0 0% 63%;
+  --main-color: 355 17% 29%;
+  --caret-color: 0 0% 55%;
+  --sub-color: 0 0% 21%;
+  --sub-alt-color: 0 0% 75%;
+  --text-color: 300 13% 20%;
+  --error-color: 356 14% 51%;
+  --error-extra-color: 356 14% 53%;
+  --colorful-error-color: 35 32% 53%;
+  --colorful-error-extra-color: 35 35% 57%;
+}
+
+/* iv_spade.css */
+.theme_iv_spade {
+  --bg-color: 0 0% 5%;
+  --main-color: 35 35% 57%;
+  --caret-color: 0 0% 75%;
+  --sub-color: 0 0% 25%;
+  --sub-alt-color: 0 0% 7%;
+  --text-color: 356 16% 79%;
+  --error-color: 356 15% 55%;
+  --error-extra-color: 356 16% 59%;
+  --colorful-error-color: 35 35% 57%;
+  --colorful-error-extra-color: 35 38% 61%;
+}
+
+/* joker.css */
+.theme_joker {
+  --bg-color: 271 45% 10%;
+  --main-color: 82 76% 49%;
+  --caret-color: 82 76% 49%;
+  --sub-color: 265 32% 48%;
+  --sub-alt-color: 271 59% 8%;
+  --text-color: 262 49% 92%;
+  --error-color: 0 77% 53%;
+  --error-extra-color: 0 63% 40%;
+  --colorful-error-color: 0 77% 53%;
+  --colorful-error-extra-color: 0 63% 40%;
+}
+
+/* laser.css */
+.theme_laser {
+  --bg-color: 250 43% 19%;
+  --main-color: 186 100% 34%;
+  --caret-color: 186 100% 34%;
+  --sub-color: 339 68% 43%;
+  --sub-alt-color: 252 44% 16%;
+  --text-color: 185 22% 88%;
+  --error-color: 72 100% 42%;
+  --error-extra-color: 72 100% 25%;
+  --colorful-error-color: 72 100% 42%;
+  --colorful-error-extra-color: 72 100% 25%;
+}
+
+/* lavender.css */
+.theme_lavender {
+  --bg-color: 255 19% 71%;
+  --main-color: 250 12% 90%;
+  --caret-color: 250 12% 90%;
+  --sub-color: 250 12% 90%;
+  --sub-alt-color: 252 18% 67%;
+  --text-color: 253 21% 21%;
+  --error-color: 354 55% 54%;
+  --error-extra-color: 354 50% 33%;
+  --colorful-error-color: 354 55% 54%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* leather.css */
+.theme_leather {
+  --bg-color: 21 40% 47%;
+  --main-color: 36 100% 87%;
+  --caret-color: 13 84% 61%;
+  --sub-color: 20 50% 34%;
+  --sub-alt-color: 21 42% 43%;
+  --text-color: 36 100% 87%;
+  --error-color: 354 55% 54%;
+  --error-extra-color: 354 50% 33%;
+  --colorful-error-color: 354 55% 54%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* lilac_mist.css */
+.theme_lilac_mist {
+  --bg-color: 315 100% 99%;
+  --main-color: 324 48% 49%;
+  --caret-color: 308, 53%, 74%, 0.851;
+  --sub-color: 324 55% 73%;
+  --sub-alt-color: 293, 35%, 90%, 0.851;
+  --text-color: 309 38% 26%;
+  --error-color: 2 100% 71%;
+  --error-extra-color: 2 100% 71%;
+  --colorful-error-color: 296 34% 63%;
+  --colorful-error-extra-color: 305 49% 50%;
+}
+
+/* lil_dragon.css */
+.theme_lil_dragon {
+  --bg-color: 283 30% 91%;
+  --main-color: 263 60% 60%;
+  --caret-color: 222 34% 20%;
+  --sub-color: 269 23% 64%;
+  --sub-alt-color: 282 32% 83%;
+  --text-color: 222 34% 20%;
+  --error-color: 327 86% 77%;
+  --error-extra-color: 324 82% 71%;
+  --colorful-error-color: 327 86% 77%;
+  --colorful-error-extra-color: 324 82% 71%;
+}
+
+/* lime.css */
+.theme_lime {
+  --bg-color: 203 7% 52%;
+  --main-color: 83 50% 52%;
+  --caret-color: 83 50% 52%;
+  --sub-color: 205 7% 32%;
+  --sub-alt-color: 200 6% 48%;
+  --text-color: 207 29% 81%;
+  --error-color: 10 83% 52%;
+  --error-extra-color: 354 50% 33%;
+  --colorful-error-color: 10 83% 52%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* luna.css */
+.theme_luna {
+  --bg-color: 254 31% 16%;
+  --main-color: 343 88% 71%;
+  --caret-color: 343 88% 71%;
+  --sub-color: 268 37% 36%;
+  --sub-alt-color: 261 33% 21%;
+  --text-color: 343 100% 95%;
+  --error-color: 42 83% 63%;
+  --error-extra-color: 42 63% 47%;
+  --colorful-error-color: 42 83% 63%;
+  --colorful-error-extra-color: 42 63% 47%;
+}
+
+/* macroblank.css */
+.theme_macroblank {
+  --bg-color: 161 26% 76%;
+  --main-color: 9 79% 42%;
+  --caret-color: 343 3% 45%;
+  --sub-color: 165 3% 46%;
+  --sub-alt-color: 154 25% 82%;
+  --text-color: 0 78% 16%;
+  --error-color: 9 79% 42%;
+  --error-extra-color: 0 100% 98%;
+  --colorful-error-color: 0 100% 98%;
+  --colorful-error-extra-color: 38 100% 88%;
+}
+
+/* magic_girl.css */
+.theme_magic_girl {
+  --bg-color: 0 0% 100%;
+  --main-color: 336 77% 83%;
+  --caret-color: 334 72% 63%;
+  --sub-color: 165 65% 74%;
+  --sub-alt-color: 0 0% 95%;
+  --text-color: 169 100% 34%;
+  --error-color: 45 100% 79%;
+  --error-extra-color: 334 72% 63%;
+  --colorful-error-color: 47 100% 76%;
+  --colorful-error-extra-color: 334 72% 63%;
+}
+
+/* mashu.css */
+.theme_mashu {
+  --bg-color: 240 1% 17%;
+  --main-color: 257 20% 51%;
+  --caret-color: 257 20% 51%;
+  --sub-color: 354 42% 74%;
+  --sub-alt-color: 262 10% 16%;
+  --text-color: 352 35% 92%;
+  --error-color: 11 68% 50%;
+  --error-extra-color: 11 70% 33%;
+  --colorful-error-color: 11 68% 50%;
+  --colorful-error-extra-color: 11 70% 33%;
+}
+
+/* matcha_moccha.css */
+.theme_matcha_moccha {
+  --bg-color: 21 38% 23%;
+  --main-color: 101 44% 57%;
+  --caret-color: 101 44% 57%;
+  --sub-color: 21 37% 45%;
+  --sub-alt-color: 22 38% 19%;
+  --text-color: 32 46% 86%;
+  --error-color: 6 96% 59%;
+  --error-extra-color: 2 75% 46%;
+  --colorful-error-color: 6 96% 59%;
+  --colorful-error-extra-color: 2 75% 46%;
+}
+
+/* material.css */
+.theme_material {
+  --bg-color: 200 19% 18%;
+  --main-color: 174 42% 65%;
+  --caret-color: 174 42% 65%;
+  --sub-color: 197 20% 37%;
+  --sub-alt-color: 200 19% 22%;
+  --text-color: 208 35% 93%;
+  --error-color: 6 96% 59%;
+  --error-extra-color: 2 75% 46%;
+  --colorful-error-color: 6 96% 59%;
+  --colorful-error-extra-color: 2 75% 46%;
+}
+
+/* matrix.css */
+.theme_matrix {
+  --bg-color: 0 0% 0%;
+  --main-color: 115 100% 50%;
+  --caret-color: 115 100% 50%;
+  --sub-color: 120 100% 20%;
+  --sub-alt-color: 114 100% 6%;
+  --text-color: 115 100% 90%;
+  --error-color: 0 69% 53%;
+  --error-extra-color: 0 68% 28%;
+  --colorful-error-color: 0 69% 53%;
+  --colorful-error-extra-color: 0 68% 28%;
+}
+
+/* menthol.css */
+.theme_menthol {
+  --bg-color: 164 100% 38%;
+  --main-color: 0 0% 100%;
+  --caret-color: 158 96% 80%;
+  --sub-color: 154 62% 25%;
+  --sub-alt-color: 161 77% 39%;
+  --text-color: 0 0% 100%;
+  --error-color: 0 73% 56%;
+  --error-extra-color: 0 65% 42%;
+  --colorful-error-color: 0 73% 56%;
+  --colorful-error-extra-color: 0 65% 42%;
+}
+
+/* metaverse.css */
+.theme_metaverse {
+  --bg-color: 0 0% 14%;
+  --main-color: 356 69% 50%;
+  --caret-color: 356 69% 50%;
+  --sub-color: 0 0% 37%;
+  --sub-alt-color: 0 0% 11%;
+  --text-color: 0 0% 91%;
+  --error-color: 0 69% 53%;
+  --error-extra-color: 0 68% 28%;
+  --colorful-error-color: 61 69% 53%;
+  --colorful-error-extra-color: 64 68% 28%;
+}
+
+/* metropolis.css */
+.theme_metropolis {
+  --bg-color: 207 49% 12%;
+  --main-color: 173 48% 55%;
+  --caret-color: 173 48% 55%;
+  --sub-color: 200 45% 36%;
+  --sub-alt-color: 206 51% 9%;
+  --text-color: 198 32% 92%;
+  --error-color: 11 68% 50%;
+  --error-extra-color: 11 70% 33%;
+  --colorful-error-color: 11 68% 50%;
+  --colorful-error-extra-color: 11 70% 33%;
+}
+
+/* mexican.css */
+.theme_mexican {
+  --bg-color: 37 93% 59%;
+  --main-color: 317 69% 41%;
+  --caret-color: 0 0% 93%;
+  --sub-color: 0 0% 20%;
+  --sub-alt-color: 317 69% 41%;
+  --text-color: 0 0% 93%;
+  --error-color: 0 69% 53%;
+  --error-extra-color: 0 68% 28%;
+  --colorful-error-color: 0 69% 53%;
+  --colorful-error-extra-color: 0 68% 28%;
+}
+
+/* miami.css */
+.theme_miami {
+  --bg-color: 341 87% 64%;
+  --main-color: 178 96% 45%;
+  --caret-color: 140 84% 80%;
+  --text-color: 334 19% 93%;
+  --sub-color: 340 57% 37%;
+  --sub-alt-color: 340 67% 57%;
+  --error-color: 55 100% 78%;
+  --error-extra-color: 55 36% 57%;
+  --colorful-error-color: 55 100% 78%;
+  --colorful-error-extra-color: 55 36% 57%;
+}
+
+/* miami_nights.css */
+.theme_miami_nights {
+  --bg-color: 240 4% 10%;
+  --main-color: 333 71% 64%;
+  --caret-color: 333 71% 64%;
+  --sub-color: 183 49% 52%;
+  --sub-alt-color: 240 3% 6%;
+  --text-color: 0 0% 100%;
+  --error-color: 55 100% 78%;
+  --error-extra-color: 55 35% 56%;
+  --colorful-error-color: 55 100% 78%;
+  --colorful-error-extra-color: 55 35% 56%;
+}
+
+/* midnight.css */
+.theme_midnight {
+  --bg-color: 218 27% 6%;
+  --main-color: 220 25% 50%;
+  --caret-color: 220 25% 50%;
+  --sub-color: 218 25% 30%;
+  --sub-alt-color: 218 29% 11%;
+  --text-color: 218 25% 70%;
+  --error-color: 0 40% 60%;
+  --error-extra-color: 20 40% 60%;
+  --colorful-error-color: 0 40% 60%;
+  --colorful-error-extra-color: 20 40% 60%;
+}
+
+/* milkshake.css */
+.theme_milkshake {
+  --bg-color: 0 0% 100%;
+  --main-color: 222 34% 20%;
+  --caret-color: 222 34% 20%;
+  --sub-color: 190 73% 64%;
+  --sub-alt-color: 191 48% 91%;
+  --text-color: 222 34% 20%;
+  --error-color: 349 75% 78%;
+  --error-extra-color: 349 63% 72%;
+  --colorful-error-color: 349 75% 78%;
+  --colorful-error-extra-color: 349 63% 72%;
+}
+
+/* mint.css */
+.theme_mint {
+  --bg-color: 204 90% 19%;
+  --main-color: 147 64% 61%;
+  --caret-color: 147 64% 61%;
+  --sub-color: 199 62% 33%;
+  --sub-alt-color: 204 84% 17%;
+  --text-color: 84 50% 92%;
+  --error-color: 341 87% 64%;
+  --error-extra-color: 341 49% 43%;
+  --colorful-error-color: 341 87% 64%;
+  --colorful-error-extra-color: 341 49% 43%;
+}
+
+/* mizu.css */
+.theme_mizu {
+  --bg-color: 203 40% 78%;
+  --main-color: 50 50% 98%;
+  --caret-color: 50 50% 98%;
+  --sub-color: 204 28% 63%;
+  --sub-alt-color: 202 38% 73%;
+  --text-color: 211 32% 15%;
+  --error-color: 354 42% 56%;
+  --error-extra-color: 354 32% 36%;
+  --colorful-error-color: 354 42% 56%;
+  --colorful-error-extra-color: 354 32% 36%;
+}
+
+/* modern_dolch.css */
+.theme_modern_dolch {
+  --bg-color: 220 3% 18%;
+  --main-color: 174 58% 68%;
+  --caret-color: 174 58% 68%;
+  --sub-color: 210 5% 35%;
+  --sub-alt-color: 220 4% 15%;
+  --text-color: 217 17% 91%;
+  --error-color: 350 54% 62%;
+  --error-extra-color: 347 40% 43%;
+  --colorful-error-color: 350 54% 62%;
+  --colorful-error-extra-color: 347 40% 43%;
+}
+
+/* modern_dolch_light.css */
+.theme_modern_dolch_light {
+  --bg-color: 0 0% 86%;
+  --caret-color: 167 42% 69%;
+  --main-color: 167 42% 69%;
+  --sub-color: 0 1% 64%;
+  --sub-alt-color: 0 0% 91%;
+  --text-color: 0 0% 27%;
+  --error-color: 350 70% 73%;
+  --error-extra-color: 350 69% 61%;
+  --colorful-error-color: 350 70% 73%;
+  --colorful-error-extra-color: 350 69% 61%;
+}
+
+/* modern_ink.css */
+.theme_modern_ink {
+  --bg-color: 0 0% 100%;
+  --main-color: 10 100% 53%;
+  --caret-color: 0 100% 50%;
+  --sub-color: 0 0% 72%;
+  --sub-alt-color: 0 0% 93%;
+  --text-color: 0 0% 0%;
+  --error-color: 0 100% 42%;
+  --error-extra-color: 0 100% 35%;
+  --colorful-error-color: 0 0% 0%;
+  --colorful-error-extra-color: 0 0% 0%;
+}
+
+/* monokai.css */
+.theme_monokai {
+  --bg-color: 70 8% 15%;
+  --main-color: 80 76% 53%;
+  --caret-color: 190 81% 67%;
+  --sub-color: 54 70% 68%;
+  --sub-alt-color: 72 8% 12%;
+  --text-color: 60 9% 87%;
+  --error-color: 338 95% 56%;
+  --error-extra-color: 32 98% 56%;
+  --colorful-error-color: 338 95% 56%;
+  --colorful-error-extra-color: 32 98% 56%;
+}
+
+/* moonlight.css */
+.theme_moonlight {
+  --bg-color: 216 23% 13%;
+  --main-color: 35 45% 59%;
+  --caret-color: 36 31% 43%;
+  --sub-color: 220 22% 38%;
+  --sub-alt-color: 214 26% 11%;
+  --text-color: 60 18% 75%;
+  --error-color: 354 74% 41%;
+  --error-extra-color: 354 75% 30%;
+  --colorful-error-color: 354 74% 41%;
+  --colorful-error-extra-color: 354 75% 30%;
+}
+
+/* mountain.css */
+.theme_mountain {
+  --bg-color: 0 0% 6%;
+  --main-color: 0 0% 91%;
+  --caret-color: 0 0% 96%;
+  --sub-color: 0 0% 30%;
+  --sub-alt-color: 0 0% 10%;
+  --text-color: 0 0% 91%;
+  --error-color: 0 16% 61%;
+  --error-extra-color: 357 24% 69%;
+  --colorful-error-color: 55 17% 61%;
+  --colorful-error-extra-color: 55 24% 69%;
+}
+
+/* mr_sleeves.css */
+.theme_mr_sleeves {
+  --bg-color: 200 11% 84%;
+  --main-color: 13 46% 73%;
+  --caret-color: 209 35% 67%;
+  --sub-color: 197 4% 62%;
+  --sub-alt-color: 200 16% 78%;
+  --text-color: 0 0% 11%;
+  --error-color: 0 42% 57%;
+  --error-extra-color: 354 32% 36%;
+  --colorful-error-color: 209 35% 67%;
+  --colorful-error-extra-color: 209 17% 48%;
+}
+
+/* ms_cupcakes.css */
+.theme_ms_cupcakes {
+  --bg-color: 0 0% 100%;
+  --main-color: 192 86% 66%;
+  --caret-color: 0 0% 19%;
+  --sub-color: 328 65% 55%;
+  --sub-alt-color: 189 57% 95%;
+  --text-color: 191 65% 11%;
+  --error-color: 0 0% 0%;
+  --error-extra-color: 0 0% 79%;
+  --colorful-error-color: 354 55% 54%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* muted.css */
+.theme_muted {
+  --bg-color: 0 0% 32%;
+  --main-color: 262 46% 80%;
+  --caret-color: 179 49% 79%;
+  --sub-color: 216 14% 63%;
+  --sub-alt-color: 0 0% 29%;
+  --text-color: 179 49% 79%;
+  --error-color: 344 55% 84%;
+  --error-extra-color: 344 55% 84%;
+  --colorful-error-color: 344 55% 84%;
+  --colorful-error-extra-color: 344 55% 84%;
+}
+
+/* nautilus.css */
+.theme_nautilus {
+  --bg-color: 215 49% 15%;
+  --main-color: 44 83% 53%;
+  --caret-color: 44 83% 53%;
+  --sub-color: 200 82% 23%;
+  --sub-alt-color: 213 49% 11%;
+  --text-color: 175 74% 42%;
+  --error-color: 0 69% 53%;
+  --error-extra-color: 0 68% 28%;
+  --colorful-error-color: 0 69% 53%;
+  --colorful-error-extra-color: 0 68% 28%;
+}
+
+/* nebula.css */
+.theme_nebula {
+  --bg-color: 240 23% 17%;
+  --main-color: 325 52% 49%;
+  --caret-color: 90 66% 47%;
+  --sub-color: 182 76% 41%;
+  --sub-alt-color: 240 23% 13%;
+  --text-color: 180 1% 52%;
+  --error-color: 354 55% 54%;
+  --error-extra-color: 354 50% 33%;
+  --colorful-error-color: 354 55% 54%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* night_runner.css */
+.theme_night_runner {
+  --bg-color: 0 0% 13%;
+  --main-color: 60 100% 51%;
+  --caret-color: 60 100% 51%;
+  --sub-color: 253 36% 45%;
+  --sub-alt-color: 0 0% 10%;
+  --text-color: 0 0% 91%;
+  --error-color: 0 69% 53%;
+  --error-extra-color: 0 68% 28%;
+  --colorful-error-color: 0 69% 53%;
+  --colorful-error-extra-color: 0 68% 28%;
+}
+
+/* nord.css */
+.theme_nord {
+  --bg-color: 220 17% 17%;
+  --caret-color: 218 27% 94%;
+  --main-color: 193 43% 67%;
+  --sub-color: 220 12% 62%;
+  --sub-alt-color: 220 16% 22%;
+  --text-color: 219 28% 88%;
+  --error-color: 354 42% 56%;
+  --error-extra-color: 354 32% 36%;
+  --colorful-error-color: 354 42% 56%;
+  --colorful-error-extra-color: 354 32% 36%;
+}
+
+/* nord_light.css */
+.theme_nord_light {
+  --bg-color: 218 27% 94%;
+  --caret-color: 179 25% 65%;
+  --main-color: 179 25% 65%;
+  --sub-color: 220 16% 49%;
+  --sub-alt-color: 219 28% 88%;
+  --text-color: 179 25% 65%;
+  --error-color: 354 42% 56%;
+  --error-extra-color: 354 32% 36%;
+  --colorful-error-color: 354 42% 56%;
+  --colorful-error-extra-color: 354 32% 36%;
+}
+
+/* norse.css */
+.theme_norse {
+  --bg-color: 240 1% 14%;
+  --main-color: 193 43% 30%;
+  --caret-color: 193 43% 30%;
+  --sub-color: 193 8% 34%;
+  --sub-alt-color: 180 3% 19%;
+  --text-color: 38 21% 75%;
+  --error-color: 0 50% 33%;
+  --error-extra-color: 0 61% 29%;
+  --colorful-error-color: 354 55% 54%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* oblivion.css */
+.theme_oblivion {
+  --bg-color: 120 1% 19%;
+  --main-color: 40 8% 62%;
+  --caret-color: 40 8% 62%;
+  --sub-color: 190 3% 38%;
+  --sub-alt-color: 180 1% 23%;
+  --text-color: 40 27% 96%;
+  --error-color: 8 72% 52%;
+  --error-extra-color: 8 64% 38%;
+  --colorful-error-color: 8 72% 52%;
+  --colorful-error-extra-color: 8 64% 38%;
+}
+
+/* olive.css */
+.theme_olive {
+  --bg-color: 52 40% 86%;
+  --caret-color: 63 15% 51%;
+  --main-color: 63 15% 51%;
+  --sub-color: 50 15% 67%;
+  --sub-alt-color: 47 22% 78%;
+  --text-color: 60 6% 20%;
+  --error-color: 0 63% 50%;
+  --error-extra-color: 0 60% 40%;
+  --colorful-error-color: 0 63% 50%;
+  --colorful-error-extra-color: 0 60% 40%;
+}
+
+/* olivia.css */
+.theme_olivia {
+  --bg-color: 270 4% 11%;
+  --main-color: 17 50% 74%;
+  --caret-color: 17 50% 74%;
+  --sub-color: 0 11% 27%;
+  --sub-alt-color: 345 6% 14%;
+  --text-color: 24 16% 94%;
+  --error-color: 354 42% 56%;
+  --error-extra-color: 354 32% 36%;
+  --colorful-error-color: 354 72% 56%;
+  --colorful-error-extra-color: 354 57% 43%;
+}
+
+/* onedark.css */
+.theme_onedark {
+  --bg-color: 221 15% 22%;
+  --caret-color: 207 82% 66%;
+  --main-color: 207 82% 66%;
+  --sub-color: 218 27% 94%;
+  --sub-alt-color: 219 16% 18%;
+  --text-color: 95 38% 62%;
+  --error-color: 355 65% 65%;
+  --error-extra-color: 354 71% 49%;
+  --colorful-error-color: 354 71% 49%;
+  --colorful-error-extra-color: 354 100% 50%;
+}
+
+/* our_theme.css */
+.theme_our_theme {
+  --bg-color: 354 84% 44%;
+  --main-color: 49 97% 54%;
+  --caret-color: 49 97% 54%;
+  --sub-color: 354 76% 24%;
+  --sub-alt-color: 353 82% 34%;
+  --text-color: 0 0% 100%;
+  --error-color: 49 97% 54%;
+  --error-extra-color: 49 97% 54%;
+  --colorful-error-color: 216 97% 54%;
+  --colorful-error-extra-color: 216 97% 54%;
+}
+
+/* paper.css */
+.theme_paper {
+  --bg-color: 0 0% 93%;
+  --main-color: 0 0% 27%;
+  --caret-color: 0 0% 27%;
+  --sub-color: 0 0% 70%;
+  --sub-alt-color: 0 0% 87%;
+  --text-color: 0 0% 27%;
+  --error-color: 0 100% 42%;
+  --error-extra-color: 0 100% 42%;
+  --colorful-error-color: 0 100% 42%;
+  --colorful-error-extra-color: 0 100% 42%;
+}
+
+/* passion_fruit.css */
+.theme_passion_fruit {
+  --bg-color: 338 58% 31%;
+  --main-color: 347 79% 80%;
+  --caret-color: 0 0% 100%;
+  --sub-color: 248 20% 65%;
+  --sub-alt-color: 331 37% 37%;
+  --text-color: 0 0% 100%;
+  --error-color: 49 91% 46%;
+  --error-extra-color: 49 91% 46%;
+  --colorful-error-color: 49 91% 46%;
+  --colorful-error-extra-color: 49 91% 46%;
+}
+
+/* pastel.css */
+.theme_pastel {
+  --bg-color: 346 43% 79%;
+  --main-color: 54 90% 85%;
+  --caret-color: 54 90% 85%;
+  --sub-color: 198 100% 85%;
+  --sub-alt-color: 346 36% 72%;
+  --text-color: 294 9% 40%;
+  --error-color: 3 100% 69%;
+  --error-extra-color: 9 70% 45%;
+  --colorful-error-color: 3 100% 69%;
+  --colorful-error-extra-color: 9 70% 45%;
+}
+
+/* peaches.css */
+.theme_peaches {
+  --bg-color: 43 33% 82%;
+  --main-color: 13 65% 62%;
+  --caret-color: 13 65% 62%;
+  --sub-color: 24 65% 73%;
+  --sub-alt-color: 32 47% 79%;
+  --text-color: 22 19% 31%;
+  --error-color: 3 100% 69%;
+  --error-extra-color: 9 70% 45%;
+  --colorful-error-color: 3 100% 69%;
+  --colorful-error-extra-color: 9 70% 45%;
+}
+
+/* peach_blossom.css */
+.theme_peach_blossom {
+  --bg-color: 0 0% 16%;
+  --main-color: 118 18% 66%;
+  --caret-color: 0 0% 38%;
+  --sub-color: 0 0% 38%;
+  --sub-alt-color: 198 17% 20%;
+  --text-color: 27 98% 83%;
+  --error-color: 3 100% 69%;
+  --error-extra-color: 352 77% 60%;
+  --colorful-error-color: 3 100% 69%;
+  --colorful-error-extra-color: 352 77% 60%;
+}
+
+/* pink_lemonade.css */
+.theme_pink_lemonade {
+  --bg-color: 43 85% 77%;
+  --main-color: 9 85% 77%;
+  --caret-color: 60 40% 98%;
+  --sub-color: 18 85% 77%;
+  --sub-alt-color: 35 85% 77%;
+  --text-color: 60 40% 98%;
+  --error-color: 2 100% 71%;
+  --error-extra-color: 2 100% 71%;
+  --colorful-error-color: 2 100% 71%;
+  --colorful-error-extra-color: 2 100% 71%;
+}
+
+/* pulse.css */
+.theme_pulse {
+  --bg-color: 0 0% 9%;
+  --main-color: 182 78% 42%;
+  --caret-color: 182 78% 42%;
+  --sub-color: 214 4% 34%;
+  --sub-alt-color: 0 0% 7%;
+  --text-color: 180 41% 93%;
+  --error-color: 0 69% 53%;
+  --error-extra-color: 0 68% 28%;
+  --colorful-error-color: 0 69% 53%;
+  --colorful-error-extra-color: 0 68% 28%;
+}
+
+/* purpleish.css */
+.theme_purpleish {
+  --bg-color: 240 25% 16%;
+  --main-color: 260 54% 56%;
+  --caret-color: 260 54% 56%;
+  --sub-color: 240 25% 48%;
+  --sub-alt-color: 240 26% 13%;
+  --text-color: 240 29% 72%;
+  --error-color: 0 100% 70%;
+  --error-extra-color: 0 100% 70%;
+  --colorful-error-color: 0 100% 70%;
+  --colorful-error-extra-color: 0 100% 70%;
+}
+
+/* rainbow_trail.css */
+.theme_rainbow_trail {
+  --bg-color: 0 0% 96%;
+  --main-color: 0 0% 21%;
+  --caret-color: 0 0% 5%;
+  --sub-color: 0 0% 31%;
+  --sub-alt-color: 0 0% 88%;
+  --text-color: 0 0% 12%;
+  --error-color: 358 100% 50%;
+  --colorful-error-color: 358 100% 50%;
+}
+
+/* red_dragon.css */
+.theme_red_dragon {
+  --bg-color: 356 41% 7%;
+  --main-color: 2 100% 60%;
+  --caret-color: 2 100% 60%;
+  --sub-color: 40 76% 52%;
+  --sub-alt-color: 353 47% 4%;
+  --text-color: 195 3% 30%;
+  --error-color: 357 63% 29%;
+  --error-extra-color: 357 65% 21%;
+  --colorful-error-color: 357 63% 29%;
+  --colorful-error-extra-color: 357 65% 21%;
+}
+
+/* red_samurai.css */
+.theme_red_samurai {
+  --bg-color: 353 61% 32%;
+  --main-color: 32 44% 61%;
+  --caret-color: 32 44% 61%;
+  --sub-color: 353 63% 20%;
+  --sub-alt-color: 354 60% 29%;
+  --text-color: 33 24% 85%;
+  --error-color: 191 69% 53%;
+  --error-extra-color: 189 68% 28%;
+  --colorful-error-color: 191 69% 53%;
+  --colorful-error-extra-color: 191 68% 28%;
+}
+
+/* repose_dark.css */
+.theme_repose_dark {
+  --bg-color: 213 9% 20%;
+  --main-color: 51 24% 79%;
+  --caret-color: 51 24% 79%;
+  --sub-color: 55 5% 54%;
+  --sub-alt-color: 200 3% 23%;
+  --text-color: 51 24% 79%;
+  --error-color: 355 100% 65%;
+  --error-extra-color: 350 54% 50%;
+  --colorful-error-color: 355 100% 65%;
+  --colorful-error-extra-color: 350 54% 50%;
+}
+
+/* repose_light.css */
+.theme_repose_light {
+  --bg-color: 50 49% 88%;
+  --main-color: 90 1% 37%;
+  --caret-color: 90 1% 37%;
+  --sub-color: 55 5% 54%;
+  --sub-alt-color: 47 24% 81%;
+  --text-color: 216 5% 21%;
+  --error-color: 350 54% 50%;
+  --error-extra-color: 354 63% 40%;
+  --colorful-error-color: 350 54% 50%;
+  --colorful-error-extra-color: 354 63% 40%;
+}
+
+/* retro.css */
+.theme_retro {
+  --bg-color: 43 25% 81%;
+  --main-color: 40 12% 10%;
+  --caret-color: 40 12% 10%;
+  --sub-color: 42 8% 53%;
+  --sub-alt-color: 46 16% 74%;
+  --text-color: 40 12% 10%;
+  --error-color: 354 42% 56%;
+  --error-extra-color: 354 32% 36%;
+  --colorful-error-color: 354 42% 56%;
+  --colorful-error-extra-color: 354 32% 36%;
+}
+
+/* retrocast.css */
+.theme_retrocast {
+  --bg-color: 184 89% 25%;
+  --main-color: 183 58% 70%;
+  --caret-color: 183 58% 70%;
+  --sub-color: 54 88% 59%;
+  --sub-alt-color: 184 57% 35%;
+  --text-color: 0 0% 100%;
+  --error-color: 358 100% 67%;
+  --error-extra-color: 352 50% 51%;
+  --colorful-error-color: 358 100% 67%;
+  --colorful-error-extra-color: 352 50% 51%;
+}
+
+/* rgb.css */
+.theme_rgb {
+  --bg-color: 0 0% 7%;
+  --main-color: 0 0% 93%;
+  --caret-color: 0 0% 93%;
+  --sub-color: 0 0% 27%;
+  --sub-alt-color: 0 0% 10%;
+  --text-color: 0 0% 93%;
+  --error-color: 0 0% 93%;
+  --error-extra-color: 0 0% 70%;
+  --colorful-error-color: 0 0% 93%;
+  --colorful-error-extra-color: 0 0% 70%;
+}
+
+/* rose_pine.css */
+.theme_rose_pine {
+  --bg-color: 252 15% 13%; /*Background*/
+  --main-color: 189 43% 73%; /*Color after typing, monkeytype logo, WPM Number acc number etc*/
+  --caret-color: 35 88% 72%; /*Cursor Color*/
+  --sub-color: 267 57% 78%;
+  --sub-alt-color: 253 16% 17%; /*WPM text color of scrollbar and general color, before typed color*/
+  --text-color: 245 50% 91%; /*Color of text after hovering over it*/
+  --error-color: 343 76% 68%;
+  --error-extra-color: 2 55% 83%;
+  --colorful-error-color: 343 76% 68%;
+  --colorful-error-extra-color: 2 55% 83%;
+}
+
+/* rose_pine_dawn.css */
+.theme_rose_pine_dawn {
+  --bg-color: 35 100% 98%; /*Background*/
+  --main-color: 189 30% 48%; /*Color after typing, monkeytype logo, WPM Number acc number etc*/
+  --caret-color: 35 81% 56%; /*Cursor Color*/
+  --sub-color: 267 57% 78%;
+  --sub-alt-color: 35 36% 91%;
+  --text-color: 197 53% 34%; /*Color of text after hovering over it*/
+  --error-color: 343 35% 55%;
+  --error-extra-color: 3 53% 67%;
+  --colorful-error-color: 343 35% 55%;
+  --colorful-error-extra-color: 3 53% 67%;
+}
+
+/* rose_pine_moon.css */
+.theme_rose_pine_moon {
+  --bg-color: 248 24% 20%; /*Background*/
+  --main-color: 189 43% 73%; /*Color after typing, monkeytype logo, WPM Number acc number etc*/
+  --caret-color: 35 88% 72%; /*Cursor Color*/
+  --sub-color: 267 57% 78%;
+  --sub-alt-color: 246 23% 16%; /*WPM text color of scrollbar and general color, before typed color*/
+  --text-color: 245 50% 91%; /*Color of text after hovering over it*/
+  --error-color: 343 76% 68%;
+  --error-extra-color: 2 55% 83%;
+  --colorful-error-color: 343 76% 68%;
+  --colorful-error-extra-color: 2 55% 83%;
+}
+
+/* rudy.css */
+.theme_rudy {
+  --bg-color: 212 41% 17%;
+  --caret-color: 37 34% 52%;
+  --main-color: 37 34% 52%;
+  --sub-color: 214 30% 33%;
+  --sub-alt-color: 212 40% 14%;
+  --text-color: 54 8% 77%;
+  --error-color: 354 42% 56%;
+  --error-extra-color: 354 32% 36%;
+  --colorful-error-color: 354 42% 56%;
+  --colorful-error-extra-color: 354 32% 36%;
+}
+
+/* ryujinscales.css */
+.theme_ryujinscales {
+  --bg-color: 216 65% 9%;
+  --main-color: 13 85% 64%;
+  --caret-color: 13 84% 61%;
+  --sub-color: 24 100% 78%;
+  --sub-alt-color: 216 76% 6%;
+  --text-color: 36 100% 87%;
+  --error-color: 354 55% 54%;
+  --error-extra-color: 354 50% 33%;
+  --colorful-error-color: 354 55% 54%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* serika.css */
+.theme_serika {
+  --main-color: 47 84% 48%;
+  --caret-color: 47 84% 48%;
+  --sub-color: 213 6% 68%;
+  --sub-alt-color: 223 8% 83%;
+  --bg-color: 240 3% 89%;
+  --text-color: 216 5% 21%;
+  --error-color: 0 69% 53%;
+  --error-extra-color: 0 68% 28%;
+  --colorful-error-color: 0 69% 53%;
+  --colorful-error-extra-color: 0 68% 28%;
+}
+
+/* serika_dark.css */
+.theme_serika_dark {
+  --bg-color: 216 5% 21%;
+  --main-color: 47 84% 48%;
+  --caret-color: 47 84% 48%;
+  --sub-color: 216 2% 40%;
+  --sub-alt-color: 216 5% 18%;
+  --text-color: 55 12% 80%;
+  --error-color: 354 55% 54%;
+  --error-extra-color: 354 50% 33%;
+  --colorful-error-color: 354 55% 54%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* sewing_tin.css */
+.theme_sewing_tin {
+  --bg-color: 249 60% 24%;
+  --main-color: 41 81% 73%;
+  --caret-color: 43 93% 77%;
+  --sub-color: 224 63% 55%;
+  --sub-alt-color: 242 52% 32%;
+  --text-color: 0 0% 100%;
+  --error-color: 29 48% 57%;
+  --error-extra-color: 29 48% 57%;
+  --colorful-error-color: 29 48% 57%;
+  --colorful-error-extra-color: 29 48% 57%;
+}
+
+/* sewing_tin_light.css */
+.theme_sewing_tin_light {
+  --bg-color: 0 0% 100%;
+  --main-color: 249 57% 29%;
+  --caret-color: 43 93% 77%;
+  --sub-color: 224 58% 51%;
+  --sub-alt-color: 224 26% 83%;
+  --text-color: 249 57% 29%;
+  --error-color: 41 81% 73%;
+  --error-extra-color: 41 81% 73%;
+  --colorful-error-color: 41 81% 73%;
+  --colorful-error-extra-color: 41 81% 73%;
+}
+
+/* shadow.css */
+.theme_shadow {
+  --bg-color: 0 0% 0%;
+  --main-color: 0 0% 93%;
+  --caret-color: 0 0% 93%;
+  --sub-color: 0 0% 27%;
+  --sub-alt-color: 0 0% 9%;
+  --text-color: 0 0% 93%;
+  --error-color: 0 0% 100%;
+  --error-extra-color: 0 0% 85%;
+  --colorful-error-color: 0 0% 100%;
+  --colorful-error-extra-color: 0 0% 85%;
+}
+
+/* shoko.css */
+.theme_shoko {
+  --bg-color: 210 22% 84%;
+  --main-color: 196 58% 69%;
+  --caret-color: 196 58% 69%;
+  --sub-color: 204 28% 58%;
+  --sub-alt-color: 207 32% 79%;
+  --text-color: 205 20% 29%;
+  --error-color: 354 42% 56%;
+  --error-extra-color: 354 32% 36%;
+  --colorful-error-color: 354 42% 56%;
+  --colorful-error-extra-color: 354 32% 36%;
+}
+
+/* slambook.css */
+.theme_slambook {
+  --bg-color: 56 100% 94%;
+  --main-color: 246 100% 5%;
+  --caret-color: 102 68% 29%;
+  --sub-color: 198, 72%, 39%, 0.769;
+  --sub-alt-color: 196 36% 84%;
+  --text-color: 253 100% 18%;
+  --error-color: 314 100% 49%;
+  --error-extra-color: 0 84% 44%;
+  --colorful-error-color: 0 84% 44%;
+  --colorful-error-extra-color: 104 90% 41%;
+}
+
+/* snes.css */
+.theme_snes {
+  --bg-color: 255 3% 75%;
+  --main-color: 257 42% 41%;
+  --caret-color: 258 46% 40%;
+  --sub-color: 257 46% 69%;
+  --sub-alt-color: 257 13% 73%;
+  --text-color: 0 0% 18%;
+  --error-color: 354 55% 54%;
+  --error-extra-color: 354 50% 33%;
+  --colorful-error-color: 354 55% 54%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* soaring_skies.css */
+.theme_soaring_skies {
+  --bg-color: 32 100% 97%;
+  --main-color: 196 84% 64%;
+  --caret-color: 248 77% 27%;
+  --sub-color: 248 77% 27%;
+  --sub-alt-color: 32 25% 86%;
+  --text-color: 180 2% 12%;
+  --error-color: 6 96% 63%;
+  --error-extra-color: 6 57% 44%;
+  --colorful-error-color: 6 96% 63%;
+  --colorful-error-extra-color: 6 57% 44%;
+}
+
+/* solarized_dark.css */
+.theme_solarized_dark {
+  --bg-color: 192 100% 11%;
+  --main-color: 68 100% 30%;
+  --caret-color: 1 71% 52%;
+  --sub-color: 175 59% 40%;
+  --sub-alt-color: 193 100% 8%;
+  --text-color: 205 69% 49%;
+  --error-color: 331 64% 52%;
+  --error-extra-color: 331 64% 37%;
+  --colorful-error-color: 331 64% 52%;
+  --colorful-error-extra-color: 331 64% 37%;
+}
+
+/* solarized_light.css */
+.theme_solarized_light {
+  --bg-color: 44 87% 94%;
+  --main-color: 68 100% 30%;
+  --caret-color: 1 71% 52%;
+  --sub-color: 175 59% 40%;
+  --sub-alt-color: 43 38% 82%;
+  --text-color: 240 2% 10%;
+  --error-color: 331 64% 52%;
+  --error-extra-color: 331 64% 37%;
+  --colorful-error-color: 331 64% 52%;
+  --colorful-error-extra-color: 331 64% 37%;
+}
+
+/* sonokai.css */
+.theme_sonokai {
+  --bg-color: 225 8% 19%;
+  --main-color: 92 50% 63%;
+  --caret-color: 12 84% 70%;
+  --sub-color: 45 73% 65%;
+  --sub-alt-color: 230 8% 15%;
+  --text-color: 240 2% 89%;
+  --error-color: 348 96% 68%;
+  --error-extra-color: 30 77% 67%;
+  --colorful-error-color: 348 96% 68%;
+  --colorful-error-extra-color: 30 77% 67%;
+}
+
+/* stealth.css */
+.theme_stealth {
+  --bg-color: 210 50% 1%;
+  --main-color: 204 8% 24%;
+  --caret-color: 22 97% 45%;
+  --sub-color: 206 8% 40%;
+  --sub-alt-color: 0 0% 7%;
+  --text-color: 204 8% 24%;
+  --error-color: 22 97% 45%;
+  --error-extra-color: 16 81% 25%;
+  --colorful-error-color: 22 97% 45%;
+  --colorful-error-extra-color: 16 81% 25%;
+}
+
+/* strawberry.css */
+.theme_strawberry {
+  --bg-color: 358 83% 73%;
+  --main-color: 60 40% 98%;
+  --caret-color: 60 40% 98%;
+  --sub-color: 350 76% 57%;
+  --sub-alt-color: 356 80% 68%;
+  --text-color: 60 40% 98%;
+  --error-color: 47 97% 62%;
+  --error-extra-color: 47 76% 48%;
+  --colorful-error-color: 47 97% 62%;
+  --colorful-error-extra-color: 47 76% 48%;
+}
+
+/* striker.css */
+.theme_striker {
+  --bg-color: 211 76% 29%;
+  --main-color: 156 7% 85%;
+  --caret-color: 156 7% 85%;
+  --sub-color: 211 68% 18%;
+  --sub-alt-color: 211 76% 26%;
+  --text-color: 156 6% 85%;
+  --error-color: 6 96% 59%;
+  --error-extra-color: 2 75% 46%;
+  --colorful-error-color: 6 96% 59%;
+  --colorful-error-extra-color: 2 75% 46%;
+}
+
+/* superuser.css */
+.theme_superuser {
+  --bg-color: 222 15% 17%;
+  --main-color: 154 100% 63%;
+  --caret-color: 154 100% 63%;
+  --sub-color: 206 18% 39%;
+  --sub-alt-color: 222 17% 15%;
+  --text-color: 153 53% 93%;
+  --error-color: 0 100% 69%;
+  --error-extra-color: 0 67% 49%;
+  --colorful-error-color: 0 100% 69%;
+  --colorful-error-extra-color: 0 67% 49%;
+}
+
+/* sweden.css */
+.theme_sweden {
+  --bg-color: 208 100% 32%;
+  --main-color: 48 100% 50%;
+  --caret-color: 0 0% 71%;
+  --sub-color: 202 65% 60%;
+  --sub-alt-color: 207 97% 28%;
+  --text-color: 0 0% 100%;
+  --error-color: 0 78% 58%;
+  --error-extra-color: 0 55% 41%;
+  --colorful-error-color: 354 88% 68%;
+  --colorful-error-extra-color: 354 76% 55%;
+}
+
+/* tangerine.css */
+.theme_tangerine {
+  --bg-color: 25 100% 94%;
+  --main-color: 20 99% 50%;
+  --caret-color: 78 100% 26%;
+  --sub-color: 19 100% 69%;
+  --sub-alt-color: 19 94% 87%;
+  --text-color: 19 85% 13%;
+  --error-color: 78 100% 35%;
+  --error-extra-color: 78 100% 26%;
+  --colorful-error-color: 78 100% 35%;
+  --colorful-error-extra-color: 78 100% 26%;
+}
+
+/* taro.css */
+.theme_taro {
+  /* --bg-color: linear-gradient(215deg, 354 15% 76%, 353 4% 42%); */
+  --bg-color: 234 100% 85%;
+  --main-color: 262 27% 8%;
+  --caret-color: 179 100% 46%;
+  --sub-color: 245 15% 50%;
+  --sub-alt-color: 236 48% 76%;
+  --text-color: 262 27% 8%;
+  --error-color: 51 100% 62%;
+  --error-extra-color: 46 100% 88%;
+  --colorful-error-color: 51 100% 62%;
+  --colorful-error-extra-color: 46 100% 88%;
+}
+
+/* terminal.css */
+.theme_terminal {
+  --bg-color: 210 4% 10%;
+  --caret-color: 79 76% 37%;
+  --main-color: 79 76% 37%;
+  --sub-color: 220 2% 29%;
+  --sub-alt-color: 210 5% 8%;
+  --text-color: 78 19% 90%;
+  --error-color: 0 76% 37%;
+  --error-extra-color: 0 76% 26%;
+  --colorful-error-color: 0 76% 37%;
+  --colorful-error-extra-color: 0 76% 26%;
+}
+
+/* terra.css */
+.theme_terra {
+  --bg-color: 150 14% 5%;
+  --main-color: 93 48% 56%;
+  --caret-color: 93 48% 56%;
+  --sub-color: 92 40% 27%;
+  --sub-alt-color: 159 32% 9%;
+  --text-color: 54 51% 88%;
+  --error-color: 54 51% 65%;
+  --error-extra-color: 55 28% 42%;
+  --colorful-error-color: 54 51% 65%;
+  --colorful-error-extra-color: 55 28% 42%;
+}
+
+/* terror_below.css */
+.theme_terror_below {
+  --bg-color: 167 46% 8%;
+  --caret-color: 158 30% 54%;
+  --main-color: 158 30% 54%;
+  --sub-color: 174 98% 18%;
+  --sub-alt-color: 174 70% 5%;
+  --text-color: 159 25% 89%;
+  --error-color: 354 42% 56%;
+  --error-extra-color: 354 32% 36%;
+  --colorful-error-color: 354 42% 56%;
+  --colorful-error-extra-color: 354 32% 36%;
+}
+
+/* tiramisu.css */
+.theme_tiramisu {
+  --bg-color: 35 19% 77%;
+  --main-color: 30 39% 59%;
+  --caret-color: 14 27% 39%;
+  --sub-color: 30 39% 59%;
+  --sub-alt-color: 31 30% 74%;
+  --text-color: 14 27% 39%;
+  --error-color: 17 81% 55%;
+  --error-extra-color: 17 81% 55%;
+  --colorful-error-color: 17 81% 55%;
+  --colorful-error-extra-color: 17 81% 55%;
+}
+
+/* trackday.css */
+.theme_trackday {
+  --bg-color: 227 19% 34%;
+  --main-color: 7 72% 56%;
+  --caret-color: 224 29% 39%;
+  --sub-color: 218 40% 54%;
+  --sub-alt-color: 227 19% 29%;
+  --text-color: 0 0% 81%;
+  --error-color: 0 74% 60%;
+  --error-extra-color: 0 98% 62%;
+  --colorful-error-color: 0 100% 59%;
+  --colorful-error-extra-color: 0 67% 44%;
+}
+
+/* trance.css */
+.theme_trance {
+  --bg-color: 236 100% 5%;
+  --main-color: 332 85% 49%;
+  --caret-color: 332 85% 49%;
+  --sub-color: 224 34% 35%;
+  --sub-alt-color: 230 52% 20%;
+  --text-color: 0 0% 100%;
+  --error-color: 170 98% 42%;
+  --error-extra-color: 170 37% 39%;
+  --colorful-error-color: 170 98% 42%;
+  --colorful-error-extra-color: 170 37% 39%;
+}
+
+/* tron_orange.css */
+.theme_tron_orange {
+  --bg-color: 180 37% 8%;
+  --main-color: 58 100% 47%;
+  --caret-color: 58 100% 47%;
+  --sub-color: 24 100% 50%;
+  --sub-alt-color: 0 5% 59%;
+  --text-color: 0 0% 100%;
+  --error-color: 0 100% 50%;
+  --error-extra-color: 0 100% 50%;
+  --colorful-error-color: 0 100% 50%;
+  --colorful-error-extra-color: 0 100% 50%;
+}
+
+/* vaporwave.css */
+.theme_vaporwave {
+  --bg-color: 237 62% 78%;
+  --main-color: 304 69% 65%;
+  --caret-color: 195 99% 58%;
+  --sub-color: 236 24% 59%;
+  --sub-alt-color: 237 46% 72%;
+  --text-color: 300 18% 93%;
+  --error-color: 255 48% 45%;
+  --error-extra-color: 254 47% 32%;
+  --colorful-error-color: 195 99% 58%;
+  --colorful-error-extra-color: 193 70% 48%;
+}
+
+/* viridescent.css */
+.theme_viridescent {
+  --bg-color: 180 7% 19%;
+  --main-color: 147 43% 71%;
+  --caret-color: 15 57% 86%;
+  --sub-color: 133 18% 59%;
+  --sub-alt-color: 180 7% 15%;
+  --text-color: 88 57% 91%;
+  --error-color: 0 100% 64%;
+  --error-extra-color: 0 57% 43%;
+  --colorful-error-color: 0 49% 50%;
+  --colorful-error-extra-color: 0 45% 37%;
+}
+
+/* voc.css */
+.theme_voc {
+  --bg-color: 303 61% 6%;
+  --main-color: 35 46% 78%;
+  --caret-color: 35 46% 78%;
+  --sub-color: 305 43% 21%;
+  --sub-alt-color: 308 57% 11%;
+  --text-color: 36 23% 91%;
+  --error-color: 1 54% 45%;
+  --error-extra-color: 1 51% 33%;
+  --colorful-error-color: 1 54% 45%;
+  --colorful-error-extra-color: 1 51% 33%;
+}
+
+/* vscode.css */
+.theme_vscode {
+  --bg-color: 0 0% 12%;
+  --main-color: 204 100% 40%;
+  --caret-color: 207 61% 59%;
+  --sub-color: 0 0% 30%;
+  --sub-alt-color: 0 0% 10%;
+  --text-color: 0 0% 83%;
+  --error-color: 0 89% 62%;
+  --error-extra-color: 0 89% 62%;
+  --colorful-error-color: 0 89% 62%;
+  --colorful-error-extra-color: 0 89% 62%;
+}
+
+/* watermelon.css */
+.theme_watermelon {
+  --bg-color: 159 37% 19%;
+  --main-color: 356 57% 62%;
+  --caret-color: 356 57% 62%;
+  --sub-color: 159 33% 36%;
+  --sub-alt-color: 160 36% 22%;
+  --text-color: 35 15% 77%;
+  --error-color: 357 66% 47%;
+  --error-extra-color: 356 76% 38%;
+  --colorful-error-color: 357 66% 47%;
+  --colorful-error-extra-color: 356 76% 38%;
+}
+
+/* wavez.css */
+.theme_wavez {
+  --bg-color: 199 25% 15%;
+  --main-color: 102 71% 55%;
+  --caret-color: 102 71% 55%;
+  --sub-color: 190 55% 27%;
+  --sub-alt-color: 192 35% 16%;
+  --text-color: 100 22% 92%;
+  --error-color: 354 55% 54%;
+  --error-extra-color: 354 50% 33%;
+  --colorful-error-color: 354 55% 54%;
+  --colorful-error-extra-color: 354 50% 33%;
+}
+
+/* witch_girl.css */
+.theme_witch_girl {
+  --bg-color: 2 51% 90%;
+  --main-color: 155 17% 40%;
+  --caret-color: 158 16% 73%;
+  --sub-color: 14 44% 76%;
+  --sub-alt-color: 15 46% 83%;
+  --text-color: 155 17% 40%;
+  --error-color: 16 18% 63%;
+  --error-extra-color: 16 18% 63%;
+  --colorful-error-color: 16 18% 63%;
+  --colorful-error-extra-color: 16 18% 63%;
+}

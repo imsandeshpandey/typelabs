@@ -7,6 +7,7 @@ import { EngineProvider } from './providers/engine.provider.tsx'
 import { TimerProvider } from './providers/timer.provider.tsx'
 import { Toaster } from './components/ui/toaster.tsx'
 import { KeyboardAudioProvider } from './providers/keyboard-audio.provider.tsx'
+import './styles/themes.css'
 import { QueryClientProvider } from '@tanstack/react-query'
 import {
   SpotifyAuthProvider,

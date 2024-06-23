@@ -11,7 +11,7 @@ import {
 } from './ui/dialog'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
-import styleList from '@/assets/themes/theme-list.json'
+import styleList from '@/styles/theme-list.json'
 import { ScrollArea } from './ui/scroll-area'
 
 export const ThemeSwitcherList = () => {

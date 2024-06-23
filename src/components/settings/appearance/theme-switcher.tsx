@@ -1,5 +1,5 @@
 import { cn, formatThemeName } from '@/lib/utils'
-import colors from '@/assets/themes/theme-list.json'
+import colors from '@/styles/theme-list.json'
 import { useStyle } from '@/atoms/atoms'
 import {
   RadioCard,
