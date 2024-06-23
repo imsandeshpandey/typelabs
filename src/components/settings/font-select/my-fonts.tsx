@@ -7,11 +7,6 @@ import { useCallback } from 'react'
 import { Button } from '@/components/ui/button'
 import { useFont, useUserFonts } from '@/atoms/atoms'
 import { useToast } from '@/components/ui/use-toast'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
 import { Cross2Icon } from '@radix-ui/react-icons'
 import { cn, generateFontCss } from '@/lib/utils'
 import { useSoundFx } from '@/hooks/use-sound-fx.hook'
@@ -56,7 +51,7 @@ export const MyFonts = () => {
     <>
       <DialogHeader>
         <DialogTitle>My Fonts</DialogTitle>
-        <DialogDescription className="gap-2 flex flex-wrap pt-2 pb-4">
+        <DialogDescription className="flex flex-wrap gap-2 pb-4 pt-2">
           {userFonts.map((font, i) => (
             <Button
               key={i}
@@ -66,28 +61,25 @@ export const MyFonts = () => {
               }}
               onClick={() => setCurrentFont(font)}
               className={cn(
-                'flex h-fit gap-4 hover:bg-primary hover:text-primary-foreground items-center justify-between py-1 px-2 border border-border rounded-md w-fit',
-                font == currentFont && 'bg-primary text-primary-foreground'
+                'flex h-fit w-fit items-center justify-between gap-4 rounded-md px-2 py-1 text-foreground/80 outline outline-1 outline-foreground/20 hover:bg-foreground/20 hover:text-foreground hover:outline-foreground',
+                font == currentFont &&
+                  'bg-primary/20 text-foreground outline-2 outline-primary'
               )}
             >
               {font}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    asChild
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      handleRemoveFont(font)
-                    }}
-                    className="text-xs hover:bg-background/40 p-[2px] w-5 h-5 rounded-full"
-                    size="icon"
-                    variant="ghost"
-                  >
-                    <Cross2Icon />
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>Remove Font</TooltipContent>
-              </Tooltip>
+              <Button
+                asChild
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleRemoveFont(font)
+                }}
+                className="h-5 w-5 rounded-full p-[2px] text-xs hover:bg-background/40"
+                size="icon"
+                variant="ghost"
+                tooltipContent="Remove Font"
+              >
+                <Cross2Icon />
+              </Button>
             </Button>
           ))}
         </DialogDescription>
