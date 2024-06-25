@@ -67,5 +67,17 @@ export const useStyle = () => useAtom(styleAtom)
 export const fontSizeAtom = atomWithStorage(LK.FONT_SIZE_KEY, 24)
 export const useFontSize = () => useAtom(fontSizeAtom)
 
+export enum CaretStyle {
+  LINE,
+  BLOCK,
+  BOX,
+  UNDERLINE,
+}
+export const caretStyleAtom = atomWithStorage<CaretStyle>(
+  LK.CARET_STYLE_KEY,
+  CaretStyle.LINE
+)
+export const useCaretStyle = () => useAtom(caretStyleAtom)
+
 export const borderRadiusAtom = atomWithStorage(LK.BORDER_RADIUS_KEY, 12)
 export const useBorderRadius = () => useAtom(borderRadiusAtom)

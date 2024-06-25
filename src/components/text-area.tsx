@@ -2,11 +2,12 @@ import { cn } from '@/lib/utils'
 import { useTimer } from '@/global-state/timer.store'
 import { useEffect, useRef, useState } from 'react'
 import { ThickArrowUpIcon } from '@radix-ui/react-icons'
-import { Focus, Timer } from 'lucide-react'
-import { Tabs, TabsList, TabsTrigger } from './ui/tabs'
+import { Focus } from 'lucide-react'
 import { useEngine } from '@/global-state/game-engine.store'
-import { useFontSize, useGameConfig } from '@/atoms/atoms'
+import { useFontSize } from '@/atoms/atoms'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { Caret } from './caret'
+import { TimeSelector } from './test-time-selector'
 
 export const TextArea = () => {
   const { isPaused, isRunning } = useTimer('isPaused', 'isRunning')
@@ -104,7 +105,7 @@ export const TextArea = () => {
           >
             <div
               ref={textAreaRef}
-              className="relative"
+              className="relative -z-10"
               style={{
                 fontSize: fontSize,
                 lineHeight: lineHeight + 'px',
@@ -112,15 +113,19 @@ export const TextArea = () => {
             >
               <Caret />
               {textString.split('').map((char, i) => {
+                const id = `letter-${i}`
                 const input = userInput[i]
+                const textError = input !== char && !!input
+                const spaceError = char === ' ' && char !== input && !!input
+                const correct = input === char
                 return (
                   <span
                     key={i}
-                    id={`letter-${i}`}
+                    id={id}
                     className={cn('z-10', {
-                      'text-error': input !== char && !!input,
-                      'bg-error/50': char === ' ' && char !== input && !!input,
-                      'text-foreground': input === char,
+                      'text-error': textError,
+                      'bg-error/50': spaceError,
+                      'text-foreground': correct,
                     })}
                   >
                     {char}
@@ -135,60 +140,7 @@ export const TextArea = () => {
   )
 }
 
-export const TimeSelector = () => {
-  const [config, setConfig] = useGameConfig()
-  const { isRunning } = useTimer('isRunning')
-  if (isRunning) return <div className="h-9" />
-
-  const tabClassNames =
-    'rounded-full text-xs data-[state=active]:bg-muted-foreground data-[state=active]:text-background'
-  return (
-    <div className="group m-auto flex h-9 w-fit items-center gap-2 rounded-full border border-foreground/10 bg-input pl-4 pr-2 shadow-sm">
-      <Timer className="h-4 w-4 text-muted-foreground" />
-      <Tabs
-        value={`${config.time}`}
-        onValueChange={(time) =>
-          setConfig((prev) => ({ ...prev, time: +time }))
-        }
-      >
-        <TabsList className="h-fit origin-left rounded-full bg-transparent">
-          <TabsTrigger className={tabClassNames} value="15">
-            15s
-          </TabsTrigger>
-          <TabsTrigger className={tabClassNames} value="30">
-            30s
-          </TabsTrigger>
-          <TabsTrigger className={tabClassNames} value="60">
-            60s
-          </TabsTrigger>
-        </TabsList>
-      </Tabs>
-    </div>
-  )
-}
-
-export const Caret = (props: { className?: string }) => {
-  const [fontSize] = useFontSize()
-  const { caretPosition: pos } = useEngine('caretPosition')
-  const { isRunning, isPaused } = useTimer('isRunning', 'isPaused')
-  return (
-    <div className={cn((isPaused || !isRunning) && 'animate-blink')}>
-      <div
-        style={{
-          top: pos.y,
-          left: pos.x,
-          height: fontSize + 4,
-        }}
-        className={cn(
-          'absolute z-0 w-[2px] bg-caret transition-all',
-          props.className
-        )}
-      />
-    </div>
-  )
-}
-
 const TimeText = () => {
   const { timeInt } = useTimer('timeInt')
-  return <span className="text-2xl text-primary">{timeInt}</span>
+  return <p className="text-2xl text-primary">{timeInt}</p>
 }
