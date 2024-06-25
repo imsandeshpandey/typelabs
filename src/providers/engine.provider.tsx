@@ -18,10 +18,11 @@ export const EngineProvider = () => {
   } = engineStore()
 
   const { updateMetrics } = useMetricsStore('updateMetrics')
-  const { totalTime, hasTimerEnded, isRunning } = useTimer(
+  const { totalTime, hasTimerEnded, isRunning, startTimer } = useTimer(
     'totalTime',
     'hasTimerEnded',
-    'isRunning'
+    'isRunning',
+    'startTimer'
   )
 
   useHasFocus({
@@ -35,29 +36,26 @@ export const EngineProvider = () => {
   const ctrlBackspace = () => {
     const userInputArr = userInput.split('')
     userInputArr.pop()
-    for (let i = userInputArr.length - 1; i >= 0; i--) {
-      if (!userInput[i].trim()) break
-      userInputArr.pop()
-    }
+    while (userInputArr.at(-1)?.trim()) userInputArr.pop()
     setUserInput(userInputArr.join(''))
   }
 
   function handleKeyInput(e: KeyboardEvent) {
     if (VALID_CHARACTERS_SET.has(e.key)) {
-      const { startTimer, isPaused } = timerStore.getState()
+      const { isPaused } = timerStore.getState()
       const userInput = engineStore.getState().userInput
-
       if (isPaused || !userInput) startTimer()
-
       setUserInput(userInput + e.key)
     }
   }
 
   function updateCaretPosition() {
+    const { userInput } = engineStore.getState()
     const letter = document.getElementById(`letter-${userInput.length}`)
+    if (!letter) return
     const newPos = {
-      x: letter?.offsetLeft || 0,
-      y: letter?.offsetTop || 0,
+      x: letter.offsetLeft,
+      y: letter.offsetTop + letter.offsetHeight,
     }
     setCaretPosition(newPos)
   }
@@ -67,7 +65,8 @@ export const EngineProvider = () => {
     const errorPercentage = getErrorPercentage(userInput, textString)
     const cpm = (userInput.length / totalTime) * 60
     const rawWpm = cpm / 5
-    const wpm = rawWpm - (errorPercentage / 100) * rawWpm
+    const accuracy = 100 - errorPercentage
+    const wpm = (accuracy / 100) * rawWpm
 
     updateMetrics({
       errorPercentage,
@@ -77,13 +76,17 @@ export const EngineProvider = () => {
     })
   }
 
-  useEffect(generateText, [])
-  useEffect(updateCaretPosition, [userInput])
-  useEffect(calculateResults, [hasTimerEnded])
+  useEffect(() => {
+    generateText()
+    window.addEventListener('resize', updateCaretPosition)
+    return () => window.removeEventListener('resize', updateCaretPosition)
+  }, [])
   useEffect(() => {
     if (!hasFocus && isRunning) return setTextAreaFocus(false)
     if (isRunning) setTextAreaFocus(true)
   }, [hasFocus])
+  useEffect(updateCaretPosition, [userInput, textString])
+  useEffect(calculateResults, [hasTimerEnded])
 
   useHotkeys('backspace', backspace, { ignoreModifiers: !hasFocus })
   useHotkeys('ctrl+backspace', ctrlBackspace, { ignoreModifiers: !hasFocus })
@@ -95,8 +98,8 @@ export const EngineProvider = () => {
 }
 
 const getErrorPercentage = (input: string, trueStr: string) => {
-  const total = input.length
   let errors = 0
+  const total = input.length
   for (const i in input.split('')) {
     if (input[i] !== trueStr[i]) errors++
   }

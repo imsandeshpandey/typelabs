@@ -11,7 +11,9 @@ import { Button } from './ui/button'
 
 export function UserInfo() {
   const { user } = useSpotifyAuth()
-  const { mutate: logout } = useLogout()
+  const { mutate: logout, error } = useLogout({
+    onError: () => console.error(error),
+  })
   if (!user.data) return null
   return (
     <DropdownMenu>
