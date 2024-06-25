@@ -7,7 +7,7 @@ import {
   RadioCardContent,
   RadioCardDescription,
   RadioCardProps,
-} from '../ui/radio-card'
+} from '../../ui/radio-card'
 
 export type SoundPackItemProps = Omit<RadioCardProps, 'isActive'> & {
   soundPack: KeyboardSoundPackConfig
@@ -30,7 +30,7 @@ export const SoundPackItem = ({
     >
       <RadioCardDescription
         className={cn(
-          'text-muted-foreground font-bold',
+          'font-bold text-muted-foreground',
           isActive && 'text-foregrond'
         )}
       >
@@ -39,7 +39,7 @@ export const SoundPackItem = ({
       <RadioCardContent>
         <p
           className={cn(
-            'text-muted-foreground flex items-center gap-2 text-xs',
+            'flex items-center gap-2 text-xs text-muted-foreground',
             {
               'text-foreground': isActive,
             }
@@ -47,9 +47,9 @@ export const SoundPackItem = ({
         >
           Includes Numpad:
           {soundPack.includes_numpad ? (
-            <Check className="w-4 h-4" />
+            <Check className="h-4 w-4" />
           ) : (
-            <X className="w-4 h-4" />
+            <X className="h-4 w-4" />
           )}
         </p>
       </RadioCardContent>

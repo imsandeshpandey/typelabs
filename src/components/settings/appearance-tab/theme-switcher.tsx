@@ -15,45 +15,32 @@ export const ThemeSwitcher = () => {
       {colors.map((color) => {
         const primary = color.mainColor
         const bg = color.bgColor
-        const sub = color.subColor
         const text = color.textColor
-        const displayColors = [primary, sub, text]
+        const displayColors = [primary, bg, text]
         const isActive = color.name === colorStyle
 
         return (
           <RadioCard
-            className={cn(
-              'col-span-6 flex-grow outline-transparent md:col-span-3',
-              {
-                'outline-primary': isActive,
-              }
-            )}
-            style={{
-              background: bg,
-            }}
             key={color.name}
             isActive={isActive}
+            className={cn(
+              'col-span-6 flex-grow md:col-span-3',
+              isActive && 'outline-primary'
+            )}
             onClick={() => {
               setColorStyle(color.name)
             }}
           >
-            <RadioCardDescription
-              style={{
-                color: text,
-              }}
-              className={cn(
-                'mb-1 flex items-center justify-between font-medium'
-              )}
-            >
+            <RadioCardDescription className="mb-1 flex items-center justify-between font-medium">
               {formatThemeName(color.name)}
               <div className="flex gap-1">
-                {displayColors.map((color) => (
+                {displayColors.map((col) => (
                   <div
-                    key={color}
+                    key={col}
                     style={{
-                      background: color,
+                      background: col,
                     }}
-                    className={cn('h-4 w-4 rounded-full')}
+                    className="h-4 w-4 rounded-full border border-foreground"
                   />
                 ))}
               </div>

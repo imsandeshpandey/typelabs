@@ -1,4 +1,4 @@
-import { FONTS } from '@/config/fonts.config'
+import { DEFAULT_FONT, DEFAULT_FONT_SIZE, FONTS } from '@/config/fonts.config'
 import { Dispatch, HTMLAttributes, SetStateAction, useState } from 'react'
 import { useFont, useFontSize, useUserFonts } from '@/atoms/atoms'
 import { Label } from '@/components/ui/label'
@@ -15,7 +15,7 @@ import { Dialog } from '@/components/ui/dialog'
 import { generateFontCss } from '@/lib/utils'
 import { Slider } from '@/components/ui/slider'
 import { FontSizeIcon } from '@radix-ui/react-icons'
-import { ResetButton } from '@/components/compound-ui/reset-button'
+import { Setting } from '../setting'
 
 export const FontSelect = () => {
   const [userFonts] = useUserFonts()
@@ -32,15 +32,11 @@ export const FontSelect = () => {
   }
   return (
     <Dialog>
-      <div>
-        <h1 className="flex items-center text-xl font-bold">
-          Text Size
-          <ResetButton onClick={() => setFontSize(24)} />
-        </h1>
-        <p className="mb-4 text-sm text-muted-foreground">
-          The text size is the size of the text in the game. The default size is
-          <b> 24px.</b>
-        </p>
+      <Setting
+        title="Text Size"
+        description="The text size is the size of the text in the game. The default size is 24px."
+        resetAction={() => setFontSize(DEFAULT_FONT_SIZE)}
+      >
         <div className="flex gap-2">
           <div className="flex items-center gap-2">
             <FontSizeIcon className="text-muted-foreground" />
@@ -52,77 +48,74 @@ export const FontSelect = () => {
             onValueChange={handleFontSizeChange}
           />
         </div>
-      </div>
-      <div className="h-8" />
-      <div>
-        <h1 className="mb-2 text-xl font-bold">
-          Fonts
-          <ResetButton
-            onClick={() => {
-              setFont(FONTS[2])
-            }}
-          />
-        </h1>
+      </Setting>
+      <Setting title="Fonts" resetAction={() => setFont(DEFAULT_FONT)}>
         <Label className="pl-1">Preview Text</Label>
         <Input
-          className="resize-none border border-border bg-muted"
+          className="mb-8 resize-none border border-border bg-muted"
           placeholder="Type here to preview"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-
-        <h2 className="mb-2 mt-8 text-lg font-medium">Preinstalled Fonts</h2>
-        <div className="grid max-h-full grid-cols-2 gap-4">
-          {FONTS.map((font, i) => (
-            <FontItem
-              key={i}
-              font={font}
-              inputValue={value}
-              setValue={setValue}
-            />
-          ))}
-        </div>
-        <div className="mb-2 mt-8 flex items-center justify-between">
-          <h2 className="text-lg font-medium">My Fonts</h2>
-          <AddFontModal.Trigger>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="gap-1 text-xs hover:bg-foreground/5"
-            >
-              <PlusIcon className="h-4 w-4" /> Add/Manage Fonts
-            </Button>
-          </AddFontModal.Trigger>
-        </div>
-        {!userFonts.length && (
-          <div className="flex flex-col items-center justify-center gap-4">
-            <h2 className="text-xl font-bold">Your fonts will appear here</h2>
-            <AddFontModal.Trigger>
-              <Button
-                variant="default"
-                size="lg"
-                className="text-md gap-2 px-5"
-              >
-                <PlusIcon className="h-6 w-6" /> Add New Font
-              </Button>
-            </AddFontModal.Trigger>
+        <Setting subtitle="Preinstalled Fonts">
+          <div className="grid max-h-full grid-cols-2 gap-4">
+            {FONTS.map((font, i) => (
+              <FontItem
+                key={i}
+                font={font}
+                inputValue={value}
+                setValue={setValue}
+              />
+            ))}
           </div>
-        )}
-        <div className="grid max-h-full grid-cols-2 gap-4">
-          {!!userFonts.length && (
-            <>
-              {userFonts.map((font, i) => (
-                <FontItem
-                  key={i}
-                  font={font as (typeof FONTS)[number]}
-                  inputValue={value}
-                  setValue={setValue}
-                />
-              ))}
-            </>
+        </Setting>
+
+        <Setting
+          subtitle={
+            <div className="flex items-center justify-between">
+              My Fonts
+              <AddFontModal.Trigger>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="gap-1 text-xs hover:bg-foreground/5"
+                >
+                  <PlusIcon className="h-4 w-4" /> Add/Manage Fonts
+                </Button>
+              </AddFontModal.Trigger>
+            </div>
+          }
+        >
+          {!userFonts.length && (
+            <div className="flex flex-col items-center justify-center gap-4">
+              <h2 className="text-xl font-bold">Your fonts will appear here</h2>
+              <AddFontModal.Trigger>
+                <Button
+                  variant="default"
+                  size="lg"
+                  className="text-md gap-2 px-5"
+                >
+                  <PlusIcon className="h-6 w-6" /> Add New Font
+                </Button>
+              </AddFontModal.Trigger>
+            </div>
           )}
-        </div>
-      </div>
+          <div className="grid max-h-full grid-cols-2 gap-4">
+            {!!userFonts.length && (
+              <>
+                {userFonts.map((font, i) => (
+                  <FontItem
+                    key={i}
+                    font={font as (typeof FONTS)[number]}
+                    inputValue={value}
+                    setValue={setValue}
+                  />
+                ))}
+              </>
+            )}
+          </div>
+        </Setting>
+      </Setting>
       <AddFontModal.Content />
     </Dialog>
   )

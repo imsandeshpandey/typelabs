@@ -4,6 +4,12 @@ import { atom, useAtom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 import { nkCream } from '@/assets/sfx/keyboard-soundpacks/nk-cream/config'
 import { KeyboardSoundPackConfig } from '@/assets/sfx/keyboard-soundpacks/keyboard-soundpacks.type'
+import {
+  CaretSmoothness,
+  CaretStyle,
+  DEFAULT_CARET_SMOOTHNESS,
+  DEFAULT_CARET_STYLE,
+} from '../config/caret.config'
 
 // Current Selected Font
 export const useFont = () => useAtom(fontAtom)
@@ -67,17 +73,17 @@ export const useStyle = () => useAtom(styleAtom)
 export const fontSizeAtom = atomWithStorage(LK.FONT_SIZE_KEY, 24)
 export const useFontSize = () => useAtom(fontSizeAtom)
 
-export enum CaretStyle {
-  LINE,
-  BLOCK,
-  BOX,
-  UNDERLINE,
-}
 export const caretStyleAtom = atomWithStorage<CaretStyle>(
   LK.CARET_STYLE_KEY,
-  CaretStyle.LINE
+  DEFAULT_CARET_STYLE
 )
 export const useCaretStyle = () => useAtom(caretStyleAtom)
+
+export const caretSmoothnessAtom = atomWithStorage<CaretSmoothness>(
+  LK.CARET_SMOOTHNESS_KEY,
+  DEFAULT_CARET_SMOOTHNESS
+)
+export const useCaretSmoothness = () => useAtom(caretSmoothnessAtom)
 
 export const borderRadiusAtom = atomWithStorage(LK.BORDER_RADIUS_KEY, 12)
 export const useBorderRadius = () => useAtom(borderRadiusAtom)

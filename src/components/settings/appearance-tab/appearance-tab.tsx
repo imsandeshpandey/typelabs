@@ -1,12 +1,12 @@
 import { ThemeSwitcher } from './theme-switcher'
 import { useStyle } from '@/atoms/atoms'
-import { ResetButton } from '../../compound-ui/reset-button'
-import { BorderRadiusVisualizer } from '../soundpack/border-radius-visualizer'
+import { BorderRadiusVisualizer } from '../soundpack-tab/border-radius-visualizer'
 import {
   BORDER_RADII,
   DEFAULT_BORDER_RADIUS,
   DEFAULT_THEME,
 } from '@/config/appearance.config'
+import { Setting } from '../setting'
 
 export const AppearanceTab = ({
   setBorderRadius,
@@ -18,14 +18,11 @@ export const AppearanceTab = ({
   const [, setStyle] = useStyle()
   return (
     <div>
-      <div className="mb-8">
-        <h2 className="mb-1 flex items-center text-xl font-bold">
-          Radius
-          <ResetButton onClick={() => setBorderRadius(DEFAULT_BORDER_RADIUS)} />
-        </h2>
-        <p className="mb-4 text-sm text-muted-foreground">
-          Changes the base border radius of the website.
-        </p>
+      <Setting
+        title="Radius"
+        description="Changes the base border radius of the website."
+        resetAction={() => setBorderRadius(DEFAULT_BORDER_RADIUS)}
+      >
         <div className="flex gap-4">
           {BORDER_RADII.map((radius) => (
             <BorderRadiusVisualizer
@@ -36,13 +33,10 @@ export const AppearanceTab = ({
             />
           ))}
         </div>
-      </div>
-
-      <h2 className="mb-4 flex items-center text-xl font-bold">
-        Themes
-        <ResetButton onClick={() => setStyle(DEFAULT_THEME)} />
-      </h2>
-      <ThemeSwitcher />
+      </Setting>
+      <Setting title="Themes" resetAction={() => setStyle(DEFAULT_THEME)}>
+        <ThemeSwitcher />
+      </Setting>
     </div>
   )
 }

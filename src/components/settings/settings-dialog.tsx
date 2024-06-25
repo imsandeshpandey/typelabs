@@ -1,17 +1,18 @@
-import { PaintbrushIcon, SettingsIcon } from 'lucide-react'
+import { PaintbrushIcon, SettingsIcon, TextCursor } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Dialog, DialogContent, DialogTrigger } from '../ui/dialog'
 import { FontFamilyIcon, KeyboardIcon } from '@radix-ui/react-icons'
 import { ScrollArea } from '../ui/scroll-area'
 import { Tabs, TabsContent } from '../ui/tabs'
-import { FontSelect } from './font-select/font-select'
+import { FontSelect } from './font-tab/font-tab'
 import { useMemo, useRef, useState } from 'react'
 import { KEYBINDS } from '@/config/keybinds.config'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { TabButton } from '../compound-ui/tab-button'
 import { useBorderRadius } from '@/atoms/atoms'
-import { AppearanceTab } from './appearance/appearance-tab'
-import { SoundPackTab } from './soundpack/sound-pack-tab'
+import { AppearanceTab } from './appearance-tab/appearance-tab'
+import { SoundPackTab } from './soundpack-tab/sound-pack-tab'
+import { CaretTab } from './caret-tab/caret-tab'
 
 export const SettingsDialog = () => {
   const dialogTriggerRef = useRef<HTMLButtonElement>(null)
@@ -39,6 +40,11 @@ export const SettingsDialog = () => {
             borderRadius={borderRadius}
           />
         ),
+      },
+      {
+        label: 'Caret',
+        icon: <TextCursor className="h-4 w-4" />,
+        comp: <CaretTab />,
       },
     ],
     [borderRadius, setBorderRadius]
