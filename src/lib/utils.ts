@@ -56,7 +56,6 @@ export const getAlbumUrl = (id: string) =>
 export const getArtistUrl = (id: string) =>
   `https://open.spotify.com/artist/${id}`
 export const applyTheme = (style: string) => {
-  console.log(style)
   import(`@/styles/themes/theme_${style}.ts`)
     .then((module) => module['theme_' + style])
     .then((theme) => {

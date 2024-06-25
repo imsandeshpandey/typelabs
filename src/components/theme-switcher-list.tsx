@@ -39,6 +39,7 @@ export const ThemeSwitcherList = () => {
   const handleMouseMove = () => setIsHoverDisabled(false)
 
   const handleKeyDown = (e: KeyboardEvent) => {
+    if (filteredStyleList.length === 0) return
     setFocusedStyle((prev) => {
       const prevIdx = filteredStyleList.findIndex((s) => s.name === prev)
       let newIdx = prevIdx
@@ -64,9 +65,14 @@ export const ThemeSwitcherList = () => {
 
       return filteredStyleList[newIdx].name
     })
-    if (e.key === 'Enter' || e.key === ' ') updateStyle()
+    if (e.key === 'Enter') updateStyle()
   }
   const updateStyle = () => setStyle(focusedStyle)
+
+  useEffect(() => {
+    if (!filteredStyleList.length) return
+    setFocusedStyle(filteredStyleList[0].name)
+  }, [filteredStyleList])
 
   useEffect(() => {
     if (!isOpen) return
@@ -123,6 +129,9 @@ export const ThemeSwitcherList = () => {
           ref={scrollerRef}
           className="scroll flex flex-col gap-1 overflow-y-auto"
         >
+          {!filteredStyleList.length && (
+            <h2 className="px-2 font-bold">No themes found :(</h2>
+          )}
           {filteredStyleList.map((currStyle, idx) => {
             if (!currStyle) return
             const { index: i, name } = currStyle
